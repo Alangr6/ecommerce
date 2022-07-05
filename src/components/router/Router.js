@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { About } from '../About'
+import About from '../About'
 import { MyAccount } from '../account/MyAccount'
 import { Home } from '../Home'
 import { CreateUser } from '../Log/CreateUser'
 import { Login } from '../Log/Login'
-import Products from '../Product'
+import Products from '../Products'
 import {Navigate} from './Navigate'
 
 export const Router = () => {

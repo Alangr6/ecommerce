@@ -2,13 +2,12 @@ import { Badge, IconButton } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../img/creamerlogo.png";
 
 export const Navigate = () => {
   return (
     <nav className="navbar">
-      <img src={logo} alt="logo" width="150rem" />
-      <h4 className="hello-user">Hello Guest</h4>
+          <h4 className="hello-user">Hello Guest</h4>
+
 
       <div className="navbar-buttons">
         <IconButton aria-label="show cart items" color="inherit">
@@ -18,16 +17,16 @@ export const Navigate = () => {
         </IconButton>
 
         <NavLink to="/">
-          <button className="home-button">Home</button>
+          <button className="product-button">Home</button>
         </NavLink>
         <NavLink to="/products">
-          <button className="products-button">Productos</button>
+          <button className="product-button">Productos</button>
         </NavLink>
         <NavLink to="/questions">
-          <button className="products-button">Preguntas</button>
+          <button className="product-button">Preguntas</button>
         </NavLink>
         <NavLink to="/create-user">
-          <button className="products-button">Mi cuenta</button>
+          <button className="product-button">Mi cuenta</button>
         </NavLink>
         
       </div>
