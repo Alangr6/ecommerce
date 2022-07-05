@@ -1,3 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.card{
+    position: relative;
+    max-width: 300px;
+    margin: 3rem;
+    border: hidden;
+    border-radius: 20px;
+    min-width: 300px;
+}
+
 .stars{
     display: flex;
     font-size: medium;
@@ -5,4 +18,99 @@
 .actions{
     display: flex;
     
+}
+.hello-user{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.navbar{
+    background-color: goldenrod;
+    display: flex;
+    justify-content: space-between;
+    height: 6rem;
+    flex-grow: 1;
+}
+.home-button,.products-button{
+    height: 100%;
+    width: 6rem;
+    background-color: black;
+    border: 0;
+    color: goldenrod;
+    font-family: cursive;
+    font-size: large;
+    font-weight: 600;
+    padding-right: 10px;
+}
+.shopping-cart{
+    display: flex;
+    align-items: center;
+}
+.all-products{
+    display: flex;
+    justify-content: center;
+    max-width: 1294px;
+}
+.form-user{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.label-user{
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.input-user{
+    height: 2rem;
+    border-radius: 5px;
+    width: 30%;
+}
+.form-button{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 10px;
+    background-color: rgb(27, 27, 27);
+    color: white;
+}
+.navbar-account{
+    background-color: rgb(27, 27, 27);
+    height: 2rem;
+    margin-bottom: 2rem;
+}
+.account-button{
+    height: 100%;
+    width: 6rem;
+    background-color: rgb(27, 27, 27);
+    border: 0;
+    color: white;
+    font-family: cursive;
+    font-size: large;
+    font-weight: 600;
+    
+}
+.title-user{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+.home-section{
+    background-image: url('https://images.pexels.com/photos/8360451/pexels-photo-8360451.jpeg?auto=compress&cs=tinysrgb&w=1000');
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.home-title{
+    font-size: 300%;
+    color: rgb(27, 27, 27);
+    width: 15rem;
+}
+.home-title2{
+    color:white;
+    font-size: 150%;
 }
