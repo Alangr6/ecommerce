@@ -6,15 +6,18 @@ import { NavLink } from "react-router-dom";
 export const Navigate = () => {
   return (
     <nav className="navbar">
-          <h4 className="hello-user">Hello Guest</h4>
+      <div className="hello-user">
+      <h4 className="hello-user">Hello Guest</h4>
 
-
-      <div className="navbar-buttons">
-        <IconButton aria-label="show cart items" color="inherit">
+      <IconButton aria-label="show cart items" color="inherit">
           <Badge badgeContent={1} color="error">
             <ShoppingCart fontSize="large" />
           </Badge>
         </IconButton>
+      </div>
+
+      <div className="navbar-buttons">
+      
 
         <NavLink to="/">
           <button className="product-button">Home</button>
@@ -28,7 +31,6 @@ export const Navigate = () => {
         <NavLink to="/create-user">
           <button className="product-button">Mi cuenta</button>
         </NavLink>
-        
       </div>
     </nav>
   );

@@ -10,7 +10,11 @@
     border-radius: 20px;
     min-width: 300px;
 }
-
+.logo-div{
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    justify-content: center;
+}
 .stars{
     display: flex;
     font-size: medium;
@@ -22,7 +26,7 @@
 .hello-user{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    padding-left: 2rem;
 }
 .navbar{
     background-color: goldenrod;
@@ -132,24 +136,27 @@
     text-align: center;
 }
 .all-questions{
-    padding: 2rem;
+    padding: 1rem;
 
 }
 .questions{
     display: flex;
     justify-content: space-between;
-    height: 2rem;
-    
+    height: 100%;
+    align-items: center;
 }
 .question{
    font-style: italic;
    font-weight: bolder;
+   
     
 }
 .question-title{
     display: flex;
     justify-content: center;
     padding: 1rem;
+    padding-top: 2rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 @media only screen and (max-width:768px) {
@@ -159,15 +166,35 @@
         background-color: white;
     }
     .navbar-account{
-        background-color: black;
+        color: rgb(27, 27, 27);
+        height: 100%;
+        margin-top: 2rem;
     }
     .navbar-buttons{
         width: 100%;
         background-color: white;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+        
     }
     .logo{
         width: 100%;
         height: 10rem;
+    }
+    .home-section{
+        margin-top: 2rem;
+    }
+    .home-title{
+        font-size: 200%;
+        width: 15rem;
+        margin-bottom: 5rem;
+    }
+    .home-title2{
+        color:white;
+        font-size: 100%;
+       
+        text-align: center;
     }
     .hello-user{
         display: flex;
@@ -177,11 +204,13 @@
         padding: 1rem;
         
     }
-    .all-products{
-        margin-top: 3rem;
+    .all-products2{
+        margin-top: 1rem;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         width: 100%;
+        
+        
     }
     .product-button{
         height: 100%;
@@ -193,5 +222,8 @@
         font-size: large;
         font-weight: 600;
         padding-right: 10px;
+    }
+    .input-user{
+        width: 50%;
     }
 }

@@ -1,12 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import About from '../About'
+import About from '../questions/AboutUs'
 import { MyAccount } from '../account/MyAccount'
 import { Home } from '../Home'
 import { CreateUser } from '../Log/CreateUser'
 import { Login } from '../Log/Login'
 import Products from '../Products'
 import {Navigate} from './Navigate'
+import {  AllQuestions } from '../questions/AllQuestions'
 
 export const Router = () => {
   return (
@@ -18,7 +19,7 @@ export const Router = () => {
             <Route path='account' element={<MyAccount/>}/>
             <Route path='login' element={<Login/>}/>
             <Route path='create-user' element={<CreateUser/>}/>
-            <Route path='questions' element={<About/>}/>
+            <Route path='questions' element={<AllQuestions/>}/>
 
 
         </Routes>

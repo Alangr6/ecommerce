@@ -16,7 +16,7 @@ export default function FullWidthGrid() {
 
   return (
     <div className='all-products'>
-      <Grid container spacing={3}>
+      <Grid container  spacing={3}>
         <Grid item  sm={12} md={6} lg={4}>
           <Product />
         </Grid>
@@ -32,6 +32,8 @@ export default function FullWidthGrid() {
         <Grid item  sm={12} md={6} lg={4}>
           <Product />
         </Grid>
+       
+        
       </Grid>
     </div>
   );

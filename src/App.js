@@ -7,8 +7,8 @@ import logo from "./components/img/creamerlogo.png";
 function App() {
   return (
     <>
-    <div className="">
-    <img src={logo} alt="logo" width="150rem" className="logo"/>
+    <div className="logo-div">
+    <img src={logo} alt="logo" width="200rem" className="logo"/>
     </div>
 
     <Router></Router>
