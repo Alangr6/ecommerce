@@ -11,7 +11,7 @@
     min-width: 300px;
 }
 .logo-div{
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(32,28,29,255);
     display: flex;
     justify-content: center;
 }
@@ -64,7 +64,7 @@
     display: flex;
     align-items: center;
 }
-.all-products{
+.all-products, .all-products2{
     display: flex;
     justify-content: center;
     max-width: 1294px;
@@ -88,11 +88,11 @@
     width: 10rem;
     height: 3rem;
     border-radius: 10px;
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(32,28,29,255);
     color: white;
 }
 .navbar-account{
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(32,28,29,255);
     height: 2rem;
     margin-bottom: 2rem;
     width: 100%;
@@ -100,7 +100,7 @@
 .account-button{
     height: 100%;
     width: 6rem;
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(32,28,29,255);
     border: 0;
     color: white;
     font-family: cursive;
@@ -158,7 +158,20 @@
     padding-top: 2rem;
     font-family: 'Times New Roman', Times, serif;
 }
+.checkoutpage{
+    padding-top: 1rem;
+}
+.checkout-title{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
 
+}
+.checkout-button{
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
 @media only screen and (max-width:768px) {
     .navbar{
         display: flex;
@@ -207,9 +220,8 @@
     .all-products2{
         margin-top: 1rem;
         display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        
+        justify-content: flex-start;
+            
         
     }
     .product-button{
@@ -226,4 +238,11 @@
     .input-user{
         width: 50%;
     }
+    .questions{
+        height: 2.5rem;
+    }
+    .question-title{
+        padding-top: 3rem;
+    }
+  
 }

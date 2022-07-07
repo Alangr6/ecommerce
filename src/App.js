@@ -1,17 +1,13 @@
-import { Navigate } from "./components/router/Navigate";
+import { Logo } from "./components/main/Logo";
 import { Router } from "./components/router/Router";
 import './components/style.css'
-import logo from "./components/img/creamerlogo.png";
 
 
 function App() {
   return (
     <>
-    <div className="logo-div">
-    <img src={logo} alt="logo" width="200rem" className="logo"/>
-    </div>
-
-    <Router></Router>
+    
+    <Router/>
      
     </>
     

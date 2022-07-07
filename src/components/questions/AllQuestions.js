@@ -8,7 +8,7 @@ export const AllQuestions = () => {
       <h2 className="question-title">SOBRE NOSOTROS</h2>
 
       {questionsAboutUs.map((question) => {
-        return <AboutUs question={question} />;
+        return <AboutUs key={question.title} question={question} />;
       })}
       <h2 className="question-title">ENVIOS, METODOS DE PAGO Y REEMBOLSO</h2>
 

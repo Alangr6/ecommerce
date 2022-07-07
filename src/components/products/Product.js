@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 import { AddShoppingCart } from "@material-ui/icons";
 import accounting from "accounting";
+import { actionTypes } from "../checkout/Reducer";
+import { useStateValue } from "../checkout/StateProvider";
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -21,8 +23,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Product() {
+export default function Product({product:{ title, price, id} }) {
   const classes = useStyles();
+  const [{basket}, dispatch] =  useStateValue()
+
+
+  const addToBasket = () => {
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item: {
+        title,
+        price,
+        id
+      }
+    })
+  }
 
   return (
     <>
@@ -35,10 +50,10 @@ export default function Product() {
                 variant="h5"
                 color="textSecondary"
               >
-                {accounting.formatMoney(50, "€")}
+                {accounting.formatMoney(price, "€")}
               </Typography>
             }
-            title="Bombona Fastgas 615g"
+            title={title}
             subheader="en Stock"
           />
           <CardMedia
@@ -55,7 +70,7 @@ export default function Product() {
           <div className="actions">
             <CardActions disableSpacing>
               <div>
-                <IconButton aria-label="add to favorites">
+                <IconButton aria-label="add to favorites" onClick={addToBasket}>
                   <AddShoppingCart />
                 </IconButton>
                 <IconButton aria-label="share">
@@ -64,7 +79,7 @@ export default function Product() {
               </div>
 
               <div className="stars">
-                {Array(5)
+                {Array(5) 
                   .fill()
                   .map((_, i) => (
                     <p>&#11088;</p>
