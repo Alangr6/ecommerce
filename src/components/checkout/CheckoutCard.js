@@ -77,6 +77,7 @@ export default function CheckoutCard({ item }) {
             </CardActions>
           </div>
         </Card>{" "}
+        
       </div>
     </>
   );

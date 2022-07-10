@@ -6,27 +6,26 @@ import { useStateValue } from "../checkout/StateProvider";
 
 const useStyles = makeStyles((theme) => ({
   cart: {
-    color:'black',
+    color: "black",
   },
   badge: {
-    color:'red',
-    backgroundColor:'black'
+    color: "red",
+    backgroundColor: "black",
   },
- 
 }));
 
 export const Navigate = () => {
-
   const classes = useStyles();
   const [{ basket }, dispatch] = useStateValue();
-
 
   return (
     <nav className="navbar">
       <div className="hello-user">
-        <h4 className="hello-user">Hello Guest</h4>
+        <NavLink className='hello-user-nav' to="/account">
+          <h2 className="hello-user">Hola usuario</h2>
+        </NavLink>
 
-        <NavLink to='/checkout'>
+        <NavLink to="/checkout">
           <IconButton aria-label="show cart items" className={classes.cart}>
             <Badge badgeContent={basket?.length} color="secondary">
               <ShoppingCart fontSize="large" />
@@ -45,7 +44,7 @@ export const Navigate = () => {
         <NavLink to="/questions">
           <button className="product-button">Preguntas</button>
         </NavLink>
-        <NavLink to="/create-user">
+        <NavLink to="/login">
           <button className="product-button">Mi cuenta</button>
         </NavLink>
       </div>

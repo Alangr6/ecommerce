@@ -7,6 +7,8 @@ export const actionTypes = {
   REMOVE_ITEM: "REMOVE_ITEM",
 };
 
+
+
 export const reducer = (state, action) => {
   console.log(action);
   switch (action.type) {
@@ -20,7 +22,7 @@ export const reducer = (state, action) => {
         let newBasket = [...state.basket]
         if(index>=0){
             newBasket.splice(index,1)
-        } else console.log('no');
+        } 
       return {
        ...state,
        basket:newBasket
