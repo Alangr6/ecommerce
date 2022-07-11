@@ -1,5 +1,6 @@
 import accounting from "accounting";
 import React from "react";
+import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
 export const Total = () => {
@@ -16,7 +17,10 @@ export const Total = () => {
         
         </div>
         <div className="total-div">
-        <button className="form-button">Checkout</button>
+          <Link to='/checkout'>
+          <button className="form-button">Checkout</button>
+
+          </Link>
 
         </div>
       </div>

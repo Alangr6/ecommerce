@@ -25,7 +25,7 @@ export const Navigate = () => {
           <h2 className="hello-user">Hola usuario</h2>
         </NavLink>
 
-        <NavLink to="/checkout">
+        <NavLink to="/checkout-page">
           <IconButton aria-label="show cart items" className={classes.cart}>
             <Badge badgeContent={basket?.length} color="secondary">
               <ShoppingCart fontSize="large" />

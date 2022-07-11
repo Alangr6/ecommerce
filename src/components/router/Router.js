@@ -9,6 +9,7 @@ import { AllQuestions } from "../questions/AllQuestions";
 import { CheckoutPage } from "../checkout/CheckoutPage";
 import { Logo } from "../main/Logo";
 import SignUp from "../Log/CreateUser";
+import Checkout from "../checkout/checkoutForm/Checkout";
 
 export const Router = () => {
   return (
@@ -24,7 +25,9 @@ export const Router = () => {
         <Route path="create-user" element={<SignUp />} />
         <Route path="login" element={<SignIn />} />
         <Route path="questions" element={<AllQuestions />} />
-        <Route path="checkout" element={<CheckoutPage />} />
+        <Route path="checkout-page" element={<CheckoutPage />} />
+        <Route path="checkout" element={<Checkout />} />
+
       </Routes>
     </BrowserRouter>
   );

@@ -15,7 +15,7 @@ import { useStateValue } from "../checkout/StateProvider";
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    height: 120,
+    height: '250px',
     paddingTop: "56.25%", // 16:9
   },
   action: {

@@ -180,6 +180,10 @@
     flex-direction: column;
     justify-content: center;
 }
+.form-button:hover{
+  
+    cursor: pointer;
+}
 .total-div{
     display: flex;
     align-items: center;
