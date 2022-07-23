@@ -40,6 +40,9 @@
     height: 6rem;
     flex-grow: 1;
 }
+.products-outlined{
+    text-decoration: none;
+}
 .product-button{
     height: 100%;
     width: 6rem;

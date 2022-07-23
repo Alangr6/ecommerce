@@ -12,6 +12,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -48,6 +50,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    fetch("http://localhost:8080/users", {
+      method: "POST",
+      body: JSON.stringify({
+       
+        name: name,
+        lastname: lastname,
+        email: email,
+        password: password,
+      }),
+    });
+    e.preventDefault();
+    console.log(name);
+  };
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -71,7 +92,12 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form
+        
+          className={classes.form}
+          noValidate
+          
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -82,6 +108,8 @@ export default function SignUp() {
                 fullWidth
                 id="name"
                 label="First Name"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
                 autoFocus
               />
             </Grid>
@@ -90,10 +118,12 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
+                id="lastname"
                 label="Last Name"
-                name="lastName"
+                name="lastname"
                 autoComplete="lname"
+                onChange={(e) => setLastname(e.target.value)}
+                value={lastname}
               />
             </Grid>
             <Grid item xs={12}>
@@ -105,6 +135,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </Grid>
             <Grid item xs={12}>
@@ -117,6 +149,8 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
               />
             </Grid>
             <Grid item xs={12}>
@@ -132,14 +166,15 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSubmit}
           >
             Sign Up
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="login" variant="body2">
+              <NavLink to="/login" variant="body2">
                 Already have an account? Sign in
-              </Link>
+              </NavLink>
             </Grid>
           </Grid>
         </form>

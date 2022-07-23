@@ -10,6 +10,7 @@ import { CheckoutPage } from "../checkout/CheckoutPage";
 import { Logo } from "../main/Logo";
 import SignUp from "../Log/CreateUser";
 import Checkout from "../checkout/checkoutForm/Checkout";
+import { ProductScreen } from "../products/ProductScreen";
 
 export const Router = () => {
   return (
@@ -27,6 +28,8 @@ export const Router = () => {
         <Route path="questions" element={<AllQuestions />} />
         <Route path="checkout-page" element={<CheckoutPage />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="/product/:id" element={<ProductScreen />} />
+
 
       </Routes>
     </BrowserRouter>
