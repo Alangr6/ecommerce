@@ -13,7 +13,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import {auth} from '../firebase/Firebase'
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+
 
 function Copyright() {
   return (
@@ -54,8 +57,10 @@ export default function SignUp() {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+
+  /* const handleSubmit = (e) => {
     fetch("http://localhost:8080/users", {
       method: "POST",
       body: JSON.stringify({
@@ -68,7 +73,15 @@ export default function SignUp() {
     });
     e.preventDefault();
     console.log(name);
-  };
+  }; */
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    createUserWithEmailAndPassword(auth,email, password).then((auth) =>{
+      navigate('/login')
+      console.log(auth);
+    }).catch(err => alert(err.message))
+  }
 
   useEffect(() => {
     fetch("http://localhost:8080/users")

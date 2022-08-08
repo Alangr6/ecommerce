@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { productsData } from "../questions/QuestionsData";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,8 +7,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 import accounting from "accounting";
 
-import { useStateValue } from "../checkout/StateProvider";
-import { actionTypes } from "../checkout/Reducer";
+import { useStateValue } from "../reducer/StateProvider";
+import { actionTypes } from "../reducer/Reducer";
 
 import React from "react";
 import Table from "@material-ui/core/Table";
@@ -19,11 +19,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+
 
 export const ProductScreen = () => {
   function createData(name, calories, fat, carbs, protein) {
@@ -40,7 +36,7 @@ export const ProductScreen = () => {
 
   const useStyles = makeStyles((theme) => ({
     media: {
-      height: "250px",
+      height: "340px",
       paddingTop: "56.25%", // 16:9
     },
     action: {
@@ -119,7 +115,12 @@ export const ProductScreen = () => {
             </Table>
           </TableContainer>
         </div>
+        
       </div>
+      <NavLink to='/products'>
+      <button className="go-back-button">Volver</button>
+
+      </NavLink>
     </>
   );
 };

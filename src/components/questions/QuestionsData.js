@@ -1,3 +1,7 @@
+import capsulas from '../img/capsulas.jpeg'
+import grtsupply from '../img/grtsupply.jpeg'
+
+
 export const questionsAboutUs = [
   {
     title: "Quienes Somos",
@@ -46,37 +50,44 @@ export const questionsN2O = [
 export const productsData = [
   {
     id: 1,
-    title: "bombona fsatagas",
+    product: "bombona fsatagas",
     price: 50,
-    description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
-              agente mezclador y espumante al producir nata montada.`,
+    description: `Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como agente mezclador y espumante al producir nata montada.`,
+    stock: 20,
+    image: {grtsupply}
   },
   {
     id: 2,
-    title: "bombona fastgas x3",
+    product: "bombona fastgas x3",
     price: 140,
     description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
               agente mezclador y espumante al producir nata montada.`,
+    stock: 2,
+    image: {capsulas}
+
   },
-  {
+ /*  {
     id: 3,
-    title: "bombona fastgas x4",
+    product: "bombona fastgas x4",
     price: 140,
     description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
               agente mezclador y espumante al producir nata montada.`,
+    stock: 2,
   },
   {
     id: 4,
-    title: "bombona fastgas x5",
+    product: "bombona fastgas x5",
     price: 140,
     description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
               agente mezclador y espumante al producir nata montada.`,
+    stock: 2,
   },
   {
     id: 5,
-    title: "bombona fastgas x6",
+    product: "bombona fastgas x6",
     price: 140,
     description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
               agente mezclador y espumante al producir nata montada.`,
-  },
+    stock: 2,
+  }, */
 ];

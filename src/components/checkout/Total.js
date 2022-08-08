@@ -1,7 +1,7 @@
 import accounting from "accounting";
 import React from "react";
 import { Link } from "react-router-dom";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../reducer/StateProvider";
 
 export const Total = () => {
   const [{ basket }, dispatch] = useStateValue();

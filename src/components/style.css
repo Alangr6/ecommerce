@@ -80,6 +80,17 @@
     border: 0;
     cursor: pointer;
 }
+.go-back-button{
+    
+    margin-bottom: 6rem;
+    margin-left: 16.4%;
+    width: 7rem;
+    height: 2.5rem;
+    background-color: black;
+    color: antiquewhite;
+    border: 0;
+    cursor: pointer;
+}
 .product-table-screen{
 padding : 3rem;
 }
@@ -106,12 +117,16 @@ hr{
     display: flex;
     align-items: center;
 }
-.all-products, .all-products2{
+.all-products{
     display: flex;
     justify-content: center;
     max-width: 1294px;
 }
-
+.all-products2{
+    display: flex;
+    justify-content: center;
+    max-width: 1294px;
+}
 
 .form-user{
     display: flex;

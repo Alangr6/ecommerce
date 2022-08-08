@@ -5,7 +5,7 @@ import { useState } from "react";
 import Product from "../products/Product";
 import { Total } from "./Total";
 import { Grid } from "@material-ui/core";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../reducer/StateProvider";
 
 export const CheckoutPage = () => {
   const [{ basket }, dispatch] = useStateValue();

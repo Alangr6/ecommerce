@@ -10,8 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteIcon from "@material-ui/icons/Delete";
 import accounting from "accounting";
-import { useStateValue } from "./StateProvider";
-import { actionTypes } from "./Reducer";
+import { useStateValue } from "../reducer/StateProvider";
+import { actionTypes } from "../reducer/Reducer";
 
 const useStyles = makeStyles((theme) => ({
   media: {

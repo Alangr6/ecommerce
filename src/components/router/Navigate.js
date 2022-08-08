@@ -1,8 +1,11 @@
 import { Badge, IconButton, makeStyles } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import React from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useStateValue } from "../checkout/StateProvider";
+import { actionTypes } from "../reducer/Reducer";
+import { useStateValue } from "../reducer/StateProvider";
+import { auth } from "../firebase/Firebase";
 
 const useStyles = makeStyles((theme) => ({
   cart: {
@@ -16,13 +19,26 @@ const useStyles = makeStyles((theme) => ({
 
 export const Navigate = () => {
   const classes = useStyles();
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ user, basket }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      console.log(authUser);
+      if(authUser){
+        dispatch({
+          type:actionTypes.SET_USER,
+          user:authUser.email
+        })
+      }
+    })
+  }, [])
+  
 
   return (
     <nav className="navbar">
       <div className="hello-user">
         <NavLink className='hello-user-nav' to="/account">
-          <h2 className="hello-user">Hola usuario</h2>
+          <h2 className="hello-user">Hola {user ? user : 'usuario'}</h2>
         </NavLink>
 
         <NavLink to="/checkout-page">
