@@ -23,22 +23,24 @@ export const Navigate = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log(authUser);
+      console.log();
       if(authUser){
         dispatch({
           type:actionTypes.SET_USER,
-          user:authUser.email
+          user:authUser
         })
       }
     })
   }, [])
   
+ 
 
   return (
+    
     <nav className="navbar">
       <div className="hello-user">
         <NavLink className='hello-user-nav' to="/account">
-          <h2 className="hello-user">Hola {user ? user : 'usuario'}</h2>
+          <h2 className="hello-user">Hola {!user ? 'usuario' : user.email }</h2>
         </NavLink>
 
         <NavLink to="/checkout-page">
@@ -60,7 +62,7 @@ export const Navigate = () => {
         <NavLink to="/questions">
           <button className="product-button">Preguntas</button>
         </NavLink>
-        <NavLink to="/login">
+        <NavLink to={!user ? '/login' : '/account'}>
           <button className="product-button">Mi cuenta</button>
         </NavLink>
       </div>

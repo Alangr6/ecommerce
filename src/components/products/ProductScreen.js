@@ -62,7 +62,7 @@ export const ProductScreen = () => {
 
   return (
     <>
-      <div className="all-products2">
+      <div className="all-products-screen">
         <Card className="card">
           <div className="">
             <CardMedia

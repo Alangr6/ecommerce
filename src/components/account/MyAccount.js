@@ -1,15 +1,31 @@
 import React from "react";
-import { Navigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase/Firebase";
+import { actionTypes } from "../reducer/Reducer";
+import { useStateValue } from "../reducer/StateProvider";
 
 export const MyAccount = () => {
+  const [{ user, basket }, dispatch] = useStateValue();
+  const navigate = useNavigate()
+
+  const handleAuth = () => {
+    if(user){
+      auth.signOut()
+      dispatch({
+        type: actionTypes.EMPTY_BASKET,
+        basket: [],
+      })
+      dispatch({
+        type: actionTypes.SET_USER,
+        user: null,
+      })
+      navigate('/')
+    }
+  }
+
   return (
-    <nav className="navbar-account">
-      <NavLink to="/create-user">
-        <button className="account-button">Crear usuario</button>
-      </NavLink>
-      <NavLink to="/login">
-        <button className="account-button">Iniciar sesion</button>
-      </NavLink>
-    </nav>
+    <div>
+      <button onClick={handleAuth} >Cerrar sesion</button>
+    </div>
   );
 };

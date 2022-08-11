@@ -83,7 +83,7 @@ export default function SignUp() {
     }).catch(err => alert(err.message))
   }
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetch("http://localhost:8080/users")
       .then((response) => response.json())
       .then((data) => {
@@ -93,7 +93,7 @@ export default function SignUp() {
           alert("no se han podido cargar los datos");
         }
       });
-  }, []);
+  }, []); */
 
   return (
     <Container component="main" maxWidth="xs">

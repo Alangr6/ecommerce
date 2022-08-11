@@ -127,6 +127,11 @@ hr{
     justify-content: center;
     max-width: 1294px;
 }
+.all-products-screen{
+    display: flex;
+    justify-content: center;
+    max-width: 1294px;
+}
 
 .form-user{
     display: flex;
@@ -242,6 +247,26 @@ hr{
     flex-direction: column;
     margin-bottom: 2rem;
 }
+.checkout-table{
+    width: 100%;
+   
+}
+.checckout-container{
+    display: flex;
+    justify-content: center;
+}
+.checkout-table{
+    display: flex;
+    flex-direction: row;
+}
+.table-container{
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+}
 @media only screen and (max-width:768px) {
     .navbar{
         display: flex;
@@ -294,6 +319,16 @@ hr{
             
         
     }
+    .all-products-screen{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-screen-div{
+        width: 80%;
+        padding-top: 0;
+    }
     .product-button{
         height: 100%;
         width: 6rem;
@@ -314,5 +349,9 @@ hr{
     .question-title{
         padding-top: 3rem;
     }
-  
+    .checkout-title{
+        
+        padding-top: 4rem;
+    
+    }
 }
