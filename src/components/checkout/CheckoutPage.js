@@ -35,10 +35,13 @@ export const CheckoutPage = () => {
   });
 
   
-
+console.log(basket);
   const classes = useStyles();
 
   function FormRow() {
+    if(basket.length == 0){
+      return <h1></h1>
+    } else {
     return (
       <div className="table-container">
         <TableContainer className={classes.tableContainer} component={Paper}>
@@ -58,7 +61,7 @@ export const CheckoutPage = () => {
           </Table>
         </TableContainer>
       </div>
-    );
+    );}
   }
 
   return (

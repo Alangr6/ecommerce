@@ -49,8 +49,9 @@ export default function CheckoutCard({ item }) {
           <StyledTableCell align="left"></StyledTableCell>
 
             <StyledTableCell align="left">{item.product}</StyledTableCell>
-            <StyledTableCell align="left">{item.price}</StyledTableCell>
-            <StyledTableCell align="left"><button onClick={removeItem}>a</button></StyledTableCell>
+            <StyledTableCell align="left">{item.price}$</StyledTableCell>
+            <StyledTableCell align="left"><i onClick={removeItem} className="fa-solid fa-trash"></i>
+            </StyledTableCell>
 
           </StyledTableRow>
 

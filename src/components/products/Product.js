@@ -16,7 +16,7 @@ import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    height: "250px",
+    height: "100px",
     paddingTop: "56.25%", // 16:9
   },
   action: {
@@ -35,6 +35,7 @@ export default function Product({ product: { product, price, id, image } }) {
         product,
         price,
         id,
+        image
       },
     });
   };

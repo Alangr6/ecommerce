@@ -1,6 +1,8 @@
 import capsulas from '../img/capsulas.jpeg'
 import grtsupply from '../img/grtsupply.jpeg'
 
+const cap = capsulas
+
 
 export const questionsAboutUs = [
   {
@@ -63,7 +65,7 @@ export const productsData = [
     description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
               agente mezclador y espumante al producir nata montada.`,
     stock: 2,
-    image: {capsulas}
+    image: {cap}
 
   },
  /*  {

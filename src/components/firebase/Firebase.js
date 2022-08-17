@@ -23,9 +23,6 @@ const firebaseConfig = {
   const auth = getAuth()
 
 
-  getDocs(colRef)
-  .then((snapshot) => {
-    console.log(snapshot.docs);
-  })
+ 
 
-  export {auth}
+  export {auth, colRef, db}
