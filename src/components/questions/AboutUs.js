@@ -55,7 +55,6 @@ console.log(question);
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Method:</Typography>
             <Typography paragraph>
              {question.parragraph}
             </Typography>

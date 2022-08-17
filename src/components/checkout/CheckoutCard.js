@@ -46,7 +46,7 @@ export default function CheckoutCard({ item }) {
    <TableBody>
      
           <StyledTableRow key={item.id}>
-          <StyledTableCell align="left"></StyledTableCell>
+          <StyledTableCell align="center"><img className="checkout-image" src={item.image} /> </StyledTableCell>
 
             <StyledTableCell align="left">{item.product}</StyledTableCell>
             <StyledTableCell align="left">{item.price}$</StyledTableCell>

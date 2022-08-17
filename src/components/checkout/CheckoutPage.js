@@ -40,7 +40,7 @@ console.log(basket);
 
   function FormRow() {
     if(basket.length == 0){
-      return <h1></h1>
+      return <h1 className="empty-cart">Su carrito se ecnuentra actualmente vacio</h1>
     } else {
     return (
       <div className="table-container">
