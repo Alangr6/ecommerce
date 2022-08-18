@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -60,20 +60,6 @@ export default function SignUp() {
   const navigate = useNavigate()
 
 
-  /* const handleSubmit = (e) => {
-    fetch("http://localhost:8080/users", {
-      method: "POST",
-      body: JSON.stringify({
-       
-        name: name,
-        lastname: lastname,
-        email: email,
-        password: password,
-      }),
-    });
-    e.preventDefault();
-    console.log(name);
-  }; */
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -82,18 +68,6 @@ export default function SignUp() {
       console.log(auth);
     }).catch(err => alert(err.message))
   }
-
-  /* useEffect(() => {
-    fetch("http://localhost:8080/users")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.ok) {
-          console.log(data);
-        } else {
-          alert("no se han podido cargar los datos");
-        }
-      });
-  }, []); */
 
   return (
     <Container component="main" maxWidth="xs">

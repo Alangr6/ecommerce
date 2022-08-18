@@ -1,21 +1,15 @@
 import { NavLink, useParams } from "react-router-dom";
-import { productsData } from "../questions/QuestionsData";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
-
 import accounting from "accounting";
-
 import { useStateValue } from "../reducer/StateProvider";
 import { actionTypes } from "../reducer/Reducer";
-
 import React, { useEffect, useState } from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { getDocs } from "firebase/firestore";

@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Product from "./Product";
-import { productsData } from "../questions/QuestionsData";
 import {
    getDocs, 
-
 } from 'firebase/firestore'
 import { colRef, db } from "../firebase/Firebase";
 const useStyles = makeStyles((theme) => ({

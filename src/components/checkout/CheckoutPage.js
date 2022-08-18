@@ -1,10 +1,6 @@
 import React from "react";
 import CheckoutCard from "./CheckoutCard";
-import { productsData } from "../questions/QuestionsData";
-import { useState } from "react";
-import Product from "../products/Product";
 import { Total } from "./Total";
-import { Grid } from "@material-ui/core";
 import { useStateValue } from "../reducer/StateProvider";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
