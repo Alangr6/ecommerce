@@ -37,7 +37,7 @@ console.log(products);
       <Grid container  spacing={0}>
         {products.map((product) => {
           return (
-            <Grid item sm={12} md={6} lg={4} className={classes.card}>
+            <Grid item sm={12} md={6} lg={4}  className={classes.card}>
               <Product key={product.title} product={product} />
             </Grid>
           );

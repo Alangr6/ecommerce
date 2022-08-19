@@ -16,12 +16,27 @@ import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    height: "100px",
-    paddingTop: "56.25%", // 16:9
+    display: 'flex',
+    justifyContent: 'center'
   },
   action: {
     padding: 16,
   },
+  card: {
+    position: 'relative',
+    width: '300px',
+    margin: '3rem',
+    border: 'hidden',
+    borderRadius: '10px',
+    maxHeight:'600px',
+    //height:'450px',
+    alignContent:'space-between'
+    
+  },
+  icons:{
+    display: 'flex',
+    alignItems:'flex-end'
+  }
 }));
 
 export default function Product({ product: { product, price, id, image } }) {
@@ -43,8 +58,10 @@ export default function Product({ product: { product, price, id, image } }) {
   return (
     <>
       <div className="all-products2">
-        <Card className="card">
-          <NavLink className="products-outlined" to={`/product/${id}`}>
+        
+        <Card className={classes.card}>
+        <div>
+        <NavLink className="products-outlined" to={`/product/${id}`}>
             <CardHeader
               action={
                 <Typography
@@ -60,18 +77,14 @@ export default function Product({ product: { product, price, id, image } }) {
             />
             <CardMedia
               className={classes.media}
-              image={image}
+              
               title="bombona Fastgas"
-            />
+            ><img className="product-image" src={image} alt="" /></CardMedia>
           </NavLink>
 
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
-              agente mezclador y espumante al producir nata montada.
-            </Typography>
-          </CardContent>
-          <div className="actions">
+        </div>
+         
+          <div className={classes.icons}>
             <CardActions disableSpacing>
               <div>
                 <IconButton aria-label="add to favorites" onClick={addToBasket}>
@@ -82,13 +95,7 @@ export default function Product({ product: { product, price, id, image } }) {
                 </IconButton>
               </div>
 
-              <div className="stars">
-                {Array(5)
-                  .fill()
-                  .map((_, i) => (
-                    <p>&#11088;</p>
-                  ))}
-              </div>
+            
             </CardActions>
           </div>
         </Card>{" "}

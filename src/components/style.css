@@ -21,6 +21,8 @@
 }
 .actions{
     display: flex;
+    align-items: flex-end;
+    ;
     
 }
 .hello-user-nav{
@@ -126,6 +128,7 @@ hr{
     display: flex;
     justify-content: center;
     max-width: 1294px;
+    align-content: stretch;
 }
 .all-products-screen{
     display: flex;
@@ -275,6 +278,17 @@ hr{
 .checkout-image{
     width: 50px;
     height: 50px;
+}
+.navbar-buttons{
+    display: flex;
+}
+.product-image{
+    height: 200px;
+    display: flex;
+}
+.product-screen-image{
+    height: 300px;
+    display: flex;
 }
 @media only screen and (max-width:768px) {
     .navbar{

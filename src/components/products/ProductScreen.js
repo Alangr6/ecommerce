@@ -32,11 +32,21 @@ export const ProductScreen = () => {
 
   const useStyles = makeStyles((theme) => ({
     media: {
-      height: "120px",
-      paddingTop: "56.25%", // 16:9
+      display: 'flex',
+      justifyContent: 'center',
+      
     },
     action: {
       padding: 16,
+    },
+    card: {
+      position: 'relative',
+      width: '300px',
+      margin: '3rem',
+      border: 'hidden',
+      borderRadius: '10px',
+      maxHeight:'600px',
+      
     },
   }));
   const classes = useStyles();
@@ -63,13 +73,13 @@ export const ProductScreen = () => {
     return (
       <>
         <div className="all-products-screen">
-          <Card className="card">
+          <Card className={classes.card}>
             <div className="">
               <CardMedia
                 className={classes.media}
-                image={product.image}
+                
                 title="bombona Fastgas"
-              />
+              ><img className="product-screen-image" src={product.image} alt="" /></CardMedia>
             </div>
           </Card>{" "}
           <div className="product-screen-div">
@@ -100,7 +110,7 @@ export const ProductScreen = () => {
                     </TableCell>
                     <TableCell align="right">{accounting.formatMoney(product.price, "€")}</TableCell>
                   </TableRow>
-                  <TableRow key={product.id}>
+                  <TableRow >
                     <TableCell component="th" scope="row">
                       Estado:
                     </TableCell>

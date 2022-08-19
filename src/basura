@@ -56,3 +56,11 @@ export const Login = () => {
     </div>    
   )
 }
+
+<div className="stars">
+  {Array(5)
+    .fill()
+    .map((_, i) => (
+      <p>&#11088;</p>
+    ))}
+</div>
