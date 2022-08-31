@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { actionTypes } from "../reducer/Reducer";
 import { useStateValue } from "../reducer/StateProvider";
 import { auth } from "../firebase/Firebase";
+import logo from "../img/creamerlogo.png";
 
 const useStyles = makeStyles((theme) => ({
   cart: {
@@ -38,7 +39,7 @@ export const Navigate = () => {
   return (
     
     <nav className="navbar">
-      <div className="hello-user">
+      <div className="hello-user-div">
         <NavLink className='hello-user-nav' to="/account">
           <h2 className="hello-user">Hola {!user ? 'usuario' : user.email }</h2>
         </NavLink>
@@ -51,21 +52,8 @@ export const Navigate = () => {
           </IconButton>
         </NavLink>
       </div>
-
-      <div className="navbar-buttons">
-        <NavLink to="/">
-          <button className="product-button">Home</button>
-        </NavLink>
-        <NavLink to="/products">
-          <button className="product-button">Productos</button>
-        </NavLink>
-        <NavLink to="/questions">
-          <button className="product-button">Preguntas</button>
-        </NavLink>
-        <NavLink to={!user ? '/login' : '/account'}>
-          <button className="product-button">Mi cuenta</button>
-        </NavLink>
-      </div>
+    
+     
     </nav>
   );
 };

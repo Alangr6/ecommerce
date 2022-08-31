@@ -10,10 +10,14 @@
     border-radius: 20px;
     min-width: 300px;
 }
-.logo-div{
+.logo-div2{
     background-color: rgb(32,28,29,255);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    margin-left: 2rem;
 }
 .stars{
     display: flex;
@@ -28,17 +32,22 @@
 .hello-user-nav{
     text-decoration: none;
 }
+.hello-user-div{
+    display: flex;
+    align-items: center;
+    padding-right: 5rem;
+    color: black;
+}
 .hello-user{
     display: flex;
     align-items: center;
-    padding-left: 2rem;
-    padding-right: 1rem;
     color: black;
+    padding-right: 1rem;
 }
 .navbar{
     background-color: goldenrod;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     height: 6rem;
     flex-grow: 1;
 }
@@ -47,15 +56,16 @@
 }
 .product-button{
     height: 100%;
-    width: 6rem;
-    background-color: black;
+    
+    background-color: rgb(32,28,29,255);
     border: 0;
     color: goldenrod;
     font-family: cursive;
     font-size: large;
     font-weight: 600;
-    padding-right: 10px;
+    padding-right: 40px;
     text-align: center;
+    font-size: 150%;
 }
 .product-button:hover{
     height: 100%;
@@ -281,6 +291,7 @@ hr{
 }
 .navbar-buttons{
     display: flex;
+    padding-right: 3rem;
 }
 .product-image{
     height: 200px;
@@ -296,23 +307,33 @@ hr{
         flex-direction: column;
         background-color: white;
     }
+    .logo{
+        margin-left: 0;
+
+    }
+   .logo-div{
+    display: flex;
+    justify-content: center;
+   }
+    .logo-div2{
+        display: flex;
+        flex-direction: column;
+    }
     .navbar-account{
         color: rgb(27, 27, 27);
         height: 100%;
         margin-top: 2rem;
     }
     .navbar-buttons{
-        width: 100%;
         background-color: white;
         display: flex;
         justify-content: center;
         z-index: 2;
+        padding-right: 0;
+        height: 4rem;
         
     }
-    .logo{
-        width: 100%;
-        height: 10rem;
-    }
+   
     .home-section{
         margin-top: 2rem;
     }
@@ -334,6 +355,9 @@ hr{
         text-align: center;
         padding: 1rem;
         
+    }
+    .hello-user-div{
+        padding-right: 0;
     }
     .all-products2{
         margin-top: 1rem;
