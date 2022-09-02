@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { NavLink, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/Firebase";
 
 function Copyright() {
@@ -52,14 +52,21 @@ const useStyles = makeStyles((theme) => ({
 export default function ForgotPassword() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate()
+
+  const config = {
+    url: 'http://localhost:3000/login'
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    signInWithEmailAndPassword(auth, email, password)
-    .then((auth) => navigate('/'))
-    .catch(error => alert(error.message));
+
+    sendPasswordResetEmail(auth, email)
+    .then(() => {
+      navigate('/login')
+    }).catch((error) => {
+      console.log(error);
+    })
   }
  
 
@@ -83,27 +90,13 @@ export default function ForgotPassword() {
             label="Email Address"
             name="email"
             autoComplete="email"
+            type='email'
             autoFocus
             onChange={(e) => setEmail(e.target.value)}
                 value={email}
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+       
+       
           <Button
             type="submit"
             fullWidth
