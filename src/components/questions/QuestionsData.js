@@ -25,11 +25,11 @@ export const questionsN2O = [
     title: "Que es el N2O?",
     parragraph: `Un compuesto de nitrógeno y oxígeno usado en los restaurantes o coctelería como propelente para la crema batida y chantilly.
         El N2O u óxido nitroso es usado en la industria alimentaria como propelente de aerosoles. El uso más popular es para la preparación de nata montada, donde se usan los cartuchos llenos de óxido nitroso para convertir la crema en espuma.
-        El óxido nitroso es reconocido y autorizado como aditivo alimentario por la Unión Europea bajo el código E492. `,
+        El óxido nitroso es reconocido y autorizado como aditivo alimentario por la Unión Europea bajo el código E942. `,
   },
   {
     title: "Se puede utilizar el N2O para odontologia?",
-    parragraph: `Sí. El óxido nitroso, además de su uso en la industria alimentaria y en el ámbito recreativo, es usado por dentistas como un agente sedante eficaz que combinado con el oxígeno logra disminuir la ansiedad en los pacientes. Debido a que se tolera bien, es considerado un sedante seguro en odontología y en la medicina en general. El paciente por su parte todavía tiene la capacidad de responder a preguntas o peticiones. `,
+    parragraph: `Sí. El óxido nitroso, además de su uso en la industria alimentaria, es usado por dentistas como un agente sedante eficaz que combinado con el oxígeno logra disminuir la ansiedad en los pacientes. Debido a que se tolera bien, es considerado un sedante seguro en odontología y en la medicina en general. El paciente por su parte todavía tiene la capacidad de responder a preguntas o peticiones. `,
   },
   {
     title: `Es el N2O "gas de la risa"?`,

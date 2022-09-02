@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function ForgotPassword() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -71,7 +71,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Olvidar contrasena
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -112,17 +112,12 @@ export default function SignIn() {
             className={classes.submit}
             onClick={handleSubmit}
           >
-            Sign In
+            Enviar
           </Button>
           <Grid container>
             <Grid item xs>
-            <NavLink to="/forgot-password" variant="body2">
-                Ha olvidado su contrasena?
-              </NavLink>
-            </Grid>
-            <Grid item>
-              <NavLink to="/create-user" variant="body2">
-                {"Don't have an account? Sign Up"}
+            <NavLink to="/create-user" variant="body2">
+               Iniciar sesion
               </NavLink>
             </Grid>
           </Grid>
