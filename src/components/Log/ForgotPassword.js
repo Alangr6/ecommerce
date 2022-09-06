@@ -3,8 +3,6 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -13,7 +11,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { NavLink, useNavigate } from "react-router-dom";
-import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  
+} from "firebase/auth";
 import { auth } from "../firebase/Firebase";
 
 function Copyright() {
@@ -52,23 +53,21 @@ const useStyles = makeStyles((theme) => ({
 export default function ForgotPassword() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const config = {
-    url: 'http://localhost:3000/login'
-  }
+ 
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     sendPasswordResetEmail(auth, email)
-    .then(() => {
-      navigate('/login')
-    }).catch((error) => {
-      console.log(error);
-    })
-  }
- 
+      .then(() => {
+        navigate("/login");
+      })
+      .catch(() => {
+        alert("el email no es valido");
+      });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -80,6 +79,7 @@ export default function ForgotPassword() {
         <Typography component="h1" variant="h5">
           Olvidar contrasena
         </Typography>
+
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
@@ -90,13 +90,12 @@ export default function ForgotPassword() {
             label="Email Address"
             name="email"
             autoComplete="email"
-            type='email'
+            type="email"
             autoFocus
             onChange={(e) => setEmail(e.target.value)}
-                value={email}
+            value={email}
           />
-       
-       
+
           <Button
             type="submit"
             fullWidth
@@ -109,8 +108,8 @@ export default function ForgotPassword() {
           </Button>
           <Grid container>
             <Grid item xs>
-            <NavLink to="/create-user" variant="body2">
-               Iniciar sesion
+              <NavLink to="/create-user" variant="body2">
+                Iniciar sesion
               </NavLink>
             </Grid>
           </Grid>
