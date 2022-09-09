@@ -133,6 +133,8 @@ hr{
     display: flex;
     justify-content: center;
     max-width: 1294px;
+    
+    
 }
 .all-products2{
     display: flex;
@@ -206,11 +208,13 @@ hr{
     color: #c0c0c0;
     width: 19rem;
     margin-bottom: 40px;
+    
 }
 .home-title2{
-    color:white;
+    color:rgb(241, 232, 232);
     font-size: 150%;
     width: 50rem;
+    background-color: rgba(0,0,0,0.2);
 }
 .home-title3{
     align-items: left;

@@ -14,9 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {auth} from '../firebase/Firebase'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
-
+import { auth, db } from "../firebase/Firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
 function Copyright() {
   return (
@@ -57,17 +57,21 @@ export default function SignUp() {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    createUserWithEmailAndPassword(auth,email, password).then((auth) =>{
-      navigate('/login')
-      console.log(auth);
-    }).catch(err => alert(err.message))
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = { name: name, lastname: lastname,email:email };
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(async (auth) => {
+        const dbRef = doc(db, "users",auth.user.uid );
+        console.log(auth.user.uid);
+       const docRef = await setDoc(dbRef, data);
+        navigate("/");
+      })
+      .catch((err) => alert(err.message));
+  };
+  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -79,12 +83,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form
-        
-          className={classes.form}
-          noValidate
-          
-        >
+        <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField

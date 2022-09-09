@@ -58,7 +58,7 @@ export default function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
-    .then((auth) => navigate('/'))
+    .then((auth) => navigate('/products'))
     .catch(error => alert(error.message));
   }
  

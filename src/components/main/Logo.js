@@ -36,7 +36,7 @@ export const Logo = () => {
         <NavLink to="/questions">
           <button className="product-button">Preguntas</button>
         </NavLink>
-        <NavLink to={!user ? "login" : "/account"}>
+        <NavLink to={!user ? "login" : `/account/${user.uid}`}>
           <button className="product-button">Mi cuenta</button>
         </NavLink>
       </div>

@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
@@ -17,18 +16,20 @@ import { NavLink } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   media: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop:'50px'
   },
   action: {
     padding: 16,
   },
   card: {
     position: 'relative',
-    width: '300px',
+    width: '100%',
     margin: '3rem',
     border: 'hidden',
     borderRadius: '10px',
     maxHeight:'600px',
+    maxWidth:'400px',
     //height:'450px',
     alignContent:'space-between'
     
@@ -36,6 +37,13 @@ const useStyles = makeStyles((theme) => ({
   icons:{
     display: 'flex',
     alignItems:'flex-end'
+  },
+  title:{
+    color:'black',
+    maxHeight:'58px',
+    display:'flex',
+    alignItems:'start',
+    
   }
 }));
 
@@ -62,7 +70,7 @@ export default function Product({ product: { product, price, id, image } }) {
         <Card className={classes.card}>
         <div>
         <NavLink className="products-outlined" to={`/product/${id}`}>
-            <CardHeader
+            <CardHeader className={classes.title}
               action={
                 <Typography
                   className={classes.action}

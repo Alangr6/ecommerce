@@ -11,7 +11,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   card: {
-    width: '90%'
+    width: '90%',
+
+  },
+  main: {
+    display:'grid',
+    placeItems:'center'
+    
   },
 }));
 
@@ -33,11 +39,11 @@ export default function FullWidthGrid() {
 console.log(products);
 
   return (
-    <div className="all-products">
+    <div className={classes.main}>
       <Grid container  spacing={0}>
         {products.map((product) => {
           return (
-            <Grid item sm={12} md={6} lg={4}  className={classes.card}>
+            <Grid item sm={12} md={6} lg={4} className={classes.card}>
               <Product key={product.title} product={product} />
             </Grid>
           );

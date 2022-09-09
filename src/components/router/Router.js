@@ -23,7 +23,7 @@ export const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
         <Route path="account" element={<MyAccount />} />
-        <Route path="account" element={<MyAccount />} />
+        <Route path="account/:uid" element={<MyAccount />} />
         <Route path="create-user" element={<SignUp />} />
         <Route path="login" element={<SignIn />} />
         <Route path="questions" element={<AllQuestions />} />
