@@ -31,6 +31,7 @@ export const Router = () => {
         <Route path="checkout" element={<Checkout />} />
         <Route path="/product/:id" element={<ProductScreen />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        
 
 
       </Routes>

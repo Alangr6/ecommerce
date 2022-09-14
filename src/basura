@@ -64,3 +64,25 @@ export const Login = () => {
       <p>&#11088;</p>
     ))}
 </div>
+////////////////////////////////////////////
+async function userData(idDoc) {
+  const docRef = doc(db, `users/${idDoc}`);
+  const query = await getDoc(docRef);
+  if (query.exists()) {
+    const infoUser = query.data();
+    return infoUser;
+  } else {
+    await setDoc(docRef, { reaction: [...fakeData] });
+    const query = await getDoc(docRef);
+    const infoUser = query.data();
+    return infoUser.reaction;
+  }
+}
+
+useEffect(() => {
+  async function fetchData() {
+    const dataArray = await userData(user.email);
+    setUserDataArray(dataArray);
+  }
+  return fetchData;
+}, []); 

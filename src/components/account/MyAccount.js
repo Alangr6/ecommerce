@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,14 +8,9 @@ import { useStateValue } from "../reducer/StateProvider";
 
 export const MyAccount = () => {
   const [{ user, basket }, dispatch] = useStateValue();
-  const [userDataArray, setUserDataArray] = useState(null);
   const navigate = useNavigate();
-
-  const fakeData = [
-    {
-      name: "petu",
-    },
-  ];
+  const [userData, setUserData] = useState('')
+  
 
   const handleAuth = () => {
     if (user) {
@@ -31,31 +26,23 @@ export const MyAccount = () => {
       navigate("/login");
     }
   };
-  async function userData(idDoc) {
-    const docRef = doc(db, `users/${idDoc}`);
-    const query = await getDoc(docRef);
-    if (query.exists()) {
-      const infoUser = query.data();
-      return infoUser;
-    } else {
-      await setDoc(docRef, { reaction: [...fakeData] });
-      const query = await getDoc(docRef);
-      const infoUser = query.data();
-      return infoUser.reaction;
-    }
+  
+  if(user){
+    const docRef = doc(db, "users", user.uid);
+    getDoc(docRef)
+      .then((doc) => {
+        //console.log(doc.data(),doc.id);
+        setUserData(doc.data())
+      }).catch((err) => console.log(err.message))
+  
+    
   }
 
-  useEffect(() => {
-    async function fetchData() {
-      const dataArray = await userData(user.email);
-      setUserDataArray(dataArray);
-    }
-    return fetchData;
-  }, []);
+
   return (
     <div>
       <button onClick={handleAuth}>Cerrar sesion</button>
-      <h1>{!userDataArray ? 'n' : userDataArray}</h1>
+      <h5>{userData.name}</h5>
     </div>
   );
 };

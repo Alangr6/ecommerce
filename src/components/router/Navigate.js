@@ -39,7 +39,7 @@ export const Navigate = () => {
     
     <nav className="navbar">
       <div className="hello-user-div">
-        <NavLink className='hello-user-nav' to={`/account/${user.uid}`} >
+        <NavLink className='hello-user-nav' to={!user ? '/login' :`/account/${user.uid}`} >
           <h2 className="hello-user">Hola {!user ? 'usuario' : user.email }</h2>
         </NavLink>
 

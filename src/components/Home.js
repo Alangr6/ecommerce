@@ -58,6 +58,48 @@ export const Home = () => {
           </div>
         </div>
       </section>
+      <h1 className="title-questionSec">Preguntas frecuentes</h1>
+      <section className="section-question">
+          <div className="box-question">
+            <div className="box-question2">
+              <i class="fa-solid fa-flask fa-3x"></i>
+              <h3 className="question-title">¿Que es el N<sub>2</sub>O?</h3>
+              <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfurewfgewgfarewgertgwregqrwegqrwegqrwegrqwegreqwgreqgrrgqerfaehewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
+            </div>
+            <NavLink
+                className="product-span"
+                to="/questions"
+            >
+                <span className="question-buttons">Leer más</span>
+            </NavLink>
+          </div> 
+          <div className="box-question">
+            <div className="box-question2">
+              <i class="fa-solid fa-users fa-3x"></i>
+              <h3 className="question-title">Sobre nosotros</h3>
+              <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
+            </div>
+            <NavLink
+                className="product-span"
+                to="/questions"
+            >
+                <span className="question-buttons">Leer más</span>
+            </NavLink>
+          </div>
+          <div className="box-question">
+            <div className="box-question2">
+              <i class="fa-solid fa-truck fa-3x"></i>
+              <h3 className="question-title">Envíos</h3>
+              <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
+            </div>
+            <NavLink
+                className="product-span"
+                to="/questions"
+            >
+                <span className="question-buttons">Leer más</span>
+            </NavLink>
+          </div> 
+      </section>
     </div>
   );
 };
