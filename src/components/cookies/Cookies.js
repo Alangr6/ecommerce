@@ -1,6 +1,5 @@
 import React from "react";
 import cookie from "../img/istockphoto-1208648146-612x612.jpg";
-
 export const Cookies = () => {
  
 
@@ -26,7 +25,7 @@ export const Cookies = () => {
             <button onClick={acceptCookies} className="cookies-button ">
               De acuerdo
             </button>
-            <a className="cookies-link" href="aviso-cookies.html">
+            <a className="cookies-link" href="/cookies-notice.html">
               Aviso de cookies
             </a>
           </div>
@@ -52,7 +51,6 @@ export const Cookies = () => {
           </a>
         </div>
         <div className="cookies-background " id="cookies-background"></div>
-        <script src=""></script>
       </>
     )
   }

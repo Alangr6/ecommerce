@@ -35,7 +35,7 @@ export const Home = () => {
                     alt=""
                   ></img>
                 </div>{" "}
-                <span className="w-btn-label">Bombona Greatwhip </span>
+                <button className="w-btn-label">Bombona Greatwhip </button>
               </NavLink>
             </div>
             <div className="box-and-title">
@@ -50,9 +50,9 @@ export const Home = () => {
                     alt=""
                   ></img>
                 </div>{" "}
-                <span class="w-btn-label">
+                <button class="w-btn-label">
                   Capsulas N<sub>2</sub>O 8gr
-                </span>
+                </button>
               </NavLink>
             </div>
           </div>
@@ -70,7 +70,7 @@ export const Home = () => {
                 className="product-span"
                 to="/questions"
             >
-                <span className="question-buttons">Leer más</span>
+                <button className="question-buttons">Leer más</button>
             </NavLink>
           </div> 
           <div className="box-question">
@@ -83,7 +83,7 @@ export const Home = () => {
                 className="product-span"
                 to="/questions"
             >
-                <span className="question-buttons">Leer más</span>
+                <button className="question-buttons">Leer más</button>
             </NavLink>
           </div>
           <div className="box-question">
@@ -96,7 +96,7 @@ export const Home = () => {
                 className="product-span"
                 to="/questions"
             >
-                <span className="question-buttons">Leer más</span>
+                <button className="question-buttons">Leer más</button>
             </NavLink>
           </div> 
       </section>
