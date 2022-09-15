@@ -35,17 +35,17 @@
 .hello-user-div{
     display: flex;
     align-items: center;
-    padding-right: 5rem;
+    
     color: black;
 }
 .hello-user{
     display: flex;
     align-items: center;
-    color: black;
+    color: #fffffa;
     padding-right: 1rem;
 }
 .navbar{
-    background-color: #b9933b;
+    background-color: #52576e;
     display: flex;
     justify-content: flex-end;
     height: 6rem;
@@ -59,15 +59,15 @@
     
     background-color: rgb(32,28,29,255);
     border: 0;
-    color: #b9933b;
-    font-family: cursive;
-    font-size: large;
+    color: #acadb2  ;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
     font-weight: 600;
-    padding-right: 40px;
+    padding-right: 30px;
     text-align: center;
     font-size: 150%;
 }
-.product-button:hover{
+/* .product-button:hover{
     height: 100%;
     width: 6rem;
     background-color: black;
@@ -79,7 +79,7 @@
     padding-right: 10px;
     transition: 0.3s;
     cursor: pointer;
-}
+} */
 .product-screen-div{
     width: 20%;
 }
@@ -244,6 +244,8 @@ hr{
     padding: 1rem;
     padding-top: 2rem;
     font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+
 }
 .checkoutpage{
     padding-top: 1rem;
@@ -301,7 +303,7 @@ hr{
 }
 .navbar-buttons{
     display: flex;
-    padding-right: 3rem;
+    padding-right: rem;
 }
 .product-image{
     height: 200px;
@@ -406,8 +408,9 @@ a{
 
 
 }
-.boxGeneral ,.w-btn-label:hover{
+.w-btn-label:hover{
     background: linear-gradient(to right, #5a3c68, #d64479, #8a4c63);
+    cursor: pointer;
 }
 .cookies-img{
     max-width: 120px;
@@ -525,9 +528,7 @@ a{
     margin-right: 30px;
     text-align: center;
 }
-.question-title{
-    font-size: 2rem;
-}
+
 .question-buttons{
     font-size: 20px;
     margin-left: 30px;
@@ -551,6 +552,25 @@ a{
     margin-top: 30px;
     margin-bottom: 20px;
     cursor: pointer;
+}
+.user-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.user-title{
+    
+    padding: 1rem 0;
+}
+.user-buttons-div{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.user-buttons{
+    height: 2rem;
+
 }
 
 @media only screen and (max-width:768px) {
@@ -578,17 +598,30 @@ a{
         margin-top: 2rem;
     }
     .navbar-buttons{
-        background-color: white;
-        display: flex;
-        justify-content: center;
+            display: flex;
+        justify-content: space-around;
         z-index: 2;
         padding-right: 0;
         height: 4rem;
+        max-width: 100%;
+        padding: 1rem 0;
         
     }
-   
+    .product-button, .product-button2{
+        height: 100%;
+        width: 20%;
+        border: 0;
+        font-family: cursive;
+        font-size: large;
+        font-weight: 600;
+        padding-right: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
     .home-section{
-        margin-top: 2rem;
+        
         display: flex;
         justify-content: flex-start;
     }
@@ -626,6 +659,7 @@ a{
         margin-top: 1rem;
         display: flex;
         justify-content: flex-start;
+        
             
         
     }
@@ -639,26 +673,14 @@ a{
         width: 80%;
         padding-top: 0;
     }
-    .product-button{
-        height: 100%;
-        width: 6rem;
-        background-color: white;
-        border: 0;
-        color: goldenrod;
-        font-family: cursive;
-        font-size: large;
-        font-weight: 600;
-        padding-right: 10px;
-    }
+  
     .input-user{
         width: 50%;
     }
     .questions{
         height: 2.5rem;
     }
-    .question-title{
-        padding-top: 3rem;
-    }
+   
     .checkout-title{
         
         padding-top: 4rem;
@@ -713,7 +735,10 @@ a{
     padding-left: 19%;
    }
     .question-title{
-        padding-top: 0;
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .question-paragraph{
         font-size: 20px;

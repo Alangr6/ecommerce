@@ -4,9 +4,23 @@ import logo from "../img/creamerlogo.png";
 import { useStateValue } from "../reducer/StateProvider";
 import { auth } from "../firebase/Firebase";
 import { actionTypes } from "../reducer/Reducer";
+import { Badge, IconButton, makeStyles } from "@material-ui/core";
+import { ShoppingCart } from "@material-ui/icons";
+
+const useStyles = makeStyles((theme) => ({
+  cart: {
+    color: "#acadb2",
+  },
+  badge: {
+    color: "red",
+    backgroundColor: "black",
+  },
+}));
 
 export const Logo = () => {
   const [{ user, basket }, dispatch] = useStateValue();
+  const classes = useStyles();
+
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -27,18 +41,28 @@ export const Logo = () => {
         </NavLink>
       </div>
       <div className="navbar-buttons">
-        <NavLink to="/">
+        <NavLink className='product-button2' to="/">
           <button className="product-button">Home</button>
         </NavLink>
-        <NavLink to="/products">
+        <NavLink className='product-button2' to="/products">
           <button className="product-button">Productos</button>
         </NavLink>
-        <NavLink to="/questions">
+        <NavLink className='product-button2' to="/questions">
           <button className="product-button">Preguntas</button>
         </NavLink>
-        <NavLink to={!user ? "login" : `/account/${user.uid}`}>
+        <NavLink className='product-button2' to={!user ? "login" : `/account/${user.uid}`}>
           <button className="product-button">Mi cuenta</button>
         </NavLink>
+        <div className="hello-user-div">
+        <NavLink className='product-button2' to="/checkout-page">
+          <IconButton aria-label="show cart items" className={classes.cart}>
+            <Badge badgeContent={basket?.length} color="secondary">
+              <ShoppingCart fontSize="large" />
+            </Badge>
+          </IconButton>
+        </NavLink>
+        </div>
+        
       </div>
     </div>
   );

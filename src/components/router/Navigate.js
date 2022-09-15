@@ -1,5 +1,4 @@
-import { Badge, IconButton, makeStyles } from "@material-ui/core";
-import { ShoppingCart } from "@material-ui/icons";
+
 import React from "react";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -8,18 +7,9 @@ import { useStateValue } from "../reducer/StateProvider";
 import { auth } from "../firebase/Firebase";
 import logo from "../img/creamerlogo.png";
 
-const useStyles = makeStyles((theme) => ({
-  cart: {
-    color: "black",
-  },
-  badge: {
-    color: "red",
-    backgroundColor: "black",
-  },
-}));
+
 
 export const Navigate = () => {
-  const classes = useStyles();
   const [{ user, basket }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -43,13 +33,7 @@ export const Navigate = () => {
           <h2 className="hello-user">Hola {!user ? 'usuario' : user.email }</h2>
         </NavLink>
 
-        <NavLink to="/checkout-page">
-          <IconButton aria-label="show cart items" className={classes.cart}>
-            <Badge badgeContent={basket?.length} color="secondary">
-              <ShoppingCart fontSize="large" />
-            </Badge>
-          </IconButton>
-        </NavLink>
+        
       </div>
     
      

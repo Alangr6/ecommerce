@@ -18,7 +18,7 @@ export const Router = () => {
     <BrowserRouter>
       <Logo />
 
-      <Navigate/>
+     {/*  <Navigate/> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
