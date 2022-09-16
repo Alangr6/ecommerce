@@ -1,30 +1,14 @@
-import { doc, getDoc, onSnapshot, setDoc } from "firebase/firestore";
+import { doc, getDoc} from "firebase/firestore";
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { auth, db } from "../firebase/Firebase";
-import { actionTypes } from "../reducer/Reducer";
+import { NavLink } from "react-router-dom";
+import {  db } from "../firebase/Firebase";
 import { useStateValue } from "../reducer/StateProvider";
 
 export const MyAccount = () => {
-  const [{ user, basket }, dispatch] = useStateValue();
-  const navigate = useNavigate();
+  const [{ user }] = useStateValue();
   const [userData, setUserData] = useState("");
 
-  const handleAuth = () => {
-    if (user) {
-      auth.signOut();
-      dispatch({
-        type: actionTypes.EMPTY_BASKET,
-        basket: [],
-      });
-      dispatch({
-        type: actionTypes.SET_USER,
-        user: null,
-      });
-      navigate("/login");
-    }
-  };
+ 
 
   if (user) {
     const docRef = doc(db, "users", user.uid);
@@ -39,19 +23,27 @@ export const MyAccount = () => {
   return (
     <>
       <div className="user-div">
-      <h1 className="user-title">
-        Tiene la sesion iniciada con {userData.email}
-      </h1>
-      <div className="user-buttons-div">
-        <button className="user-buttons">Datos de la cuenta</button>
-        <button className="user-buttons">Pedidos</button>
-        <button className="user-buttons">Direccion de envio</button>
-        <button className="user-buttons"></button>
+        
+        <div className="user-buttons-div">
+          <NavLink  to={!user ? '/' : `/account/${user.uid}/data-account`}>
+            <button className="user-buttons"> Datos de la cuenta</button>
+          </NavLink>
+          <NavLink  to={!user ? '/' : `/account/${user.uid}/orders`}>
+          <button className="user-buttons">Pedidos</button>
+          </NavLink>
+          <NavLink  to={!user ? '/' : `/account/${user.uid}/data-address`}>
+          <button className="user-buttons">Direccion de envio</button>
+          </NavLink>
+          <NavLink  to={!user ? '/' : `/account/${user.uid}/logout`}>
+
+          <button className="user-buttons">Cerrar sesion</button>
+          </NavLink>
+
+        </div>
       </div>
-      </div>
+
+    
       
-      <button onClick={handleAuth}>Cerrar sesion</button>
-      <h5>{userData.name}</h5>
     </>
   );
 };

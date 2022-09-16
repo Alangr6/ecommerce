@@ -10,14 +10,14 @@ export const Total = () => {
 
   return (
     <>
-      <div className="checkout-button">
+      <div className="checkout-div">
         <div className="total-div">
         <h3>Numero de productos: {basket?.length}</h3>
         <h3>Total: {accounting.formatMoney(totalAmount, "$")}</h3>
         
         </div>
         <div className="total-div">
-          <Link to='/checkout'>
+          <Link to={basket?.length  == 0 ? '/checkout-page' : '/checkout'}>
           <button className="form-button">Checkout</button>
 
           </Link>

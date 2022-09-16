@@ -30,34 +30,38 @@ export const CheckoutPage = () => {
     table: {},
   });
 
-  
-console.log(basket);
+  console.log(basket);
   const classes = useStyles();
 
   function FormRow() {
-    if(basket.length == 0){
-      return <h1 className="empty-cart">Su carrito se ecnuentra actualmente vacio</h1>
+    if (basket.length == 0) {
+      return (
+        <h1 className="empty-cart">
+          Su carrito se ecnuentra actualmente vacio
+        </h1>
+      );
     } else {
-    return (
-      <div className="table-container">
-        <TableContainer className={classes.tableContainer} component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-              <StyledTableCell></StyledTableCell>
-                <StyledTableCell>Producto</StyledTableCell>
-                <StyledTableCell>Precio</StyledTableCell>
-                <StyledTableCell></StyledTableCell>
-              </TableRow>
-            </TableHead>
+      return (
+        <div className="table-container">
+          <TableContainer className={classes.tableContainer} component={Paper}>
+            <Table className={classes.table} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell></StyledTableCell>
+                  <StyledTableCell>Producto</StyledTableCell>
+                  <StyledTableCell>Precio</StyledTableCell>
+                  <StyledTableCell></StyledTableCell>
+                </TableRow>
+              </TableHead>
 
-            {basket?.map((item) => (
-              <CheckoutCard key={item.id} item={item} />
-            ))}
-          </Table>
-        </TableContainer>
-      </div>
-    );}
+              {basket?.map((item) => (
+                <CheckoutCard key={item.id} item={item} />
+              ))}
+            </Table>
+          </TableContainer>
+        </div>
+      );
+    }
   }
 
   return (
@@ -68,3 +72,4 @@ console.log(basket);
     </div>
   );
 };
+

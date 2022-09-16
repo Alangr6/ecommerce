@@ -4,14 +4,17 @@ import { MyAccount } from "../account/MyAccount";
 import { Home } from "../Home";
 import SignIn from "../Log/Login";
 import Products from "../products/Products";
-import { Navigate } from "./Navigate";
 import { AllQuestions } from "../questions/AllQuestions";
 import { CheckoutPage } from "../checkout/CheckoutPage";
 import { Logo } from "../main/Logo";
 import SignUp from "../Log/CreateUser";
-import Checkout from "../checkout/checkoutForm/Checkout";
 import { ProductScreen } from "../products/ProductScreen";
 import ForgotPassword from "../Log/ForgotPassword";
+import { DataAccount } from "../account/DataAccount";
+import { DataAddress } from "../account/DataAddress";
+import { Orders } from "../account/Orders";
+import { Logout } from "../account/Logout";
+import CheckoutForm from "../checkout/checkoutForm/CheckoutForm";
 
 export const Router = () => {
   return (
@@ -28,9 +31,15 @@ export const Router = () => {
         <Route path="login" element={<SignIn />} />
         <Route path="questions" element={<AllQuestions />} />
         <Route path="checkout-page" element={<CheckoutPage />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route path="checkout" element={<CheckoutForm />} />
         <Route path="/product/:id" element={<ProductScreen />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/account/:uid/data-account" element={<DataAccount />} />
+        <Route path="/account/:uid/data-address" element={<DataAddress />} />
+        <Route path="/account/:uid/orders" element={<Orders />} />
+        <Route path="/account/:uid/logout" element={<Logout />} />
+
+
         
 
 

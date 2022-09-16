@@ -39,7 +39,7 @@ export const questionsN2O = [
 
     Creamer no se hace responsable del uso inadecuado del óxido nitroso una vez ha sido obtenido a través de la página web. 
     
-    MANTENER LEJOS DEL ALCANCE DE NINOS O JOVENES MENORES DE 18 ANOS. 
+    MANTENER LEJOS DEL ALCANCE DE NINOS O JOVENES MENORES DE 18 AÑOS. 
     `,
   },
   {

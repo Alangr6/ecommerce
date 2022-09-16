@@ -50,7 +50,7 @@ export const Home = () => {
                     alt=""
                   ></img>
                 </div>{" "}
-                <button class="w-btn-label">
+                <button className="w-btn-label">
                   Capsulas N<sub>2</sub>O 8gr
                 </button>
               </NavLink>
@@ -62,7 +62,7 @@ export const Home = () => {
       <section className="section-question">
           <div className="box-question">
             <div className="box-question2">
-              <i class="fa-solid fa-flask fa-3x"></i>
+              <i className="fa-solid fa-flask fa-3x"></i>
               <h3 className="question-title">¿Que es el N<sub>2</sub>O?</h3>
               <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfurewfgewgfarewgertgwregqrwegqrwegqrwegrqwegreqwgreqgrrgqerfaehewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
             </div>
@@ -75,7 +75,7 @@ export const Home = () => {
           </div> 
           <div className="box-question">
             <div className="box-question2">
-              <i class="fa-solid fa-users fa-3x"></i>
+              <i className="fa-solid fa-users fa-3x"></i>
               <h3 className="question-title">Sobre nosotros</h3>
               <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
             </div>
@@ -88,7 +88,7 @@ export const Home = () => {
           </div>
           <div className="box-question">
             <div className="box-question2">
-              <i class="fa-solid fa-truck fa-3x"></i>
+              <i className="fa-solid fa-truck fa-3x"></i>
               <h3 className="question-title">Envíos</h3>
               <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
             </div>
