@@ -60,46 +60,76 @@ export const Home = () => {
       </section>
       <h1 className="title-questionSec">Preguntas frecuentes</h1>
       <section className="section-question">
-          <div className="box-question">
-            <div className="box-question2">
-              <i className="fa-solid fa-flask fa-3x"></i>
-              <h3 className="question-title">¿Que es el N<sub>2</sub>O?</h3>
-              <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfurewfgewgfarewgertgwregqrwegqrwegqrwegrqwegreqwgreqgrrgqerfaehewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
-            </div>
-            <NavLink
-                className="product-span"
-                to="/questions"
-            >
-                <button className="question-buttons">Leer más</button>
-            </NavLink>
-          </div> 
-          <div className="box-question">
-            <div className="box-question2">
-              <i className="fa-solid fa-users fa-3x"></i>
-              <h3 className="question-title">Sobre nosotros</h3>
-              <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
-            </div>
-            <NavLink
-                className="product-span"
-                to="/questions"
-            >
-                <button className="question-buttons">Leer más</button>
-            </NavLink>
+        <div className="box-question">
+          <div className="box-question2">
+            <i className="fa-solid fa-flask fa-3x"></i>
+            <h3 className="question-title">
+              ¿Que es el N<sub>2</sub>O?
+            </h3>
+            <p className="question-paragraph">
+              yhewdgfbvewgiue
+              wgdfedwefjewdfewfurewfgewgfarewgertgwregqrwegqrwegqrwegrqwegreqwgreqgrrgqerfaehewfhewjkcnesjkñ
+              fcbnsdkjcnbdwskñjfcbnsdkfjbd
+            </p>
           </div>
-          <div className="box-question">
-            <div className="box-question2">
-              <i className="fa-solid fa-truck fa-3x"></i>
-              <h3 className="question-title">Envíos</h3>
-              <p className="question-paragraph">yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ fcbnsdkjcnbdwskñjfcbnsdkfjbd</p>
-            </div>
-            <NavLink
-                className="product-span"
-                to="/questions"
-            >
-                <button className="question-buttons">Leer más</button>
-            </NavLink>
-          </div> 
+          <NavLink className="product-span" to="/questions">
+            <button className="question-buttons">Leer más</button>
+          </NavLink>
+        </div>
+        <div className="box-question">
+          <div className="box-question2">
+            <i className="fa-solid fa-users fa-3x"></i>
+            <h3 className="question-title">Sobre nosotros</h3>
+            <p className="question-paragraph">
+              yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ
+              fcbnsdkjcnbdwskñjfcbnsdkfjbd
+            </p>
+          </div>
+          <NavLink className="product-span" to="/questions">
+            <button className="question-buttons">Leer más</button>
+          </NavLink>
+        </div>
+        <div className="box-question">
+          <div className="box-question2">
+            <i className="fa-solid fa-truck fa-3x"></i>
+            <h3 className="question-title">Envíos</h3>
+            <p className="question-paragraph">
+              yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ
+              fcbnsdkjcnbdwskñjfcbnsdkfjbd
+            </p>
+          </div>
+          <NavLink className="product-span" to="/questions">
+            <button className="question-buttons">Leer más</button>
+          </NavLink>
+        </div>
       </section>
+      <footer class="footer-distributed">
+        <div class="footer-right">
+          <a href="#">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-github"></i>
+          </a>
+        </div>
+        <div class="footer-left">
+          <p class="footer-links">
+            <a class="link-1" href="#">
+              Home
+            </a>
+            <a href="#">About</a>
+            <a href="/questions">Faq</a>
+            <a href="#">Contact</a>
+          </p>
+          <p>Creamer Inc. &copy; 2022</p>
+        </div>
+      </footer>
     </div>
   );
 };

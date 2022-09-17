@@ -30,7 +30,6 @@ export const CheckoutPage = () => {
     table: {},
   });
 
-  console.log(basket);
   const classes = useStyles();
 
   function FormRow() {

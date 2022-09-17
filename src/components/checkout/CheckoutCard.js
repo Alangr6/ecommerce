@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 
 export default function CheckoutCard({ item }) {
-  console.log(item);
+  console.log();
   const [{ basket }, dispatch] = useStateValue();
 
   const removeItem = () =>
@@ -43,7 +43,7 @@ export default function CheckoutCard({ item }) {
     <>
       <TableBody>
         <StyledTableRow key={item.id}>
-          
+          {item.quantity}
           <StyledTableCell align="center">
             <img className="checkout-image" src={item.image} />{" "}
           </StyledTableCell>

@@ -16,44 +16,41 @@ import { getDocs } from "firebase/firestore";
 import { colRef } from "../firebase/Firebase";
 
 
+const useStyles = makeStyles((theme) => ({
+  media: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  action: {
+    padding: 16,
+  },
+  card: {
+    position: "relative",
+    width: "300px",
+    margin: "3rem",
+    border: "hidden",
+    borderRadius: "10px",
+    maxHeight: "600px",
+  },
+}));
+
 
 export const ProductScreen = () => {
-  const [products, setProducts] = useState([])
-
-
-  useEffect(() => {
-   const getUsers = async () => {
-    const data = await getDocs(colRef)
-    setProducts(data.docs.map((doc) => ({...doc.data(), id:doc.id})))
-    
-  }
-   getUsers()
-  }, [])
-
-  const useStyles = makeStyles((theme) => ({
-    media: {
-      display: 'flex',
-      justifyContent: 'center',
-      
-    },
-    action: {
-      padding: 16,
-    },
-    card: {
-      position: 'relative',
-      width: '300px',
-      margin: '3rem',
-      border: 'hidden',
-      borderRadius: '10px',
-      maxHeight:'600px',
-      
-    },
-  }));
+  
+  const [products, setProducts] = useState([]);
+  const [quantity, setQuantity] = useState(0);
   const classes = useStyles();
-
+  const [{ basket }, dispatch] = useStateValue();
   const params = useParams();
   const product = products.find((p) => p.id == params.id);
-  const [{ basket }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(colRef);
+      setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getUsers();
+  }, []);
 
   const addToBasket = () => {
     dispatch({
@@ -62,24 +59,26 @@ export const ProductScreen = () => {
         product: product.product,
         price: product.price,
         id: product.id,
-        image:product.image
+        image: product.image,
       },
+      
     });
   };
-  console.log(product);
-  if(!product){
-    return <h1></h1>
+  if (!product) {
+    return <h1>No se ha podido cargar el producto</h1>;
   } else {
     return (
       <>
         <div className="all-products-screen">
           <Card className={classes.card}>
             <div className="">
-              <CardMedia
-                className={classes.media}
-                
-                title="bombona Fastgas"
-              ><img className="product-screen-image" src={product.image} alt="" /></CardMedia>
+              <CardMedia className={classes.media} title="bombona Fastgas">
+                <img
+                  className="product-screen-image"
+                  src={product.image}
+                  alt=""
+                />
+              </CardMedia>
             </div>
           </Card>{" "}
           <div className="product-screen-div">
@@ -93,12 +92,11 @@ export const ProductScreen = () => {
                 ))}
             </div>
             <hr />
-            
+
             <p className="product-screen-description">
               {" "}
               <strong>Descripcion: {product.description}</strong> {}
             </p>
-           
           </div>
           <div className="product-table-screen">
             <TableContainer component={Paper}>
@@ -108,30 +106,50 @@ export const ProductScreen = () => {
                     <TableCell component="th" scope="row">
                       Precio:
                     </TableCell>
-                    <TableCell align="right">{accounting.formatMoney(product.price, "€")}</TableCell>
+                    <TableCell align="right">
+                      {accounting.formatMoney(product.price, "€")}
+                    </TableCell>
                   </TableRow>
-                  <TableRow >
+                  <TableRow>
                     <TableCell component="th" scope="row">
                       Estado:
                     </TableCell>
                     <TableCell align="right">en Stock</TableCell>
                   </TableRow>
-                 
-                    <TableCell >
-                      <button onClick={addToBasket} className="add-cart-button">Anadir al carrito</button>
-                      </TableCell>
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      <select
+                        className="add-cart-select"
+                        name=""
+                        id=""
+                        onChange={(e) => setQuantity(e.target.value)}
+                        value={quantity}
+                      >
+                        {[...Array(product.stock).keys()].map((x) => {
+                          return (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          );
+                        })}
+                      </select>{" "}
+                    </TableCell>
+                  </TableRow>
+
+                  <TableCell>
+                    <button onClick={addToBasket} className="add-cart-button">
+                      Anadir al carrito
+                    </button>
+                  </TableCell>
                 </TableBody>
               </Table>
             </TableContainer>
           </div>
-          
         </div>
-        <NavLink to='/products'>
-        <button className="go-back-button">Volver</button>
-  
+        <NavLink to="/products">
+          <button className="go-back-button">Volver</button>
         </NavLink>
       </>
     );
   }
-  
 };

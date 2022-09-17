@@ -36,7 +36,6 @@ export default function FullWidthGrid() {
   }, [])
   
   
-console.log(products);
 
   return (
     <div className={classes.main}>

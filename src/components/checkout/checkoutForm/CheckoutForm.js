@@ -40,9 +40,7 @@ export default function CheckoutForm() {
   const classes = useStyles();
 
   const [{ basket }, dispatch] = useStateValue();
-  const totalAmount = basket
-    ?.map((item) => item.price)
-    .reduce((amount, item) => amount + item, 0);
+  const totalAmount = basket?.map((item) => item.price).reduce((amount, item) => amount + item, 0);
 
   return (
     <React.Fragment>

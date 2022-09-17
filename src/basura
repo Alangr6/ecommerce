@@ -79,10 +79,20 @@ async function userData(idDoc) {
   }
 }
 
-useEffect(() => {
-  async function fetchData() {
-    const dataArray = await userData(user.email);
-    setUserDataArray(dataArray);
+case "ADD_TO_BASKET":{
+  let newItem = state.basket.find(
+    (item) => item.id === action.item
+  )
+  console.log(newItem);
+  let itemInBasket = state.basket.find(item => item.id === newItem.id )
+
+  return itemInBasket ? {
+    ...state,
+    basket: state.basket.map(item => item.id === newItem.id ? {...item,quantity:item.quantity+1}
+      : item)
+  } : {
+    ...state,
+    basket: [...state.basket, {newItem,quantity:1}],
   }
-  return fetchData;
-}, []); 
+ }
+///////////////////////////////

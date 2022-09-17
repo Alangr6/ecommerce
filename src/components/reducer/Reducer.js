@@ -13,13 +13,15 @@ export const actionTypes = {
 
 
 export const reducer = (state, action) => {
-  console.log(action);
+  
   switch (action.type) {
     case "ADD_TO_BASKET":
+      console.log(state.basket);
       return {
         ...state,
         basket: [...state.basket, action.item],
       };
+      
     case "REMOVE_ITEM":
         const index = state.basket.findIndex((basketItem => basketItem.id === action.id))
         let newBasket = [...state.basket]

@@ -2,8 +2,8 @@ import { getDocs } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { colRef } from "../firebase/Firebase"
 
-
-const [products, setProducts] = useState([])
+const ProductsData = () => {
+ const [products, setProducts] = useState([])
 
   useEffect(() => {
    const getUsers = async () => {
@@ -13,6 +13,6 @@ const [products, setProducts] = useState([])
   }
    getUsers()
   }, [])
+}
 
-  export {products}
 
