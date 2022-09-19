@@ -64,6 +64,7 @@ export const ProductScreen = () => {
       
     });
   };
+ 
   if (!product) {
     return <h1>No se ha podido cargar el producto</h1>;
   } else {

@@ -36,7 +36,7 @@ export const CheckoutPage = () => {
     if (basket.length == 0) {
       return (
         <h1 className="empty-cart">
-          Su carrito se ecnuentra actualmente vacio
+          Su carrito se encuentra actualmente vacio
         </h1>
       );
     } else {

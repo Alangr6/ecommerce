@@ -59,17 +59,20 @@ export const Home = () => {
         </div>
       </section>
       <h1 className="title-questionSec">Preguntas frecuentes</h1>
+
       <section className="section-question">
         <div className="box-question">
           <div className="box-question2">
-            <i className="fa-solid fa-flask fa-3x"></i>
+            <div className="question-icons">
+              <i className="fa-solid fa-flask fa-3x"></i>
+            </div>
+
             <h3 className="question-title">
               ¿Que es el N<sub>2</sub>O?
             </h3>
             <p className="question-paragraph">
-              yhewdgfbvewgiue
-              wgdfedwefjewdfewfurewfgewgfarewgertgwregqrwegqrwegqrwegrqwegreqwgreqgrrgqerfaehewfhewjkcnesjkñ
-              fcbnsdkjcnbdwskñjfcbnsdkfjbd
+              Un compuesto de nitrógeno y oxígeno usado en los restaurantes o
+              coctelería como propelente para la crema batida
             </p>
           </div>
           <NavLink className="product-span" to="/questions">
@@ -78,11 +81,19 @@ export const Home = () => {
         </div>
         <div className="box-question">
           <div className="box-question2">
-            <i className="fa-solid fa-users fa-3x"></i>
+            <div className="question-icons">
+              <i className="fa-solid fa-users fa-3x"></i>
+            </div>
+
             <h3 className="question-title">Sobre nosotros</h3>
             <p className="question-paragraph">
-              yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ
-              fcbnsdkjcnbdwskñjfcbnsdkfjbd
+              Somos una empresa espanola distribuidora de oxido nitroso al mejor precio y 
+              unos tiempos de entrega excelentes.
+             
+             
+          
+
+              
             </p>
           </div>
           <NavLink className="product-span" to="/questions">
@@ -91,11 +102,14 @@ export const Home = () => {
         </div>
         <div className="box-question">
           <div className="box-question2">
-            <i className="fa-solid fa-truck fa-3x"></i>
+            <div className="question-icons">
+              <i className="fa-solid fa-truck fa-3x"></i>
+            </div>
+
             <h3 className="question-title">Envíos</h3>
             <p className="question-paragraph">
-              yhewdgfbvewgiue wgdfedwefjewdfewfuhewfhewjkcnesjkñ
-              fcbnsdkjcnbdwskñjfcbnsdkfjbd
+              Envios solamente dentro de la peninsula.
+              Tiempos de envio 24/48h
             </p>
           </div>
           <NavLink className="product-span" to="/questions">

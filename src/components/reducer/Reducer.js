@@ -1,3 +1,5 @@
+
+
 export const initialState = {
   basket: [],
   user: null,
@@ -9,8 +11,6 @@ export const actionTypes = {
   SET_USER: 'SET_USER',
   EMPTY_BASKET: 'EMPTY_BASKET'
 };
-
-
 
 export const reducer = (state, action) => {
   
@@ -47,3 +47,4 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+

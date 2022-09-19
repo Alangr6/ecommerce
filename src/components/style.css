@@ -10,11 +10,7 @@
     border-radius: 20px;
     min-width: 300px;
 }
-.logo-div2{
-    background-color: rgb(32,28,29,255);
-    display: flex;
-    justify-content: space-between;
-}
+
 .logo{
     display: flex;
     margin-left: 2rem;
@@ -45,7 +41,7 @@
     padding-right: 1rem;
 }
 .navbar{
-    background-color: #52576e;
+    background-color: white;
     display: flex;
     justify-content: flex-end;
     height: 6rem;
@@ -54,18 +50,225 @@
 .products-outlined{
     text-decoration: none;
 }
+.logo-div2{
+    background-color:#201c1d;
+    display: flex;
+    justify-content: space-between;
+}
 .product-button{
     height: 100%;
     
-    background-color: rgb(32,28,29,255);
+    background-color: #201c1d;
     border: 0;
-    color: #acadb2  ;
+    color: #bfbb8a  ;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
     font-weight: 600;
     padding-right: 30px;
     text-align: center;
     font-size: 150%;
+    cursor: pointer;
+}
+
+.home-title{
+    font-size: 300%;
+    color: #a5c39c;
+    width: 19rem;
+    margin-bottom: 40px;
+    
+}
+.home-title2{
+    color:#a5c39c;
+    font-size: 150%;
+    width: 50rem;
+    
+}
+.home-title3{
+    align-items: left;
+    padding-left: 150px;
+    padding-bottom: 250px;
+
+}
+
+.titleProducts{
+    color: #bfbb8a  ;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 2.5rem;
+}
+.legend{
+    color: #bfbb8a  ;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+.product-1{
+    height: 80%;
+    width: 65%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 20px;
+
+}
+.product-2{
+    height: 80%;
+    width: 65%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 20px;
+
+}
+.product-span{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+
+.w-btn-label{
+    font-size: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: relative;
+    top: 40px;
+    font-family: 'Averta',sans-serif;
+    font-size: 20px;
+    line-height: 1.20;
+    font-weight: 800;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: 0.03em;
+    border-radius: 2.5em;
+    padding: 0.8em 1.6em;
+    border-color: transparent;
+    color: #bfbb8a;
+    box-shadow: 0 0em 0em rgba(0,0,0,0.2);
+    transition: background-color, 2s;
+    text-decoration: none;
+    
+    background-color: #201c1d;
+
+
+}
+.w-btn-label:hover{
+    background: linear-gradient(to right, #5a3c68, #d64479, #8a4c63);
+    cursor: pointer;
+
+}
+
+
+.section2{
+    background-color: #201c1d;
+    align-items: center;
+    padding-bottom: 100px;
+
+}
+.boxGeneral1{
+    display: flex;
+    justify-content: center;
+    
+    border-radius: 2.5em;
+    margin: 0 5%;
+    padding: 2rem 0rem 7rem 0rem;
+background-color: #c0c0c0;    
+}
+.boxGeneral{
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 40px;
+
+}
+.box-and-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    background-color: white;
+    text-align: center;
+    width: 350px;
+    border-radius: 1rem;
+    
+}
+
+
+.title-questionSec{
+    color: #201c1d;
+    background-color:whitesmoke;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    font-size: 2.5rem;
+}
+.section-question{
+    background-color: whitesmoke;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    justify-content: center;
+    display: flex;
+    justify-content: space-around;
+    max-width: 100%;
+    height: 500px;
+
+}
+.box-question{
+    padding-top: 30px;
+    width: 25%;
+    height: 100%;
+    background-color: #201c1d;
+    border-radius: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    word-break:break-all;
+}
+.box-question2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #bfbb8a;
+}
+.question-icons{
+    color: #bfbb8a;
+}
+.question-paragraph{
+    font-family: sans-serif;
+    font-size: 130%;
+   margin: 0 15px;
+    text-align: center;
+    display: inline-block;
+    
+}
+
+.question-buttons{
+    font-size: 20px;
+    margin: 0 0px;
+    position: relative;
+    font-family: 'Averta',sans-serif;
+    font-size: 20px;
+    line-height: 1.20;
+    font-weight: 800;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: 0.03em;
+    border-radius: 2.5em;
+    padding: 0.8em 1.6em;
+    border-color: transparent;
+    color: #bfbb8a;
+    box-shadow: 0 0em 0em rgba(0,0,0,0.2);
+    background: black;
+    top: 0px;
+    top: -10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     cursor: pointer;
 }
 /* .product-button:hover{
@@ -148,6 +351,7 @@ hr{
 .all-products2{
     display: flex;
     justify-content: center;
+    align-items: center;
     max-width: 1294px;
     align-content: stretch;
 }
@@ -214,25 +418,7 @@ hr{
     flex-direction: column;
 
 }
-.home-title{
-    font-size: 300%;
-    color: #c0c0c0;
-    width: 19rem;
-    margin-bottom: 40px;
-    
-}
-.home-title2{
-    color:rgb(241, 232, 232);
-    font-size: 150%;
-    width: 50rem;
-    background-color: rgba(0,0,0,0.2);
-}
-.home-title3{
-    align-items: left;
-    padding-left: 150px;
-    padding-bottom: 250px;
 
-}
 .all-questions{
     padding: 1rem 10%;
 
@@ -323,103 +509,6 @@ hr{
 }
 
 
-.section2{
-    background-color: rgb(32,28,29,255);
-    align-items: center;
-    padding-bottom: 100px;
-
-}
-.boxGeneral1{
-    display: flex;
-    justify-content: center;
-}
-.boxGeneral{
-    background-color: #575757;
-    height: 500px;
-    width: 85%;
-    display: flex;
-    margin-bottom: 100px;
-    border-radius: 20px;
-    justify-content: space-around;
-    align-items: center;
-
-}
-.box-and-title{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.box{
-    background-color: white;
-    text-align: center;
-    width: 350px;
-    border-radius: 1rem;
-    
-}
-.titleProducts{
-    color: #c0c0c0;
-    text-align: center;
-    padding-top: 50px;
-    font-size: 2.5rem;
-}
-.legend{
-    color: #c0c0c0;
-    text-align: center;
-    font-size: 20px;
-    padding-top: 30px;
-    margin-bottom: 40px;
-}
-.product-1{
-    height: 80%;
-    width: 65%;
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: 20px;
-
-}
-.product-2{
-    height: 80%;
-    width: 65%;
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: 20px;
-
-}
-.product-span{
-    padding: 0;
-}
-a{
-    text-decoration: none;
-}
-.boxGeneral ,.w-btn-label{
-    font-size: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
-    position: relative;
-    top: 40px;
-    font-family: 'Averta',sans-serif;
-    font-size: 20px;
-    line-height: 1.20;
-    font-weight: 800;
-    font-style: normal;
-    text-transform: none;
-    letter-spacing: 0.03em;
-    border-radius: 2.5em;
-    padding: 0.8em 1.6em;
-    border-color: transparent;
-    color: #ffffff;
-    box-shadow: 0 0em 0em rgba(0,0,0,0.2);
-    transition: background-color, 2s;
-    text-decoration: none;
-    background: linear-gradient(to right, #b47dcd, #e878a2, #eb85ab);
-
-
-}
-.w-btn-label:hover{
-    background: linear-gradient(to right, #5a3c68, #d64479, #8a4c63);
-    cursor: pointer;
-}
 .cookies-img{
     max-width: 120px;
     position: absolute;
@@ -492,75 +581,6 @@ a{
     display: block;
 }
 
-.title-questionSec{
-    color: white;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    font-size: 2.5rem;
-}
-.section-question{
-    background-color: black;
-    padding-top: 30px;
-    padding-bottom: 60px;
-    justify-content: center;
-    background-color: black;
-    display: flex;
-    justify-content: space-around;
-    max-width: 100%;
-    height: 500px;
-
-}
-.box-question{
-    padding-top: 30px;
-    width: 25%;
-    height: 95%;
-    background-color: #c0c0c0;
-    border-radius: 2rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    word-break:break-all;
-}
-.box-question2{
-    display: grid;
-    place-items: center;
-}
-.question-paragraph{
-    font-family: sans-serif;
-    color: blueviolet;
-    font-size: 1.5rem;
-    margin-left: 30px;
-    margin-right: 30px;
-    text-align: center;
-}
-
-.question-buttons{
-    font-size: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
-    position: relative;
-    font-family: 'Averta',sans-serif;
-    font-size: 20px;
-    line-height: 1.20;
-    font-weight: 800;
-    font-style: normal;
-    text-transform: none;
-    letter-spacing: 0.03em;
-    border-radius: 2.5em;
-    padding: 0.8em 1.6em;
-    border-color: transparent;
-    color: #ffffff;
-    box-shadow: 0 0em 0em rgba(0,0,0,0.2);
-    background: orangered;
-    top: 0px;
-    top: -10px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
 .user-div{
     display: flex;
     align-items: center;
@@ -612,7 +632,7 @@ a{
 }
 
 .footer-distributed {
-    background-color: #292c2f;
+    background-color: #201c1d;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
@@ -668,7 +688,7 @@ a{
     display: inline-block;
     width: 35px;
     height: 35px;
-    background-color: #33383b;
+    background-color: #201c1d;
     border-radius: 2px;
     font-size: 20px;
     color: #ffffff;
@@ -685,7 +705,7 @@ a{
 
 
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:800px) {
     .navbar{
         display: flex;
         background-color: white;
@@ -767,14 +787,7 @@ a{
         justify-content: center;
         display: flex;
     }
-    .all-products2{
-        margin-top: 1rem;
-        display: flex;
-        justify-content: flex-start;
-        
-            
-        
-    }
+   
     .all-products-screen{
         display: flex;
         flex-direction: column;
@@ -844,7 +857,7 @@ a{
         padding-top: 10px;
     }
    .title-questionSec{
-    padding-left: 19%;
+    min-width: 200px;
    }
     .question-title{
         padding-top: 2rem;

@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     maxHeight:'600px',
     maxWidth:'400px',
-    //height:'450px',
+    minWidth:'260px',
     alignContent:'space-between'
     
   },

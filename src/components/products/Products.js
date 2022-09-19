@@ -27,22 +27,22 @@ export default function FullWidthGrid() {
 
 
   useEffect(() => {
-   const getUsers = async () => {
+   const getProducts = async () => {
     const data = await getDocs(colRef)
     setProducts(data.docs.map((doc) => ({...doc.data(), id:doc.id})))
     
   }
-   getUsers()
+   getProducts()
   }, [])
   
   
 
   return (
     <div className={classes.main}>
-      <Grid container  spacing={0}>
+      <Grid container spacing={0}>
         {products.map((product) => {
           return (
-            <Grid item sm={12} md={6} lg={4} className={classes.card}>
+            <Grid item sm={6} md={4}  className={classes.card}>
               <Product key={product.title} product={product} />
             </Grid>
           );

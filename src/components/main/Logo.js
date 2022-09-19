@@ -53,7 +53,7 @@ export const Logo = () => {
           className="product-button2"
           to={!user ? "login" : `/account/${user.uid}/data-account`}
         >
-          <button className="product-button">Mi cuenta</button>
+          <button className="product-button"><i class="fa-solid fa-circle-user fa-1x"></i></button>
         </NavLink>
         <div className="hello-user-div">
           <NavLink className="product-button2" to="/checkout-page">

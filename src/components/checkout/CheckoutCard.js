@@ -39,6 +39,45 @@ export default function CheckoutCard({ item }) {
       minWidth: 700,
     },
   });
+
+
+
+  const miCarritoSinDuplicados = basket.reduce((acumulador, valorActual) => {
+    const elementoYaExiste = acumulador.find(elemento => elemento.id === valorActual.id);
+    //console.log(valorActual);
+    console.log(elementoYaExiste);
+    if (elementoYaExiste) {
+      return acumulador.map((elemento) => {
+        if (elemento.id === valorActual.id) {
+          return {
+            ...elemento,
+            cantidad: elemento.cantidad + valorActual.cantidad
+          }
+        }
+  
+        return elemento;
+      });
+    }
+  
+    return [...acumulador, valorActual];
+  }, []);
+  
+  // /console.log(miCarritoSinDuplicados);
+
+
+  
+    let repetido=false;
+
+    for(let i=0; i< basket.lenght; i++){
+      if(basket[i].id==item.id){
+        basket[i].cantidad++
+        repetido=true;
+        
+      }
+      console.log(basket[i]);
+    }
+  
+
   return (
     <>
       <TableBody>
