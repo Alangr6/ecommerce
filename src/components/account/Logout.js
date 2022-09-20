@@ -27,7 +27,6 @@ export const Logout = () => {
 
   return (
     <>
-    <MyAccount/>
           <button onClick={handleAuth}>Cerrar sesion</button>
     </>
   )

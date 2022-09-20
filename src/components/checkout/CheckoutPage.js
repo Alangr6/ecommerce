@@ -10,26 +10,26 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+const useStyles = makeStyles({
+  tableContainer: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  table: {},
+});
+
 export const CheckoutPage = () => {
   const [{ basket }, dispatch] = useStateValue();
-
-  const StyledTableCell = withStyles((theme) => ({
-    head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 14,
-    },
-  }))(TableCell);
-  const useStyles = makeStyles({
-    tableContainer: {
-      display: "flex",
-      justifyContent: "center",
-    },
-    table: {},
-  });
-
   const classes = useStyles();
 
   function FormRow() {
@@ -54,7 +54,7 @@ export const CheckoutPage = () => {
               </TableHead>
 
               {basket?.map((item) => (
-                <CheckoutCard key={item.id} item={item} />
+                <CheckoutCard  item={item} />
               ))}
             </Table>
           </TableContainer>

@@ -25,28 +25,14 @@
     ;
     
 }
-.hello-user-nav{
-    text-decoration: none;
-}
+
 .hello-user-div{
     display: flex;
     align-items: center;
     padding-right: 30px;
     cursor: pointer;
 }
-.hello-user{
-    display: flex;
-    align-items: center;
-    color: #fffffa;
-    padding-right: 1rem;
-}
-.navbar{
-    background-color: white;
-    display: flex;
-    justify-content: flex-end;
-    height: 6rem;
-    flex-grow: 1;
-}
+
 .products-outlined{
     text-decoration: none;
 }
@@ -72,22 +58,22 @@
 
 .home-title{
     font-size: 300%;
-    color: #a5c39c;
+    color:  white;
     width: 19rem;
     margin-bottom: 40px;
-    
+
 }
 .home-title2{
-    color:#a5c39c;
+    color: white;
     font-size: 150%;
     width: 50rem;
-    
+
 }
 .home-title3{
     align-items: left;
-    padding-left: 150px;
-    padding-bottom: 250px;
-
+    padding-left: 12%;
+    padding-bottom: 19%;
+ 
 }
 
 .titleProducts{
@@ -105,25 +91,29 @@
 }
 .product-1{
     height: 80%;
-    width: 65%;
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: 20px;
-
+    width: 80%;
+    border-radius: 1rem;
 }
 .product-2{
-    height: 80%;
-    width: 65%;
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: 20px;
+    border-radius: 1rem;
 
 }
+.box{
+    background-color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    height: 300px;
+    width: 270px;
+   
+}
 .product-span{
-    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+            
 }
 a{
     text-decoration: none;
@@ -163,26 +153,24 @@ a{
 
 .section2{
     background-color: #201c1d;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding-bottom: 100px;
 
 }
-.boxGeneral1{
-    display: flex;
-    justify-content: center;
-    
-    border-radius: 2.5em;
-    margin: 0 5%;
-    padding: 2rem 0rem 7rem 0rem;
-background-color: #c0c0c0;    
-}
-.boxGeneral{
-    width: 85%;
+
+.box-general{
+    width: 80%;
     display: flex;
     justify-content: space-around;
-    position: relative;
+    align-items: center;
     top: 40px;
+    padding: 4rem 0;
 
+    border-radius: 2.5em;
+
+    background-color: #c0c0c0;
 }
 .box-and-title{
     display: flex;
@@ -190,16 +178,10 @@ background-color: #c0c0c0;
     align-items: center;
     justify-content: center;
 }
-.box{
-    background-color: white;
-    text-align: center;
-    width: 350px;
-    border-radius: 1rem;
-    
-}
 
 
-.title-questionSec{
+
+.title-question{
     color: #201c1d;
     background-color:whitesmoke;
     display: flex;
@@ -235,6 +217,7 @@ background-color: #c0c0c0;
     align-items: center;
     flex-direction: column;
     color: #bfbb8a;
+    word-break:normal;
 }
 .question-icons{
     color: #bfbb8a;
@@ -328,8 +311,8 @@ padding : 3rem;
 }
 .product-screen-price, .product-screen-description{
     padding: 15px 0px;
-
-} 
+    font-size: 1.5rem;
+}
 .product-screen-title{
     padding-bottom: 10px;
 }
@@ -441,7 +424,7 @@ hr{
     padding: 1rem;
     padding-top: 2rem;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
 
 }
 .checkoutpage{
@@ -470,10 +453,7 @@ hr{
     width: 100%;
    
 }
-.checckout-container{
-    display: flex;
-    justify-content: center;
-}
+
 .checkout-table{
     display: flex;
     flex-direction: row;
@@ -735,23 +715,11 @@ hr{
         z-index: 2;
         padding-right: 0;
         height: 4rem;
-        max-width: 100%;
         padding: 1rem 0;
         
-    }
-    .product-button, .product-button2{
-        height: 100%;
-        width: 20%;
-        border: 0;
-        font-family: cursive;
-        font-size: large;
-        font-weight: 600;
-        padding-right: 0px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         
     }
+  
     .home-section{
         
         display: flex;
@@ -774,13 +742,10 @@ hr{
         padding-top: 20%;
        
     }
-    .hello-user{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 1rem;
-        
+
+    .product-button{
+        padding-right: 0;
+        font-size: medium;
     }
     .hello-user-div{
         padding-right: 0;
@@ -807,41 +772,46 @@ hr{
     }
    
     .checkout-title{
-        
         padding-top: 4rem;
-    
     }
     .legend{
         padding-top: 3rem;
         padding-right: 20px;
         padding-left: 20px;
+        font-size: 17px;
     }
     .section2{
-        padding-bottom: 0;
+        padding-bottom: 30px;
     }
-    .boxGeneral{
+    .box-general{
         display: flex;
         flex-direction: column;
-        
+        justify-content:space-between;
+        width: 60%;
+        padding-top: 0;
+
     }
-    .box{
-            width: 90%;
-            max-width: 13rem;
-            
+  .box{
+    width: 80%;
+    height: 180px;
+
+  }
+  .product-span{
+    display: flex;    
+}
+   .product-2{
+    width: 80%;
+   }
+    .box-and-title{
+        margin: 3.5rem 0 0.5rem 0;
 
     }
     .w-btn-label{
-        display: flex;
         font-size: 12px;
-        align-items: center;
-        top: 15px;
-    }
-    .product-span{
-        display: grid;
-        place-items: center;
-        
+        top: 12px;
         
     }
+   
     .section-question{
         display: flex;
         flex-direction: column;
@@ -856,15 +826,20 @@ hr{
         margin-bottom:4rem ;
         padding-top: 10px;
     }
-   .title-questionSec{
+   .title-question{
     min-width: 200px;
    }
-    .question-title{
-        padding-top: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+   .titleProducts{
+    padding: 2rem 1rem  0 1rem;
+    font-size: 2rem;
+}
+.question-title{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
     .question-paragraph{
         font-size: 20px;
     }

@@ -45,11 +45,11 @@ export const ProductScreen = () => {
   const product = products.find((p) => p.id == params.id);
 
   useEffect(() => {
-    const getUsers = async () => {
+    const getProducts = async () => {
       const data = await getDocs(colRef);
       setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    getUsers();
+    getProducts();
   }, []);
 
   const addToBasket = () => {

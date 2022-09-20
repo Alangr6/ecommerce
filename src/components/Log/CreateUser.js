@@ -18,18 +18,7 @@ import { auth, db } from "../firebase/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -51,6 +40,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Creamer Inc
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+
 export default function SignUp() {
   const classes = useStyles();
   const [name, setName] = useState("");
@@ -61,17 +64,16 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { name: name, lastname: lastname,email:email };
+    const data = { name: name, lastname: lastname, email: email };
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (auth) => {
-        const dbRef = doc(db, "users",auth.user.uid );
+        const dbRef = doc(db, "users", auth.user.uid);
         console.log(auth.user.uid);
-       const docRef = await setDoc(dbRef, data);
+        const docRef = await setDoc(dbRef, data);
         navigate("/");
       })
       .catch((err) => alert(err.message));
   };
-  
 
   return (
     <Container component="main" maxWidth="xs">

@@ -9,12 +9,16 @@ import { ShoppingCart } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   cart: {
-    color: "#acadb2",
+    color: "#bfbb8a",
+
   },
   badge: {
     color: "red",
     backgroundColor: "black",
   },
+  size:{
+    height:'200px'
+  }
 }));
 
 export const Logo = () => {
@@ -32,6 +36,8 @@ export const Logo = () => {
       }
     });
   }, []);
+
+  
   return (
     <div className="logo-div2">
       <div className="logo-div">
@@ -58,8 +64,8 @@ export const Logo = () => {
         <div className="hello-user-div">
           <NavLink className="product-button2" to="/checkout-page">
             <IconButton aria-label="show cart items" className={classes.cart}>
-              <Badge badgeContent={basket?.length} color="secondary">
-                <ShoppingCart fontSize="large" />
+              <Badge badgeContent={basket?.length}  color="secondary">
+                <ShoppingCart fontSize="large"/>
               </Badge>
             </IconButton>
           </NavLink>

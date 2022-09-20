@@ -15,13 +15,13 @@ import { DataAddress } from "../account/DataAddress";
 import { Orders } from "../account/Orders";
 import { Logout } from "../account/Logout";
 import CheckoutForm from "../checkout/checkoutForm/CheckoutForm";
+import { Footer } from "../main/Footer";
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Logo />
 
-     {/*  <Navigate/> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
@@ -38,12 +38,8 @@ export const Router = () => {
         <Route path="/account/:uid/data-address" element={<DataAddress />} />
         <Route path="/account/:uid/orders" element={<Orders />} />
         <Route path="/account/:uid/logout" element={<Logout />} />
-
-
-        
-
-
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 };
