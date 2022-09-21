@@ -23,6 +23,7 @@ export const DataAccount = () => {
   if (user) {
     return (
       <>
+      <MyAccount/>
         <h1 className="user-title">
           Tiene la sesion iniciada con {user.email}
         </h1>

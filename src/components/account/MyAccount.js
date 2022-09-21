@@ -22,6 +22,38 @@ export const MyAccount = () => {
 
   return (
     <>
+      <section className="Myaccount">
+        <div>
+          <div className="header-myaccount">
+            <h1 className="myacc-title">Tu cuenta</h1>
+          </div>
+          <div className="box-content">
+            <nav className="myacc-nav">
+              <ul>
+                <li>
+                  <a>Datos de mi cuenta</a>
+                </li>
+                <li>
+                  <a>Pedidos</a>
+                </li>
+                <li>
+                  <a>Direcciones de envÃ­o</a>
+                </li>
+              </ul>
+            </nav>
+            <section className="data-section">
+              
+            </section>
+            <section className="orders-section">
+              
+            </section>
+            <section className="ship-section">
+              
+            </section>
+          </div>
+        </div>
+      </section>
+
       <div className="user-div">
         
         <div className="user-buttons-div">
@@ -47,3 +79,4 @@ export const MyAccount = () => {
     </>
   );
 };
+

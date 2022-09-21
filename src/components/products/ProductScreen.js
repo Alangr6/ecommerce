@@ -12,9 +12,9 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { getDocs } from "firebase/firestore";
-import { colRef } from "../firebase/Firebase";
-
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import {  colRefProducts, db } from "../firebase/Firebase";
+import { Grid, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -27,29 +27,44 @@ const useStyles = makeStyles((theme) => ({
   card: {
     position: "relative",
     width: "300px",
-    margin: "3rem",
     border: "hidden",
     borderRadius: "10px",
     maxHeight: "600px",
   },
+
+  start: {
+    padding: "3rem",
+  },
 }));
 
-
 export const ProductScreen = () => {
-  
   const [products, setProducts] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [quantity, setQuantity] = useState(0);
+  const [review, setReview] = useState("");
   const classes = useStyles();
   const [{ basket }, dispatch] = useStateValue();
   const params = useParams();
   const product = products.find((p) => p.id == params.id);
 
+  const colRefReviews = collection(db, `products/${params.id}/review`);
+  
+
   useEffect(() => {
     const getProducts = async () => {
-      const data = await getDocs(colRef);
+      const data = await getDocs(colRefProducts);
+
       setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getProducts();
+
+    const getReviews = async () => {
+      const data = await getDocs(colRefReviews)
+
+      setReviews(data.docs.map((doc) => ({ ...doc.data() })));
+    }
+    
+    getReviews()
   }, []);
 
   const addToBasket = () => {
@@ -61,18 +76,28 @@ export const ProductScreen = () => {
         id: product.id,
         image: product.image,
       },
-      
     });
   };
- 
+
+
+ async function addReview() {
+    const collectionRef = collection(db, `products/${product.id}/review`);
+   await addDoc(collectionRef, {
+      review: review,
+    });
+    const inputReview = document.getElementById('input-review');
+    inputReview.value = ''
+    window.location.reload()
+  }
+
   if (!product) {
-    return <h1>No se ha podido cargar el producto</h1>;
+    return <h1>Cargando...</h1>;
   } else {
     return (
       <>
         <div className="all-products-screen">
-          <Card className={classes.card}>
-            <div className="">
+          <div className={classes.start}>
+            <Card className={classes.card}>
               <CardMedia className={classes.media} title="bombona Fastgas">
                 <img
                   className="product-screen-image"
@@ -80,8 +105,32 @@ export const ProductScreen = () => {
                   alt=""
                 />
               </CardMedia>
-            </div>
-          </Card>{" "}
+            </Card>{" "}
+            <NavLink to="/products">
+              <button className="go-back-button">Volver</button>
+            </NavLink>
+            <Grid className={classes.checkout} container spacing={3}>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  id="input-review"
+                  name="input-review"
+                  label="Anade un comentario"
+                  fullWidth
+                  
+                  onChange={(e) => setReview(e.target.value)}
+                  value={review}
+                />
+              </Grid>
+            </Grid>
+            <button id="btn-submit" onClick={addReview} type="submit" className="review-button">
+              Publicar
+            </button>
+            <h3>Comentarios:</h3>
+            {reviews.map((review) => {
+             return <h6>{review.review}</h6>
+            })}
+          </div>
           <div className="product-screen-div">
             <h1 className="product-screen-title">{product.product}</h1>
             <hr />
@@ -138,7 +187,7 @@ export const ProductScreen = () => {
                   </TableRow>
 
                   <TableCell>
-                    <button onClick={addToBasket} className="add-cart-button">
+                    <button  onClick={addToBasket} className="add-cart-button">
                       Anadir al carrito
                     </button>
                   </TableCell>
@@ -147,9 +196,6 @@ export const ProductScreen = () => {
             </TableContainer>
           </div>
         </div>
-        <NavLink to="/products">
-          <button className="go-back-button">Volver</button>
-        </NavLink>
       </>
     );
   }

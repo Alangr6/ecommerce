@@ -5,7 +5,7 @@ import Product from "./Product";
 import {
    getDocs, 
 } from 'firebase/firestore'
-import { colRef, db } from "../firebase/Firebase";
+import { colRefProducts, db } from "../firebase/Firebase";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,14 +21,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FullWidthGrid() {
+export default function Products() {
   const classes = useStyles();
   const [products, setProducts] = useState([])
 
 
   useEffect(() => {
    const getProducts = async () => {
-    const data = await getDocs(colRef)
+    const data = await getDocs(colRefProducts)
     setProducts(data.docs.map((doc) => ({...doc.data(), id:doc.id})))
     
   }

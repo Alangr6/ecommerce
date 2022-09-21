@@ -186,6 +186,7 @@ a{
     background-color:whitesmoke;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 30px;
     font-size: 2.5rem;
 }
@@ -289,8 +290,16 @@ a{
 }
 .go-back-button{
     
-    margin-bottom: 6rem;
-    margin-left: 16.4%;
+    margin: 3rem 0;
+    width: 7rem;
+    height: 2.5rem;
+    background-color: black;
+    color: antiquewhite;
+    border: 0;
+    cursor: pointer;
+}
+.review-button{
+    margin-top: 2rem;
     width: 7rem;
     height: 2.5rem;
     background-color: black;
@@ -787,13 +796,13 @@ hr{
         display: flex;
         flex-direction: column;
         justify-content:space-between;
-        width: 60%;
+        width: 70%;
         padding-top: 0;
-
     }
   .box{
     width: 80%;
     height: 180px;
+    min-width: 197px;
 
   }
   .product-span{
@@ -803,7 +812,7 @@ hr{
     width: 80%;
    }
     .box-and-title{
-        margin: 3.5rem 0 0.5rem 0;
+        margin: 2.5rem 0 0.5rem 0;
 
     }
     .w-btn-label{
@@ -826,9 +835,7 @@ hr{
         margin-bottom:4rem ;
         padding-top: 10px;
     }
-   .title-question{
-    min-width: 200px;
-   }
+  
    .titleProducts{
     padding: 2rem 1rem  0 1rem;
     font-size: 2rem;
