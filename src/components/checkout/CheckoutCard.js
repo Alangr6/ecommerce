@@ -1,12 +1,12 @@
 import React from "react";
-
 import { useStateValue } from "../reducer/StateProvider";
 import { actionTypes } from "../reducer/Reducer";
-
 import TableBody from "@material-ui/core/TableBody";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+
+
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -38,7 +38,6 @@ export default function CheckoutCard({ item }) {
     const elementoYaExiste = acumulador.find(elemento => elemento.id === valorActual.id);
     //console.log(valorActual);
     const klk = [valorActual]
-    console.log(klk);
     if (elementoYaExiste) {
       return acumulador.map((elemento) => {
         if (elemento.id === valorActual.id) {
@@ -55,7 +54,7 @@ export default function CheckoutCard({ item }) {
     return [...acumulador, valorActual];
   }, []);
   
-  // /console.log(miCarritoSinDuplicados);
+  //console.log(miCarritoSinDuplicados);
 
   return (
     <>

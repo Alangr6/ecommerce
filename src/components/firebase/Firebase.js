@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 const db = getFirestore();
-const colRefProducts = collection(db, "products");
+const colRefProducts = collection(db, "products2");
 const auth = getAuth();
 
 export { auth, colRefProducts, db };

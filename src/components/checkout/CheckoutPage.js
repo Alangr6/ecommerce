@@ -32,7 +32,7 @@ export const CheckoutPage = () => {
   const [{ basket }, dispatch] = useStateValue();
   const classes = useStyles();
 
-  function FormRow() {
+  function CheckoutBasketData() {
     if (basket.length == 0) {
       return (
         <h1 className="empty-cart">
@@ -66,7 +66,7 @@ export const CheckoutPage = () => {
   return (
     <div className="checkoutpage">
       <h1 className="checkout-title">Carrito de compra</h1>
-      <FormRow />
+      <CheckoutBasketData />
       <Total />
     </div>
   );

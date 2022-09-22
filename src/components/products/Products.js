@@ -2,48 +2,53 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Product from "./Product";
-import {
-   getDocs, 
-} from 'firebase/firestore'
+import { collection, getDocs } from "firebase/firestore";
 import { colRefProducts, db } from "../firebase/Firebase";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   card: {
-    width: '100%',
-
+    width: "100%",
   },
   main: {
-    display:'grid',
-    placeItems:'center'
-    
+    display: "grid",
+    placeItems: "center",
   },
 }));
 
 export default function Products() {
   const classes = useStyles();
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
+    const getProducts = async () => {
+      const data = await getDocs(colRefProducts);
+     const productos = [];
+      for await (const snap of data.docs) {
+        const product = snap.data();
+        product.id = snap.id;
+        const price = await getDocs(collection(snap.ref, "prices"));
+        product.price = price.docs[0].data();
+        productos.push(product);
+      }
+      return productos
+    };
 
-  useEffect(() => {
-   const getProducts = async () => {
-    const data = await getDocs(colRefProducts)
-    setProducts(data.docs.map((doc) => ({...doc.data(), id:doc.id})))
-    
-  }
-   getProducts()
-  }, [])
-  
-  
+    useEffect(() => {
+      async function getProducts2(){
+        const products2 = await getProducts()
+        setProducts(products2)
+      }
+      getProducts2()
+    },[])
 
-  return (
+    return (
     <div className={classes.main}>
       <Grid container spacing={0}>
         {products.map((product) => {
           return (
-            <Grid item sm={6} md={4}  className={classes.card}>
-              <Product key={product.title} product={product} />
+            <Grid key={product.id} item sm={6} md={4} className={classes.card}>
+              <Product  product={product} />
             </Grid>
           );
         })}
@@ -51,4 +56,3 @@ export default function Products() {
     </div>
   );
 }
-

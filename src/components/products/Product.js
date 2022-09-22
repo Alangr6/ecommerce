@@ -43,22 +43,23 @@ const useStyles = makeStyles((theme) => ({
     maxHeight:'58px',
     display:'flex',
     alignItems:'start',
-    
   }
 }));
 
-export default function Product({ product: { product, price, id, image } }) {
+export default function Product({ product  }) {
   const classes = useStyles();
   const [{ basket }, dispatch] = useStateValue();
+  const price = product.price.unit_amount/100
+  console.log(basket);
 
   const addToBasket = () => {
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
-        product,
-        price,
-        id,
-        image
+        product:product.name,
+        price:price,
+        id:product.id,
+        image:product.images[0]
       },
     });
   };
@@ -69,7 +70,7 @@ export default function Product({ product: { product, price, id, image } }) {
         
         <Card className={classes.card}>
         <div>
-        <NavLink className="products-outlined" to={`/product/${id}`}>
+        <NavLink className="products-outlined" to={`/product/${product.id}`}>
             <CardHeader className={classes.title}
               action={
                 <Typography
@@ -77,17 +78,17 @@ export default function Product({ product: { product, price, id, image } }) {
                   variant="h5"
                   color="textSecondary"
                 >
-                  {accounting.formatMoney(price, "€")}
+                   {accounting.formatMoney(price, "€")} 
                 </Typography>
               }
-              title={product}
+              title={product.name}
               subheader="en Stock"
             />
             <CardMedia
               className={classes.media}
               
               title="bombona Fastgas"
-            ><img className="product-image" src={image} alt="" /></CardMedia>
+            ><img className="product-image" src={product.images[0]} alt="" /></CardMedia>
           </NavLink>
 
         </div>

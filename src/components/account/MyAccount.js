@@ -37,7 +37,7 @@ export const MyAccount = () => {
                   <a>Pedidos</a>
                 </li>
                 <li>
-                  <a>Direcciones de envÃ­o</a>
+                  <a>Direcciones de envio</a>
                 </li>
               </ul>
             </nav>

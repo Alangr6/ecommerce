@@ -13,7 +13,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import {  colRefProducts, db } from "../firebase/Firebase";
+import { colRefProducts, db } from "../firebase/Firebase";
 import { Grid, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,55 +39,67 @@ const useStyles = makeStyles((theme) => ({
 
 export const ProductScreen = () => {
   const [products, setProducts] = useState([]);
+  const [prices, setPrices] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [quantity, setQuantity] = useState(0);
   const [review, setReview] = useState("");
   const classes = useStyles();
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   const params = useParams();
   const product = products.find((p) => p.id == params.id);
 
-  const colRefReviews = collection(db, `products/${params.id}/review`);
-  
+  const colRefReviews = collection(db, `products2/${params.id}/review`);
+  const colRefPrices = collection(db, `products2/${params.id}/prices`);
 
   useEffect(() => {
     const getProducts = async () => {
       const data = await getDocs(colRefProducts);
+      const dataPrice = await getDocs(colRefPrices);
 
       setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setPrices(dataPrice.docs.map((doc) => ({ ...doc.data() })));
     };
     getProducts();
 
     const getReviews = async () => {
-      const data = await getDocs(colRefReviews)
+      const dataReviews = await getDocs(colRefReviews);
 
-      setReviews(data.docs.map((doc) => ({ ...doc.data() })));
-    }
-    
-    getReviews()
+      setReviews(dataReviews.docs.map((doc) => ({ ...doc.data() })));
+    };
+
+    getReviews();
   }, []);
 
   const addToBasket = () => {
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
-        product: product.product,
-        price: product.price,
+        product: product.name,
+        price: prices[0].unit_amount,
         id: product.id,
-        image: product.image,
+        image: product.images[0],
       },
     });
   };
 
+  const inputReview = document.getElementById("input-review");
+  var date = new Date();
+  var currentDate =
+    date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
 
- async function addReview() {
-    const collectionRef = collection(db, `products/${product.id}/review`);
-   await addDoc(collectionRef, {
-      review: review,
-    });
-    const inputReview = document.getElementById('input-review');
-    inputReview.value = ''
-    window.location.reload()
+  async function addReview() {
+    if (inputReview.value.trim().length === 0) {
+      return null;
+    } else {
+      const collectionRef = collection(db, `products/${product.id}/review`);
+      await addDoc(collectionRef, {
+        review: review,
+        userEmail: user.email,
+        date: currentDate,
+      });
+      inputReview.value = "";
+      window.location.reload();
+    }
   }
 
   if (!product) {
@@ -101,7 +113,7 @@ export const ProductScreen = () => {
               <CardMedia className={classes.media} title="bombona Fastgas">
                 <img
                   className="product-screen-image"
-                  src={product.image}
+                  src={product.images[0]}
                   alt=""
                 />
               </CardMedia>
@@ -117,30 +129,35 @@ export const ProductScreen = () => {
                   name="input-review"
                   label="Anade un comentario"
                   fullWidth
-                  
                   onChange={(e) => setReview(e.target.value)}
                   value={review}
                 />
               </Grid>
             </Grid>
-            <button id="btn-submit" onClick={addReview} type="submit" className="review-button">
+            <button
+              id="btn-submit"
+              onClick={addReview}
+              type="submit"
+              className="review-button"
+            >
               Publicar
             </button>
             <h3>Comentarios:</h3>
             {reviews.map((review) => {
-             return <h6>{review.review}</h6>
+              return (
+                <div>
+                  <p>
+                    <strong>{review.userEmail}</strong> : {review.review}
+                  </p>
+                  <p>{review.date}</p>
+                </div>
+              );
             })}
           </div>
           <div className="product-screen-div">
-            <h1 className="product-screen-title">{product.product}</h1>
+            <h1 className="product-screen-title">{product.name}</h1>
             <hr />
-            <div className="product-screen-stars">
-              {Array(5)
-                .fill()
-                .map((_, i) => (
-                  <p>&#11088;</p>
-                ))}
-            </div>
+
             <hr />
 
             <p className="product-screen-description">
@@ -149,15 +166,20 @@ export const ProductScreen = () => {
             </p>
           </div>
           <div className="product-table-screen">
-            <TableContainer component={Paper}>
-              <Table className={classes.table} aria-label="simple table">
+            <TableContainer className={classes.table} component={Paper}>
+              <Table aria-label="simple table">
                 <TableBody>
                   <TableRow key={product.id}>
                     <TableCell component="th" scope="row">
                       Precio:
                     </TableCell>
                     <TableCell align="right">
-                      {accounting.formatMoney(product.price, "€")}
+                      {prices.map((price) => {
+                        return accounting.formatMoney(
+                          price.unit_amount / 100,
+                          "€"
+                        );
+                      })}
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -185,12 +207,13 @@ export const ProductScreen = () => {
                       </select>{" "}
                     </TableCell>
                   </TableRow>
-
-                  <TableCell>
-                    <button  onClick={addToBasket} className="add-cart-button">
-                      Anadir al carrito
-                    </button>
-                  </TableCell>
+                  <TableRow>
+                    <TableCell>
+                      <button onClick={addToBasket} className="add-cart-button">
+                        Anadir al carrito
+                      </button>
+                    </TableCell>
+                  </TableRow>
                 </TableBody>
               </Table>
             </TableContainer>

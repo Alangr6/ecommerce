@@ -64,10 +64,10 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { name: name, lastname: lastname, email: email };
+    const data = { name: name, lastname: lastname };
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (auth) => {
-        const dbRef = doc(db, "users", auth.user.uid);
+        const dbRef = doc(db, "customers", auth.user.uid);
         console.log(auth.user.uid);
         const docRef = await setDoc(dbRef, data);
         navigate("/");

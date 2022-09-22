@@ -59,12 +59,12 @@ export const Logo = () => {
           className="product-button2"
           to={!user ? "login" : `/account/${user.uid}/data-account`}
         >
-          <button className="product-button"><i class="fa-solid fa-circle-user fa-1x"></i></button>
+          <button className="product-button"><i className="fa-solid fa-circle-user fa-1x"></i></button>
         </NavLink>
         <div className="hello-user-div">
           <NavLink className="product-button2" to="/checkout-page">
             <IconButton aria-label="show cart items" className={classes.cart}>
-              <Badge badgeContent={basket?.length}  color="secondary">
+              <Badge overlap="rectangular" badgeContent={basket?.length}  color="secondary">
                 <ShoppingCart fontSize="large"/>
               </Badge>
             </IconButton>

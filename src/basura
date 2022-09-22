@@ -144,3 +144,11 @@ case "ADD_TO_BASKET":{
   </Grid>
   
 </Grid> */}
+////////////////////////////
+<div className="product-screen-stars">
+  {Array(5)
+    .fill()
+    .map((_, i) => (
+      <p>&#11088;</p>
+    ))}
+</div>
