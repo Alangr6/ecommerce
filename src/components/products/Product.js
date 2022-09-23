@@ -50,7 +50,6 @@ export default function Product({ product  }) {
   const classes = useStyles();
   const [{ basket }, dispatch] = useStateValue();
   const price = product.price.unit_amount/100
-  console.log(basket);
 
   const addToBasket = () => {
     dispatch({

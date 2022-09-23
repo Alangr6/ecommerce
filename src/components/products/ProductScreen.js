@@ -91,7 +91,7 @@ export const ProductScreen = () => {
     if (inputReview.value.trim().length === 0) {
       return null;
     } else {
-      const collectionRef = collection(db, `products/${product.id}/review`);
+      const collectionRef = collection(db, `products2/${product.id}/review`);
       await addDoc(collectionRef, {
         review: review,
         userEmail: user.email,

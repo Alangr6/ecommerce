@@ -71,7 +71,6 @@ export default function CheckoutForm() {
       });
     }
   }
-  const navigate = useNavigate('/products')
   if(basket.length == 0 ){
    return <Products/>
   }else {

@@ -10,7 +10,7 @@ export const DataAccount = () => {
   const [userData, setUserData] = useState("");
 
   if (user) {
-    const docRef = doc(db, "users", user.uid);
+    const docRef = doc(db, `customers`, user.uid);
     getDoc(docRef)
       .then((doc) => {
         //console.log(doc.data(),doc.id);
@@ -27,6 +27,7 @@ export const DataAccount = () => {
         <h1 className="user-title">
           Tiene la sesion iniciada con {user.email}
         </h1>
+        <h1>nombre:{userData.name}</h1>
         <Logout/>
       </>
     );

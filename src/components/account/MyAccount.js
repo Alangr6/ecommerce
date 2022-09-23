@@ -9,7 +9,7 @@ export const MyAccount = () => {
   const [userData, setUserData] = useState("");
 
  
-
+/* 
   if (user) {
     const docRef = doc(db, "users", user.uid);
     getDoc(docRef)
@@ -17,8 +17,8 @@ export const MyAccount = () => {
         //console.log(doc.data(),doc.id);
         setUserData(doc.data());
       })
-      .catch((err) => console.log(err.message));
-  }
+      //.catch((err) => console.log(err.message));
+  } */
 
   return (
     <>
