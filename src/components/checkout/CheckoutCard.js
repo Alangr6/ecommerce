@@ -34,27 +34,8 @@ export default function CheckoutCard({ item }) {
       id: item.id,
     });
 
-  const miCarritoSinDuplicados = basket.reduce((acumulador, valorActual) => {
-    const elementoYaExiste = acumulador.find(elemento => elemento.id === valorActual.id);
-    //console.log(valorActual);
-    const klk = [valorActual]
-    if (elementoYaExiste) {
-      return acumulador.map((elemento) => {
-        if (elemento.id === valorActual.id) {
-          return {
-            ...elemento,
-            cantidad: elemento.cantidad + valorActual.cantidad
-          }
-        }
-  
-        return elemento;
-      });
-    }
-  
-    return [...acumulador, valorActual];
-  }, []);
-  
-  //console.log(miCarritoSinDuplicados);
+
+  console.log(item);
 
   return (
     <>
@@ -65,6 +46,7 @@ export default function CheckoutCard({ item }) {
             <img className="checkout-image" src={item.image} />{" "}
           </StyledTableCell>
 
+          <StyledTableCell align="left">{item.count}</StyledTableCell>
           <StyledTableCell align="left">{item.product}</StyledTableCell>
           <StyledTableCell align="left">{item.price}$</StyledTableCell>
           <StyledTableCell align="left">

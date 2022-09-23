@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CheckoutCard from "./CheckoutCard";
 import { Total } from "./Total";
 import { useStateValue } from "../reducer/StateProvider";
@@ -30,7 +30,28 @@ const useStyles = makeStyles({
 
 export const CheckoutPage = () => {
   const [{ basket }, dispatch] = useStateValue();
+  const [basketCart, setBasketCart] = useState([]);
   const classes = useStyles();
+
+
+  useEffect(() => {
+    setBasketCart(() => {
+      const newBasket = [];
+      basket.forEach(b => {
+        const item = newBasket.find(bi => bi.product === b.product)
+        if (item) {
+          item.count += 1;
+        } else {
+          newBasket.push({
+            ...b,
+            count: 1
+          });
+        }
+      })
+      console.log(newBasket)
+      return newBasket;
+    });
+  }, [])
 
   function CheckoutBasketData() {
     if (basket.length == 0) {
@@ -47,13 +68,14 @@ export const CheckoutPage = () => {
               <TableHead>
                 <TableRow>
                   <StyledTableCell></StyledTableCell>
+                  <StyledTableCell>Cantidad</StyledTableCell>
                   <StyledTableCell>Producto</StyledTableCell>
                   <StyledTableCell>Precio</StyledTableCell>
                   <StyledTableCell></StyledTableCell>
                 </TableRow>
               </TableHead>
 
-              {basket?.map((item) => (
+              {basketCart?.map((item) => (
                 <CheckoutCard  item={item} />
               ))}
             </Table>

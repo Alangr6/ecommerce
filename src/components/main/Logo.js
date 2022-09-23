@@ -27,7 +27,6 @@ export const Logo = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log();
       if (authUser) {
         dispatch({
           type: actionTypes.SET_USER,
