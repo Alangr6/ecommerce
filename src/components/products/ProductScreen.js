@@ -63,13 +63,11 @@ export const ProductScreen = () => {
 
     const getReviews = async () => {
       const dataReviews = await getDocs(colRefReviews);
-
       setReviews(dataReviews.docs.map((doc) => ({ ...doc.data() })));
     };
 
     getReviews();
   }, []);
-
   const addToBasket = () => {
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
@@ -78,6 +76,7 @@ export const ProductScreen = () => {
         price: prices[0].unit_amount,
         id: product.id,
         image: product.images[0],
+        priceId: product.priceId,
       },
     });
   };

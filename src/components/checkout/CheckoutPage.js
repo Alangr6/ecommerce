@@ -51,7 +51,7 @@ export const CheckoutPage = () => {
       console.log(newBasket)
       return newBasket;
     });
-  }, [])
+  }, [basket])
 
   function CheckoutBasketData() {
     if (basket.length == 0) {

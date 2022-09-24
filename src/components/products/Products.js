@@ -29,6 +29,7 @@ export default function Products() {
         product.id = snap.id;
         const price = await getDocs(collection(snap.ref, "prices"));
         product.price = price.docs[0].data();
+        product.priceId = price.docs[0].id
         productos.push(product);
       }
       return productos
@@ -41,7 +42,7 @@ export default function Products() {
       }
       getProducts2()
     },[])
-
+    
     return (
     <div className={classes.main}>
       <Grid container spacing={0}>

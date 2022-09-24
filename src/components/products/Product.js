@@ -58,11 +58,12 @@ export default function Product({ product  }) {
         product:product.name,
         price:price,
         id:product.id,
-        image:product.images[0]
+        image:product.images[0],
+        priceId:product.priceId
       },
     });
   };
-
+  //console.log(product);
   return (
     <>
       <div className="all-products2">

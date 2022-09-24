@@ -28,6 +28,7 @@ export const reducer = (state, action) => {
         if(index>=0){
             newBasket.splice(index,1)
         } 
+     
       return {
        ...state,
        basket:newBasket

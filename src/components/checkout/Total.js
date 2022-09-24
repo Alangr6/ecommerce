@@ -1,5 +1,5 @@
 import accounting from "accounting";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import React from "react";
 import { Link } from "react-router-dom";
 import { db } from "../firebase/Firebase";
@@ -12,40 +12,46 @@ export const Total = () => {
     ?.map((item) => item.price)
     .reduce((amount, item) => amount + item, 0);
 
-  function createCheckoutSession(uid) {
-
-    const collectionRef = collection(db, `customer/${uid}/checkout_sessions`);
-    addDoc(collectionRef, {
+ async function createCheckoutSession() {
+    const collectionRef = collection(
+      db,
+      `customers/${user.uid}/checkout_sessions`
+    );
+ const {id} = await addDoc(collectionRef, {
       mode: "payment",
       success_url: window.location.origin,
       cancel_url: window.location.origin,
       collect_shipping_address: true,
-      line_items: {
-        basket: basket.map((item) => item.product),
-        price: totalAmount,
-      },
+      line_items: basket.map((item) => {
+         return { 
+        quantity:1,
+        price: item.priceId,
+        }}),
     });
+    const cancelStreaming = onSnapshot(doc(db,`customers/${user.uid}/checkout_sessions/${id}`),
+      (snapshot) => {
+        let url = snapshot.data().url
+        if(url){
+          cancelStreaming()
+          window.location.href = url
+        }
+      }
+    )
   }
 
- 
-    return (
-      <>
-        <div className="checkout-div">
-          <div className="total-div">
-            <h3>Numero de productos: {basket?.length}</h3>
-            <h3>Total: {accounting.formatMoney(totalAmount, "$")}</h3>
-          </div>
-          <div className="total-div">
-            {}
-            <button
-              onClick={createCheckoutSession}
-              className="form-button"
-            >
-              Checkout
-            </button>
-          </div>
+  return (
+    <>
+      <div className="checkout-div">
+        <div className="total-div">
+          <h3>Numero de productos: {basket?.length}</h3>
+          <h3>Total: {accounting.formatMoney(totalAmount, "$")}</h3>
         </div>
-      </>
-    );
-  
+        <div className="total-div">
+          <button onClick={createCheckoutSession} className="form-button">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </>
+  );
 };

@@ -5,7 +5,7 @@ import TableBody from "@material-ui/core/TableBody";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-
+import { useEffect } from "react";
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -27,26 +27,27 @@ const StyledTableCell = withStyles((theme) => ({
 
 export default function CheckoutCard({ item }) {
   const [{ basket }, dispatch] = useStateValue();
+  
 
-  const removeItem = () =>
-    dispatch({
-      type: actionTypes.REMOVE_ITEM,
-      id: item.id,
-    });
+  const removeItem = () => {
+ 
+      dispatch({
+        type: actionTypes.REMOVE_ITEM,
+        id: item.id,
+      });
+  
+  };
 
-
-  console.log(item);
 
   return (
     <>
       <TableBody>
-        <StyledTableRow >
-          {item.quantity}
+        <StyledTableRow>
           <StyledTableCell align="center">
             <img className="checkout-image" src={item.image} />{" "}
           </StyledTableCell>
 
-          <StyledTableCell align="left">{item.count}</StyledTableCell>
+          <StyledTableCell align="left">{item.count == 0 ? null : item.count}</StyledTableCell>
           <StyledTableCell align="left">{item.product}</StyledTableCell>
           <StyledTableCell align="left">{item.price}$</StyledTableCell>
           <StyledTableCell align="left">
