@@ -10,7 +10,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -29,29 +28,28 @@ const useStyles = makeStyles({
 });
 
 export const CheckoutPage = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   const [basketCart, setBasketCart] = useState([]);
   const classes = useStyles();
-
 
   useEffect(() => {
     setBasketCart(() => {
       const newBasket = [];
-      basket.forEach(b => {
-        const item = newBasket.find(bi => bi.product === b.product)
+      basket.forEach((b) => {
+        const item = newBasket.find((bi) => bi.product === b.product);
         if (item) {
           item.count += 1;
         } else {
           newBasket.push({
             ...b,
-            count: 1
+            count: 1,
           });
         }
-      })
-      console.log(newBasket)
+      });
+      console.log(newBasket);
       return newBasket;
     });
-  }, [basket])
+  }, [basket]);
 
   function CheckoutBasketData() {
     if (basket.length == 0) {
@@ -62,25 +60,36 @@ export const CheckoutPage = () => {
       );
     } else {
       return (
-        <div className="table-container">
-          <TableContainer className={classes.tableContainer} component={Paper}>
-            <Table className={classes.table} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell></StyledTableCell>
-                  <StyledTableCell>Cantidad</StyledTableCell>
-                  <StyledTableCell>Producto</StyledTableCell>
-                  <StyledTableCell>Precio</StyledTableCell>
-                  <StyledTableCell></StyledTableCell>
-                </TableRow>
-              </TableHead>
+        <>
+          <h1 className="center">
+            {!user
+              ? "Necesita iniciar sesion para proceder al metodo de pago"
+              : ""}
+          </h1>
 
-              {basketCart?.map((item,index) => (
-                <CheckoutCard key={index} item={item} />
-              ))}
-            </Table>
-          </TableContainer>
-        </div>
+          <div className="table-container">
+            <TableContainer
+              className={classes.tableContainer}
+              component={Paper}
+            >
+              <Table className={classes.table} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell></StyledTableCell>
+                    <StyledTableCell>Cantidad</StyledTableCell>
+                    <StyledTableCell>Producto</StyledTableCell>
+                    <StyledTableCell>Precio</StyledTableCell>
+                    <StyledTableCell></StyledTableCell>
+                  </TableRow>
+                </TableHead>
+
+                {basketCart?.map((item, index) => (
+                  <CheckoutCard key={index} item={item} />
+                ))}
+              </Table>
+            </TableContainer>
+          </div>
+        </>
       );
     }
   }
@@ -93,4 +102,3 @@ export const CheckoutPage = () => {
     </div>
   );
 };
-

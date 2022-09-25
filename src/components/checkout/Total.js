@@ -11,6 +11,10 @@ export const Total = () => {
   const totalAmount = basket
     ?.map((item) => item.price)
     .reduce((amount, item) => amount + item, 0);
+    let date = new Date();
+    let currentDate =
+      date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+  
 
  async function createCheckoutSession() {
     const collectionRef = collection(
@@ -27,6 +31,7 @@ export const Total = () => {
         quantity:1,
         price: item.priceId,
         }}),
+        date:currentDate
     });
     const cancelStreaming = onSnapshot(doc(db,`customers/${user.uid}/checkout_sessions/${id}`),
       (snapshot) => {

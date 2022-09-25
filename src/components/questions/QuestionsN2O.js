@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
+  paragraph:{
+    display:'flex',
+    width:'fitContent',
+  }
   
 }));
 
@@ -38,7 +42,8 @@ console.log(question);
      <div className="all-questions">
       <Card>
         <div className="questions">
-          <CardHeader title={question.title} className='question' />
+          <h5 className={'question'} >{question.title}</h5>
+            
           <CardActions disableSpacing>
             <IconButton
               className={clsx(classes.expand, {
@@ -55,7 +60,7 @@ console.log(question);
 
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>
+            <Typography >
              {question.parragraph}
             </Typography>
         

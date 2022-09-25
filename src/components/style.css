@@ -413,19 +413,18 @@ hr{
 
 .all-questions{
     padding: 1rem 10%;
+    
 
 }
 .questions{
     display: flex;
     justify-content: space-between;
-    height: 100%;
+    
     align-items: center;
 }
 .question{
-   font-style: italic;
-   font-weight: bolder;
-   
-    
+    font-size: 160%;
+    padding-left: 1%;
 }
 .question-title{
     display: flex;
@@ -846,6 +845,10 @@ hr{
     justify-content: center;
     align-items: center;
 
+}
+.question{
+    font-size: 100%;
+padding-left: 10px;
 }
     .question-paragraph{
         font-size: 20px;

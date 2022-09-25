@@ -83,8 +83,8 @@ export const ProductScreen = () => {
   };
 
   const inputReview = document.getElementById("input-review");
-  var date = new Date();
-  var currentDate =
+  let date = new Date();
+  let currentDate =
     date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
 
   async function addReview() {

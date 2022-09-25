@@ -27,7 +27,7 @@ export const Home = () => {
           <div className="box-and-title">
             <NavLink
               className="product-span"
-              to="/product/cvXLf92YuqNLo9JVmcy8"
+              to="/product/prod_MTl1i3yl80nzmO"
             >
               <div className="box">
                 <img
@@ -42,7 +42,7 @@ export const Home = () => {
           <div className="box-and-title">
             <NavLink
               className="product-span"
-              to="/product/fLjvKXhzYMJfnpPaPMXv"
+              to="/product/prod_MTl3O3fyS1aBHI"
             >
               <div className="box">
                 <img

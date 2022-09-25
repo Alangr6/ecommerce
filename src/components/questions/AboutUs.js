@@ -38,7 +38,7 @@ console.log(question);
      <div className="all-questions">
       <Card>
         <div className="questions">
-          <CardHeader title={question.title} className='question' />
+        <h5 className={'question'} >{question.title}</h5>
           <CardActions disableSpacing>
             <IconButton
               className={clsx(classes.expand, {
