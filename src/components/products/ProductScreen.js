@@ -41,7 +41,7 @@ export const ProductScreen = () => {
   const [products, setProducts] = useState([]);
   const [prices, setPrices] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [review, setReview] = useState("");
   const classes = useStyles();
   const [{ basket, user }, dispatch] = useStateValue();
@@ -77,6 +77,7 @@ export const ProductScreen = () => {
         id: product.id,
         image: product.images[0],
         priceId: product.priceId,
+        count:quantity
       },
     });
   };
@@ -100,7 +101,7 @@ export const ProductScreen = () => {
       window.location.reload();
     }
   }
-
+console.log(quantity);
   if (!product) {
     return <h1>Cargando...</h1>;
   } else {
@@ -144,7 +145,7 @@ export const ProductScreen = () => {
             <h3>Comentarios:</h3>
             {reviews.map((review) => {
               return (
-                <div>
+                <div key={review.review}>
                   <p>
                     <strong>{review.userEmail}</strong> : {review.review}
                   </p>

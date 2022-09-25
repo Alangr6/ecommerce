@@ -36,29 +36,70 @@ export const DataAccount = () => {
       }
     }
     getPayments();
-  }, []);
+  }, [user]);
   //console.log(orders); bucle infinito
   //console.log(userData);
-
- 
-  
+  const recipes = [
+    {
+      id: 716429,
+      title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
+      image: "<https://spoonacular.com/recipeImages/716429-312x231.jpg>",
+      dishTypes: [
+        {
+          name: "lunch",
+          name2: "main course",
+          name3: "main dish",
+          name4: "dinner",
+        },
+        {
+          name: "lunch2",
+          name2: "main 2course",
+          name3: "main 2dish",
+          name4: "dinner2",
+        },
+      ],
+      recipe: {
+        // recipe data
+      },
+    },
+  ];
   if (user) {
     return (
       <>
-        <MyAccount />
         <h1 className="user-title">
           Tiene la sesion iniciada con {user.email}
         </h1>
         <h1>nombre:{userData.name}</h1>
-     {/*    {orders ? 
-          orders.map((order) => {
-            return (
-              <div>
-                <h1>{order.amount/100}</h1>
-                <h2>{order.items}</h2>
-              </div>
-            );
-          }):''} */}
+        <div className="center">
+          <h1>Pedidos realizados:</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>N Pedido</th>
+
+                <th>productos</th>
+                <th>Precio total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => {
+                return (
+                  <tr>
+                    <td></td>
+                    <td>
+                      {order.items
+                        ? order.items.map((item) => {
+                            return <p>{item.description}</p>;
+                          })
+                        : ""}
+                    </td>
+                    <td>{order.amount / 100}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </>
     );
   } else {

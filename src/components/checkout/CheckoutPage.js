@@ -75,8 +75,8 @@ export const CheckoutPage = () => {
                 </TableRow>
               </TableHead>
 
-              {basketCart?.map((item) => (
-                <CheckoutCard  item={item} />
+              {basketCart?.map((item,index) => (
+                <CheckoutCard key={index} item={item} />
               ))}
             </Table>
           </TableContainer>
