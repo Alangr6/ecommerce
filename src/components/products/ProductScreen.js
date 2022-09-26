@@ -55,31 +55,27 @@ export const ProductScreen = () => {
     const getProducts = async () => {
       const data = await getDocs(colRefProducts);
       const dataPrice = await getDocs(colRefPrices);
+      const dataReviews = await getDocs(colRefReviews);
 
       setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setPrices(dataPrice.docs.map((doc) => ({ ...doc.data() })));
-    };
-    getProducts();
-
-    const getReviews = async () => {
-      const dataReviews = await getDocs(colRefReviews);
       setReviews(dataReviews.docs.map((doc) => ({ ...doc.data() })));
     };
-
-    getReviews();
+    getProducts();
   }, []);
   const addToBasket = () => {
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
         product: product.name,
-        price: prices[0].unit_amount,
+        price: prices[0].unit_amount/100,
         id: product.id,
         image: product.images[0],
         priceId: product.priceId,
         count:quantity
       },
     });
+
   };
 
   const inputReview = document.getElementById("input-review");
@@ -176,7 +172,7 @@ console.log(quantity);
                     <TableCell align="right">
                       {prices.map((price) => {
                         return accounting.formatMoney(
-                          price.unit_amount / 100,
+                          price.unit_amount/100,
                           "€"
                         );
                       })}

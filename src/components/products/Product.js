@@ -12,6 +12,7 @@ import accounting from "accounting";
 import { actionTypes } from "../reducer/Reducer";
 import { useStateValue } from "../reducer/StateProvider";
 import { NavLink } from "react-router-dom";
+import { basketItems } from "../account/FecthData";
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -59,11 +60,18 @@ export default function Product({ product  }) {
         price:price,
         id:product.id,
         image:product.images[0],
-        priceId:product.priceId
+        priceId:product.priceId,
+        count:1
       },
     });
+ 
+    
   };
-  //console.log(product);
+    //console.log(product);
+
+  let basketItemsArray = JSON.stringify(basket) 
+  localStorage.setItem('basketItems',basketItemsArray)
+  console.log(basketItems);
   return (
     <>
       <div className="all-products2">

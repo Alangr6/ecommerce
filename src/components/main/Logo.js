@@ -6,6 +6,7 @@ import { auth } from "../firebase/Firebase";
 import { actionTypes } from "../reducer/Reducer";
 import { Badge, IconButton, makeStyles } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
+import { basketItems } from "../account/FecthData";
 
 const useStyles = makeStyles((theme) => ({
   cart: {

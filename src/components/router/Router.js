@@ -14,7 +14,6 @@ import { DataAccount } from "../account/DataAccount";
 import { DataAddress } from "../account/DataAddress";
 import { Orders } from "../account/Orders";
 import { Logout } from "../account/Logout";
-import CheckoutForm from "../checkout/checkoutForm/CheckoutForm";
 import { Footer } from "../main/Footer";
 
 export const Router = () => {
@@ -31,7 +30,6 @@ export const Router = () => {
         <Route path="login" element={<SignIn />} />
         <Route path="questions" element={<AllQuestions />} />
         <Route path="checkout-page" element={<CheckoutPage />} />
-        <Route path="checkout" element={<CheckoutForm />} />
         <Route path="/product/:id" element={<ProductScreen />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/account/:uid/data-account" element={<DataAccount />} />

@@ -1,7 +1,8 @@
+import { basketItems } from "../account/FecthData";
 
 
 export const initialState = {
-  basket: [],
+  basket: basketItems? basketItems : [],
   user: null,
 };
 

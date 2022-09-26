@@ -6,6 +6,7 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import { useEffect } from "react";
+import { basketItems } from "../account/FecthData";
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -30,14 +31,13 @@ export default function CheckoutCard({ item }) {
   
 
   const removeItem = () => {
- 
       dispatch({
         type: actionTypes.REMOVE_ITEM,
         id: item.id,
+        
       });
-  
   };
-
+console.log(item.id);
 
   return (
     <>
