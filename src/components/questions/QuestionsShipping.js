@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 export default function QuestionsShipping({question}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-console.log(question);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };

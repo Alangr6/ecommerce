@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/Firebase';
 import { actionTypes } from '../reducer/Reducer';
 import { useStateValue } from '../reducer/StateProvider';
-import { MyAccount } from './MyAccount'
 
 export const Logout = () => {
     const [{ user }, dispatch] = useStateValue();

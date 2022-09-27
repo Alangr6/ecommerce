@@ -1,14 +1,23 @@
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase/Firebase";
 import { useStateValue } from "../reducer/StateProvider";
 import { Logout } from "./Logout";
-import { MyAccount } from "./MyAccount";
 
 export const DataAccount = () => {
   const [{ user }] = useStateValue();
   const [userData, setUserData] = useState("");
   const [orders, setOrders] = useState([]);
+  const [numberItems, setNumberItems] = useState([]);
+  const [alan, setAlan] = useState([]);
+
 
   if (user) {
     const docRef = doc(db, `customers/${user.uid}`);
@@ -22,7 +31,10 @@ export const DataAccount = () => {
 
   const getOrders = async (uid) => {
     const collectionRefOrders = collection(db, `customers/${uid}/payments`);
-    const paidOrders = query(collectionRefOrders, where('status', '==', 'succeeded'))
+    const paidOrders = query(
+      collectionRefOrders,
+      where("status", "==", "succeeded")
+    );
     const snaps = await getDocs(paidOrders);
     const payments = snaps.docs.map((snap) => snap.data());
     console.log(payments);
@@ -40,11 +52,18 @@ export const DataAccount = () => {
   }, [user]);
   //console.log(orders); bucle infinito
   //console.log(userData);
-  let time = new Date().getTime(); // get your number
-  let numDate= new Date(time);
-//  console.log(numDate);
 
-  //console.log(time);
+  useEffect(() => {
+    setAlan(() => {
+      orders.map((order) => {
+        order.items.map((item) => {
+          setNumberItems(item.description);
+        });
+      });
+    })
+      
+  }, []);
+//console.log(numberItems);
   if (user) {
     return (
       <>
@@ -61,24 +80,22 @@ export const DataAccount = () => {
                   <th>productos</th>
                   <th>Precio total</th>
                   <th>Pago</th>
-
                 </tr>
               </thead>
               <tbody>
-                {orders.map((order) => {
+                {orders.map((order, index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td></td>
                       <td>
                         {order.items
-                          ? order.items.map((item) => {
-                              return <p>{item.description}</p>;
+                          ? order.items.map((item, index) => {
+                              return <p key={index}>{item.description}</p>;
                             })
                           : ""}
                       </td>
                       <td>{order.amount / 100}</td>
                       <td>Completado</td>
-                    
                     </tr>
                   );
                 })}

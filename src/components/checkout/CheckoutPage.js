@@ -9,7 +9,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { basketItems } from "../account/FecthData";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -29,7 +28,7 @@ const useStyles = makeStyles({
 });
 
 export const CheckoutPage = () => {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
   const [basketCart, setBasketCart] = useState([]);
   const classes = useStyles();
 
@@ -51,9 +50,8 @@ export const CheckoutPage = () => {
       return newBasket;
     });
   }, [basket]);
-
   function CheckoutBasketData() {
-    if (basket.length == 0) {
+    if (basket.length === 0) {
       return (
         <h1 className="empty-cart">
           Su carrito se encuentra actualmente vacio
@@ -85,7 +83,7 @@ export const CheckoutPage = () => {
                 </TableHead>
 
                 {basketCart?.map((item, index) => (
-                  <CheckoutCard key={index} item={item} />
+                  <CheckoutCard  key={index} item={item} />
                 ))}
               </Table>
             </TableContainer>

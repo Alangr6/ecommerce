@@ -68,16 +68,18 @@ export const ProductScreen = () => {
       type: actionTypes.ADD_TO_BASKET,
       item: {
         product: product.name,
-        price: prices[0].unit_amount/100,
+        price: prices[0].unit_amount / 100,
         id: product.id,
         image: product.images[0],
         priceId: product.priceId,
-        count:quantity
+        count: quantity,
       },
     });
-
   };
 
+  let basketItemsArray = JSON.stringify(basket);
+  localStorage.setItem("basketItems", basketItemsArray);
+  
   const inputReview = document.getElementById("input-review");
   let date = new Date();
   let currentDate =
@@ -97,7 +99,7 @@ export const ProductScreen = () => {
       window.location.reload();
     }
   }
-console.log(quantity);
+  console.log(quantity);
   if (!product) {
     return <h1>Cargando...</h1>;
   } else {
@@ -172,7 +174,7 @@ console.log(quantity);
                     <TableCell align="right">
                       {prices.map((price) => {
                         return accounting.formatMoney(
-                          price.unit_amount/100,
+                          price.unit_amount / 100,
                           "€"
                         );
                       })}

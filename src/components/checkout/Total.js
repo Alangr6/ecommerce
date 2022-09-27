@@ -1,7 +1,6 @@
 import accounting from "accounting";
 import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import React from "react";
-import { Link } from "react-router-dom";
 import { db } from "../firebase/Firebase";
 import { useStateValue } from "../reducer/StateProvider";
 
@@ -21,7 +20,7 @@ export const Total = () => {
       db,
       `customers/${user.uid}/checkout_sessions`
     );
- const {id} = await addDoc(collectionRef, {
+ let {id} = await addDoc(collectionRef, {
       mode: "payment",
       success_url: window.location.origin,
       cancel_url: window.location.origin,
@@ -33,7 +32,7 @@ export const Total = () => {
         }}),
         date:currentDate
     });
-    const cancelStreaming = onSnapshot(doc(db,`customers/${user.uid}/checkout_sessions/${id}`),
+    const cancelStreaming =  onSnapshot(doc(db, `customers/${user.uid}/checkout_sessions/${id}`),
       (snapshot) => {
         let url = snapshot.data().url
         if(url){

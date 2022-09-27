@@ -2,11 +2,10 @@ import React from "react";
 import { useStateValue } from "../reducer/StateProvider";
 import { actionTypes } from "../reducer/Reducer";
 import TableBody from "@material-ui/core/TableBody";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import { useEffect } from "react";
-import { basketItems } from "../account/FecthData";
+
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -36,18 +35,21 @@ export default function CheckoutCard({ item }) {
         id: item.id,
         
       });
+        localStorage.removeItem('basketItems');
+      
   };
-console.log(item.id);
+  localStorage.setItem('basketItems', JSON.stringify(basket));
+
 
   return (
     <>
       <TableBody>
         <StyledTableRow>
           <StyledTableCell align="center">
-            <img className="checkout-image" src={item.image} />{" "}
+            <img className="checkout-image" alt={`${item.product}foto`} src={item.image} />{" "}
           </StyledTableCell>
 
-          <StyledTableCell align="left">{item.count == 0 ? null : item.count}</StyledTableCell>
+          <StyledTableCell align="left">{item.count === 0 ? null : item.count}</StyledTableCell>
           <StyledTableCell align="left">{item.product}</StyledTableCell>
           <StyledTableCell align="left">{item.price}$</StyledTableCell>
           <StyledTableCell align="left">

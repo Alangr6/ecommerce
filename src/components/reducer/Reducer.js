@@ -1,4 +1,4 @@
-import { basketItems } from "../account/FecthData";
+import { basketItems } from "../functions/FecthData";
 
 
 export const initialState = {
