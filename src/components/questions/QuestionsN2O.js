@@ -18,13 +18,16 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
+    color:'white'
   },
   expandOpen: {
     transform: "rotate(180deg)",
+    
   },
   paragraph:{
     display:'flex',
     width:'fitContent',
+    
   }
   
 }));

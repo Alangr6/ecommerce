@@ -11,10 +11,7 @@ export const Logout = () => {
     const handleAuth = () => {
         if (user) {
           auth.signOut();
-          dispatch({
-            type: actionTypes.EMPTY_BASKET,
-            basket: [],
-          });
+         
           dispatch({
             type: actionTypes.SET_USER,
             user: null,
@@ -26,7 +23,7 @@ export const Logout = () => {
 
   return (
     <>
-          <button onClick={handleAuth}>Cerrar sesion</button>
+          <button className='logout-button' onClick={handleAuth}>Cerrar sesion</button>
     </>
   )
 }

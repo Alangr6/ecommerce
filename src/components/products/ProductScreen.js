@@ -140,7 +140,7 @@ export const ProductScreen = () => {
             >
               Publicar
             </button>
-            <h3>Comentarios:</h3>
+            <h3 className="reviews-title">Comentarios:</h3>
             {reviews.map((review) => {
               return (
                 <div key={review.review}>
@@ -154,9 +154,8 @@ export const ProductScreen = () => {
           </div>
           <div className="product-screen-div">
             <h1 className="product-screen-title">{product.name}</h1>
-            <hr />
 
-            <hr />
+            <hr className="product-screen-hr" />
 
             <p className="product-screen-description">
               {" "}

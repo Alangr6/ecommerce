@@ -18,7 +18,6 @@ export const DataAccount = () => {
   const [numberItems, setNumberItems] = useState([]);
   const [alan, setAlan] = useState([]);
 
-
   if (user) {
     const docRef = doc(db, `customers/${user.uid}`);
     getDoc(docRef)
@@ -53,17 +52,16 @@ export const DataAccount = () => {
   //console.log(orders); bucle infinito
   //console.log(userData);
 
-  useEffect(() => {
+ /*  useEffect(() => {
     setAlan(() => {
       orders.map((order) => {
         order.items.map((item) => {
           setNumberItems(item.description);
         });
       });
-    })
-      
-  }, []);
-//console.log(numberItems);
+    });
+  }, []); */
+  //console.log(numberItems);
   if (user) {
     return (
       <>
@@ -71,31 +69,35 @@ export const DataAccount = () => {
           Tiene la sesion iniciada con {user.email}
         </h1>
         <div className="center">
-          <h1>Pedidos realizados:</h1>
-          {orders.length != 0 ? (
-            <table>
+        <div className="product-page-div">
+          <hr className="order-data-hr" />
+          <h1 className="order-data-title">Pedidos realizados</h1>
+          <hr className="order-data-hr2" />
+        </div>     
+             {orders.length != 0 ? (
+            <table className="order-table">
               <thead>
                 <tr>
-                  <th>N Pedido</th>
-                  <th>productos</th>
-                  <th>Precio total</th>
-                  <th>Pago</th>
+                  <th className="order-table-title">N Pedido</th>
+                  <th className="order-table-title">productos</th>
+                  <th className="order-table-title">Precio total</th>
+                  <th className="order-table-title">Pago</th>
                 </tr>
               </thead>
               <tbody>
                 {orders.map((order, index) => {
                   return (
                     <tr key={index}>
-                      <td></td>
-                      <td>
+                      <td className="order-table-data"></td>
+                      <td className="order-table-data">
                         {order.items
                           ? order.items.map((item, index) => {
                               return <p key={index}>{item.description}</p>;
                             })
                           : ""}
                       </td>
-                      <td>{order.amount / 100}</td>
-                      <td>Completado</td>
+                      <td className="order-table-data">{order.amount / 100}</td>
+                      <td className="order-table-data">Completado</td>
                     </tr>
                   );
                 })}
@@ -104,8 +106,9 @@ export const DataAccount = () => {
           ) : (
             <h4>No se registra ningun pedido realizado</h4>
           )}
+                  <Logout />
+
         </div>
-        <Logout />
       </>
     );
   } else {

@@ -51,7 +51,7 @@ export default function CheckoutCard({ item }) {
 
           <StyledTableCell align="left">{item.count === 0 ? null : item.count}</StyledTableCell>
           <StyledTableCell align="left">{item.product}</StyledTableCell>
-          <StyledTableCell align="left">{item.price}$</StyledTableCell>
+          <StyledTableCell align="left">{item.price * item.count}$</StyledTableCell>
           <StyledTableCell align="left">
             <i onClick={removeItem} className="fa-solid fa-trash"></i>
           </StyledTableCell>

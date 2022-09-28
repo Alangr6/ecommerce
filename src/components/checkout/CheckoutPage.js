@@ -53,9 +53,12 @@ export const CheckoutPage = () => {
   function CheckoutBasketData() {
     if (basket.length === 0) {
       return (
-        <h1 className="empty-cart">
+        <div className="blank-div">
+          <h1 className="empty-cart">
           Su carrito se encuentra actualmente vacio
         </h1>
+        </div>
+        
       );
     } else {
       return (
