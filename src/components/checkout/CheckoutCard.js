@@ -40,23 +40,23 @@ export default function CheckoutCard({ item }) {
   };
   localStorage.setItem('basketItems', JSON.stringify(basket));
 
-
+console.log(item);
   return (
     <>
-      <TableBody>
-        <StyledTableRow>
-          <StyledTableCell align="center">
+      <tbody>
+        <tr>
+          <td align="center">
             <img className="checkout-image" alt={`${item.product}foto`} src={item.image} />{" "}
-          </StyledTableCell>
+          </td>
 
-          <StyledTableCell align="left">{item.count === 0 ? null : item.count}</StyledTableCell>
-          <StyledTableCell align="left">{item.product}</StyledTableCell>
-          <StyledTableCell align="left">{item.price * item.count}$</StyledTableCell>
-          <StyledTableCell align="left">
+          <td align="left">{item.count === 0 ? null : item.count}</td>
+          <td align="left">{item.product}</td>
+          <td align="left">{item.price * item.count}$</td>
+          <td align="left">
             <i onClick={removeItem} className="fa-solid fa-trash"></i>
-          </StyledTableCell>
-        </StyledTableRow>
-      </TableBody>
+          </td>
+        </tr>
+      </tbody>
     </>
   );
 }

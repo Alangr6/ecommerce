@@ -36,12 +36,21 @@ export default function Products() {
   };
 
   useEffect(() => {
+    let cancel = false
     async function getProducts2() {
+      if(!cancel){
       const products2 = await getProducts();
       setProducts(products2);
     }
+    }
     getProducts2();
+
+    return () => {
+      cancel=true
+    }
+
   }, []);
+  console.log(products);//2veces
 
   return (
     <div className="products-background">

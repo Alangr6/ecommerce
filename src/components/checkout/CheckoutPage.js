@@ -50,6 +50,7 @@ export const CheckoutPage = () => {
       return newBasket;
     });
   }, [basket]);
+  console.log(basketCart);//6 veces
   function CheckoutBasketData() {
     if (basket.length === 0) {
       return (
@@ -70,26 +71,22 @@ export const CheckoutPage = () => {
           </h1>
 
           <div className="table-container">
-            <TableContainer
-              className={classes.tableContainer}
-              component={Paper}
-            >
-              <Table className={classes.table} aria-label="customized table">
-                <TableHead>
-                  <TableRow>
-                    <StyledTableCell></StyledTableCell>
-                    <StyledTableCell>Cantidad</StyledTableCell>
-                    <StyledTableCell>Producto</StyledTableCell>
-                    <StyledTableCell>Precio</StyledTableCell>
-                    <StyledTableCell></StyledTableCell>
-                  </TableRow>
-                </TableHead>
+       
+              <table className='checkout-table' aria-label="customized table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Cantidad</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th></th>
+                  </tr>
+                </thead>
 
                 {basketCart?.map((item, index) => (
                   <CheckoutCard  key={index} item={item} />
                 ))}
-              </Table>
-            </TableContainer>
+              </table>
           </div>
         </>
       );
@@ -97,7 +94,7 @@ export const CheckoutPage = () => {
   }
 
   return (
-    <div className="checkoutpage">
+    <div className="checkoutpage center">
       <h1 className="checkout-title">Carrito de compra</h1>
       <CheckoutBasketData />
       <Total />

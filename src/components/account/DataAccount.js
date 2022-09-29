@@ -36,20 +36,27 @@ export const DataAccount = () => {
     );
     const snaps = await getDocs(paidOrders);
     const payments = snaps.docs.map((snap) => snap.data());
-    console.log(payments);
     return payments;
   };
 
   useEffect(() => {
+    let cancel = false
     async function getPayments() {
       if (user) {
+        if(!cancel){
         const payments = await getOrders(user.uid);
         setOrders(payments);
       }
+      }
     }
     getPayments();
+
+    return () => {
+      cancel = true
+    }
+
   }, [user]);
-  //console.log(orders); bucle infinito
+  //console.log(orders);// bucle infinito
   //console.log(userData);
 
  /*  useEffect(() => {
@@ -65,10 +72,11 @@ export const DataAccount = () => {
   if (user) {
     return (
       <>
+       
+        <div className="center">
         <h1 className="user-title">
           Tiene la sesion iniciada con {user.email}
         </h1>
-        <div className="center">
         <div className="product-page-div">
           <hr className="order-data-hr" />
           <h1 className="order-data-title">Pedidos realizados</h1>

@@ -1,3 +1,4 @@
+
 *{
     padding: 0;
     margin: 0;
@@ -7,7 +8,9 @@ body{
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
+    font-family: 'Work Sans', sans-serif;
 }
+
 .card{
     position: relative;
     max-width: 300px;
@@ -47,13 +50,12 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.product-button{
+.product-button,.product-button3{
     height: 100%;
     background-color: #201c1d;
 
     border: 0;
     color: whitesmoke  ;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
     font-weight: 600;
     padding-right: 30px;
@@ -61,7 +63,21 @@ body{
     font-size: 150%;
     cursor: pointer;
 }
+.product-button2{
+    height: 100%;
+    background-color: #201c1d;
 
+    border: 0;
+    color: whitesmoke  ;
+    
+    font-weight: 600;
+    text-align: center;
+    font-size: 150%;
+    cursor: pointer;
+}
+.product-button3{
+    padding-left: 30px;
+}
 .home-title{
     font-size: 300%;
     color:  white;
@@ -120,7 +136,7 @@ body{
 }
 .section1-paragraph2{
     width: 60%;
-    padding-top: 0.5%;
+    padding-top: 1.5%;
  
 }
 .title-products{
@@ -168,15 +184,10 @@ a{
 }
 
 .w-btn-label{
-    font-size: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
+    font-size: 150%;
+    
     position: relative;
-    top: 40px;
-    font-family: 'Averta',sans-serif;
-    font-size: 20px;
     line-height: 1.20;
-    font-weight: 800;
     font-style: normal;
     text-transform: none;
     letter-spacing: 0.03em;
@@ -186,9 +197,8 @@ a{
     color: whitesmoke;
     box-shadow: 0 0em 0em rgba(0,0,0,0.2);
     transition: background-color, 0.5s;
-    text-decoration: none;
-    border: 2px solid black;
-    background-color: #201c1d;
+    border: 3px solid black;
+    background: none;
 
 
 }
@@ -199,12 +209,7 @@ a{
 
 }
 
-.products-background{
-    background-image: url('https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg?auto=compress&cs=tinysrgb&w=1000');
-    background-position: center center;
-    background-attachment: scroll;
-    background-size: cover;
-}
+
 .section2{
     
     display: flex;
@@ -263,10 +268,9 @@ a{
 .question-title{
     display: flex;
     justify-content: center;
-    padding: 1rem;
-    padding-top: 2rem;
-    font-family: 'Times New Roman', Times, serif;
+    margin: 2rem 1rem 1rem 1rem;
     font-size: 200%;
+    
 
 }
 .box-question{
@@ -292,7 +296,6 @@ a{
 }
 
 .question-paragraph{
-    font-family: sans-serif;
     font-size: 130%;
    margin: 0 15px;
     text-align: center;
@@ -303,7 +306,6 @@ a{
 .question-buttons{
     font-size: 20px;
     position: relative;
-    font-family: 'Averta',sans-serif;
     font-weight: 800;
     letter-spacing: 0.03em;
     border-radius: 2.5em;
@@ -319,7 +321,6 @@ a{
     background-color: black;
     border: 0;
     color: #b9933b;
-    font-family: cursive;
     font-size: large;
     font-weight: 600;
     padding-right: 10px;
@@ -342,6 +343,7 @@ a{
 }
 .product-page-title{
     font-size: 250%;
+    background-color: #fff;
 }
 .order-data-hr{
     color: #201c1d;
@@ -476,7 +478,6 @@ padding : 3rem;
     background-color: rgb(32,28,29,255);
     border: 0;
     color: white;
-    font-family: cursive;
     font-size: large;
     font-weight: 600;
     
@@ -502,6 +503,8 @@ padding : 3rem;
     padding: 1rem 10%;
     
 
+}.questions-div{
+    padding-bottom: 8%;
 }
 .questions{
     display: flex;
@@ -521,7 +524,11 @@ padding : 3rem;
 .checkout-title{
     display: flex;
     justify-content: center;
-    padding-top: 2rem;
+    margin-top: 2rem;
+    border: 2px solid black;
+    border-left: 0;
+    border-right: 0;
+    background-color: #fff;
 
 }
 .checkout-div{
@@ -530,25 +537,46 @@ padding : 3rem;
     flex-direction: column;
     justify-content: center;
 }
-
-.total-div{
+.checkout-button-div{
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-bottom: 2rem;
 }
-.checkout-table{
-    width: 100%;
-   
+.total-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 0 10px;
+    border: 2px solid black;
+    border-left: 0;
+    border-right: 0;
 }
 
 .checkout-table{
-    display: flex;
-    flex-direction: row;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+    min-width: 150%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+    
 }
+.checkout-table thead tr {
+    background-color: #201c1d;
+    color: #ffffff;
+    text-align: left;
+}
+
+.checkout-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    background-color: #f3f3f3;
+
+}
+
 .table-container{
-    padding-left: 25%;
-    padding-right: 25%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -615,7 +643,6 @@ padding : 3rem;
     background: #595959;
     border: none;
     color: #fff;
-    font-family: 'Roboto';
     text-align: center;
     padding: 15px 20px;
     cursor: pointer;
@@ -656,9 +683,12 @@ padding : 3rem;
 
 }
 .user-title{
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
+   
+    background-color: #fff;
+    margin: 1rem 0;
+    border: 2px solid black;
+    border-left: 0;
+    border-right: 0;
 }
 .user-buttons-div{
     display: flex;
@@ -682,10 +712,7 @@ padding : 3rem;
     flex-direction: column;
     align-items: center;
 }
-.checkout-title{
-    display: flex;
-    justify-content: center;
-}
+
 .padding0{
     padding: 0;
 }
@@ -707,8 +734,18 @@ padding : 3rem;
     text-align: left;
     font: normal 16px sans-serif;
     padding: 45px 50px;
+    display: flex;
+    justify-content: space-around;
   }
-
+.policy-div{
+    display: flex;
+    flex-direction: column;
+}
+.policy-paragraph{
+    color: whitesmoke;
+    text-decoration: underline;
+    padding: 2px 0;
+}
   .footer-distributed .footer-left p {
     color: #8f9296;
     font-size: 14px;
@@ -778,7 +815,6 @@ padding : 3rem;
     border-collapse: collapse;
     margin-bottom: 25px;
     font-size: 0.9em;
-    font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -796,14 +832,17 @@ th,td {
 
 }
 
+.order-data-title{
+    background-color: #fff;
+}
 
 .logout-button{
     width: 7rem;
     height: 2.5rem;
-    background-color: red;
+    background-color: rgb(223, 24, 24);
     color: whitesmoke;
     border: 0;
-    border-radius: 1rem;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin: 5% 0;
@@ -869,9 +908,10 @@ th,td {
        
     }
 
-    .product-button{
+    .product-button, .product-button2,.product-button3{
         padding-right: 0;
         font-size: medium;
+        padding-left: 0;
     }
     .hello-user-div{
         padding-right: 0;
@@ -897,9 +937,7 @@ th,td {
         height: 2.5rem;
     }
    
-    .checkout-title{
-        padding-top: 4rem;
-    }
+ 
     .empty-cart{
         padding-top: 2rem;
         font-size: 100%;

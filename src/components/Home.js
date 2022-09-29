@@ -18,7 +18,7 @@ export const Home = () => {
       <section className="section1">
         <img
           className="section1-img"
-          src="https://images.pexels.com/photos/6529812/pexels-photo-6529812.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          src="https://images.pexels.com/photos/8477780/pexels-photo-8477780.jpeg?auto=compress&cs=tinysrgb&w=1000"
         />
         <div className="section1-div">
           <h1 className="section1-title">Por que comprar en Creamer?</h1>

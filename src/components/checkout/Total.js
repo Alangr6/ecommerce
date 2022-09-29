@@ -10,34 +10,35 @@ export const Total = () => {
   const totalAmount = basket
     ?.map((item) => item.price)
     .reduce((amount, item) => amount + item, 0);
-    let date = new Date();
-    let currentDate =
-      date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-  
+  let date = new Date();
+  let currentDate =
+    date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
 
- async function createCheckoutSession() {
+  async function createCheckoutSession() {
     const collectionRef = collection(
       db,
       `customers/${user.uid}/checkout_sessions`
     );
- let {id} = await addDoc(collectionRef, {
+    let { id } = await addDoc(collectionRef, {
       mode: "payment",
       success_url: window.location.origin,
       cancel_url: window.location.origin,
       collect_shipping_address: true,
       line_items: basket.map((item) => {
-         return { 
-        quantity:1,
-        price: item.priceId,
-        }}),
-        date:currentDate
+        return {
+          quantity: 1,
+          price: item.priceId,
+        };
+      }),
+      date: currentDate,
     });
-    const cancelStreaming =  onSnapshot(doc(db, `customers/${user.uid}/checkout_sessions/${id}`),
+    const cancelStreaming = onSnapshot(
+      doc(db, `customers/${user.uid}/checkout_sessions/${id}`),
       (snapshot) => {
-        let url = snapshot.data().url
-        if(url){
-          cancelStreaming()
-          window.location.href = url
+        let url = snapshot.data().url;
+        if (url) {
+          cancelStreaming();
+          window.location.href = url;
         }
       }
     )
@@ -47,10 +48,10 @@ export const Total = () => {
     <>
       <div className="checkout-div">
         <div className="total-div">
-          <h3>Numero de productos: {basket?.length}</h3>
-          <h3>Total: {accounting.formatMoney(totalAmount, "$")}</h3>
+          <h3 className="total-price">Numero de productos: {basket?.length}</h3>
+          <h3 className="total-price">Total: {accounting.formatMoney(totalAmount, "$")}</h3>
         </div>
-        <div className="total-div">
+        <div className="checkout-button-div">
           <button onClick={createCheckoutSession} className="form-button">
             Checkout
           </button>

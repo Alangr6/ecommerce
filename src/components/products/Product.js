@@ -67,11 +67,11 @@ export default function Product({ product  }) {
  
     
   };
-    //console.log(product);
+   // console.log(product);//6veces
 
   let basketItemsArray = JSON.stringify(basket) 
   localStorage.setItem('basketItems',basketItemsArray)
-  console.log(basketItems);
+  //console.log(basketItems);//6veces
   return (
     <>
       <div className="all-products2">

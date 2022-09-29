@@ -9,7 +9,7 @@ import { ShoppingCart } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   cart: {
-    color: "#bfbb8a",
+    color: "whitesmoke",
 
   },
   badge: {
@@ -45,23 +45,23 @@ export const Logo = () => {
         </NavLink>
       </div>
       <div className="navbar-buttons">
-        <NavLink className="product-button2" to="/">
+        <NavLink  to="/">
           <button className="product-button">Home</button>
         </NavLink>
-        <NavLink className="product-button2" to="/products">
+        <NavLink  to="/products">
           <button className="product-button">Productos</button>
         </NavLink>
-        <NavLink className="product-button2" to="/questions">
-          <button className="product-button">Preguntas</button>
+        <NavLink  to="/questions">
+          <button className="product-button2">Preguntas</button>
         </NavLink>
         <NavLink
-          className="product-button2"
+          
           to={!user ? "login" : `/account/${user.uid}/data-account`}
         >
-          <button className="product-button"><i className="fa-solid fa-circle-user fa-1x"></i></button>
+          <button className="product-button3"><i className="fa-solid fa-circle-user fa-1x"></i></button>
         </NavLink>
         <div className="hello-user-div">
-          <NavLink className="product-button2" to="/checkout-page">
+          <NavLink  to="/checkout-page">
             <IconButton aria-label="show cart items" className={classes.cart}>
               <Badge overlap="rectangular" badgeContent={basket?.length}  color="secondary">
                 <ShoppingCart fontSize="large"/>

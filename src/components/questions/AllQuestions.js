@@ -10,7 +10,7 @@ import QuestionsShipping from "./QuestionsShipping";
 
 export const AllQuestions = () => {
   return (
-    <div className="products-background">
+    <div className="questions-div">
       
       <h2 className="question-title">OXIDO NITROSO</h2>
       {questionsN2O.map((question) => {
