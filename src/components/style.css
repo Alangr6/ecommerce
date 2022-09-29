@@ -136,8 +136,7 @@ body{
 }
 .section1-paragraph2{
     width: 60%;
-    padding-top: 1.5%;
- 
+    padding-top: 2.5%;
 }
 .title-products{
     color: whitesmoke  ;
@@ -735,7 +734,7 @@ padding : 3rem;
     font: normal 16px sans-serif;
     padding: 45px 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 .policy-div{
     display: flex;
@@ -744,7 +743,8 @@ padding : 3rem;
 .policy-paragraph{
     color: whitesmoke;
     text-decoration: underline;
-    padding: 2px 0;
+    padding: 4px 0;
+    font-size: 80%;
 }
   .footer-distributed .footer-left p {
     color: #8f9296;

@@ -2,35 +2,12 @@ import React, { useEffect, useState } from "react";
 import CheckoutCard from "./CheckoutCard";
 import { Total } from "./Total";
 import { useStateValue } from "../reducer/StateProvider";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-const useStyles = makeStyles({
-  tableContainer: {
-    display: "flex",
-    justifyContent: "center",
-  },
-  table: {},
-});
+
 
 export const CheckoutPage = () => {
   const [{ basket, user }] = useStateValue();
   const [basketCart, setBasketCart] = useState([]);
-  const classes = useStyles();
 
   useEffect(() => {
     setBasketCart(() => {
