@@ -1,7 +1,4 @@
-import capsulas from '../img/capsulas.jpeg'
-import grtsupply from '../img/grtsupply.jpeg'
 
-const cap = capsulas
 
 
 export const questionsAboutUs = [
@@ -47,49 +44,4 @@ export const questionsN2O = [
     parragraph: `El óxido nitroso no es tóxico ni inflamable, pero puede avivar el fuego. Por esta razón se recomienda mantener las bombonas de gas N2O alejadas de zonas donde haya altas concentraciones de químicos inflamables o zonas sensibles al fuego. Se aconseja de igual modo mantener los cilindros en zonas con buena ventilación.  
     `,
   },
-];
-
-export const productsData = [
-  {
-    id: 1,
-    product: "bombona fsatagas",
-    price: 50,
-    description: `Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como agente mezclador y espumante al producir nata montada.`,
-    stock: 20,
-    image: {grtsupply}
-  },
-  {
-    id: 2,
-    product: "bombona fastgas x3",
-    price: 140,
-    description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
-              agente mezclador y espumante al producir nata montada.`,
-    stock: 2,
-    image: {cap}
-
-  },
- /*  {
-    id: 3,
-    product: "bombona fastgas x4",
-    price: 140,
-    description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
-              agente mezclador y espumante al producir nata montada.`,
-    stock: 2,
-  },
-  {
-    id: 4,
-    product: "bombona fastgas x5",
-    price: 140,
-    description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
-              agente mezclador y espumante al producir nata montada.`,
-    stock: 2,
-  },
-  {
-    id: 5,
-    product: "bombona fastgas x6",
-    price: 140,
-    description: `        Bombona de N2O, Fastgas. Las mejores bombonas utilizadas como
-              agente mezclador y espumante al producir nata montada.`,
-    stock: 2,
-  }, */
 ];

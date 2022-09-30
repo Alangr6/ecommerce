@@ -47,9 +47,17 @@ export const ProductScreen = () => {
   const [{ basket, user }, dispatch] = useStateValue();
   const params = useParams();
   const product = products.find((p) => p.id == params.id);
-
   const colRefReviews = collection(db, `products2/${params.id}/review`);
   const colRefPrices = collection(db, `products2/${params.id}/prices`);
+
+  const inputReview = document.getElementById("input-review");
+  let date = new Date();
+  let currentDate =
+    date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+
+    let basketItemsArray = JSON.stringify(basket);
+    localStorage.setItem("basketItems", basketItemsArray);
+
 
   useEffect(() => {
     const getProducts = async () => {
@@ -63,6 +71,8 @@ export const ProductScreen = () => {
     };
     getProducts();
   }, []);
+
+
   const addToBasket = () => {
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
@@ -77,14 +87,8 @@ export const ProductScreen = () => {
     });
   };
 
-  let basketItemsArray = JSON.stringify(basket);
-  localStorage.setItem("basketItems", basketItemsArray);
+ 
   
-  const inputReview = document.getElementById("input-review");
-  let date = new Date();
-  let currentDate =
-    date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-
   async function addReview() {
     if (inputReview.value.trim().length === 0) {
       return null;
@@ -99,7 +103,10 @@ export const ProductScreen = () => {
       window.location.reload();
     }
   }
-  console.log(quantity);
+
+
+  //console.log(basket);//12veces
+
   if (!product) {
     return <h1>Cargando...</h1>;
   } else {
@@ -143,7 +150,7 @@ export const ProductScreen = () => {
             <h3 className="reviews-title">Comentarios:</h3>
             {reviews.map((review) => {
               return (
-                <div key={review.review}>
+                <div className="reviews-div" key={review.review}>
                   <p>
                     <strong>{review.userEmail}</strong> : {review.review}
                   </p>

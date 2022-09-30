@@ -27,7 +27,7 @@ export const CheckoutPage = () => {
       return newBasket;
     });
   }, [basket]);
-  console.log(basketCart);//6 veces
+  //console.log(basketCart);//6 veces
   function CheckoutBasketData() {
     if (basket.length === 0) {
       return (

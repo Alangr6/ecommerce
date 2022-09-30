@@ -46,7 +46,7 @@ export const Home = () => {
 
         <div className="box-general">
           <div className="box-and-title">
-            <NavLink className="product-span" to="/product/prod_MTl1i3yl80nzmO">
+            <NavLink className="product-span2" to="/product/prod_MTl1i3yl80nzmO">
               <div className="box">
                 <img
                   className="product-1"
@@ -58,8 +58,8 @@ export const Home = () => {
             </NavLink>
           </div>
           <div className="box-and-title">
-            <NavLink className="product-span" to="/product/prod_MTl3O3fyS1aBHI">
-              <div className="box">
+            <NavLink className="product-span3" to="/product/prod_MTl3O3fyS1aBHI">
+              <div className="box2">
                 <img
                   className="product-2"
                   src="https://grtsupply.com/wp-content/uploads/2021/11/321312321321.png"

@@ -56,9 +56,7 @@ export default function Products() {
     <div className="products-background">
       <div className={classes.main}>
         <div className="product-page-div">
-          <hr className="product-page-hr" />
           <h1 className="product-page-title">Tienda</h1>
-          <hr className="product-page-hr2" />
         </div>
 
         <Grid container spacing={0}>

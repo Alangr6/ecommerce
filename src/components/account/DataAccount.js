@@ -22,7 +22,6 @@ export const DataAccount = () => {
     const docRef = doc(db, `customers/${user.uid}`);
     getDoc(docRef)
       .then((doc) => {
-        //console.log(doc.data(),doc.id);
         setUserData(doc.data());
       })
       .catch((err) => console.log(err.message));
@@ -78,9 +77,7 @@ export const DataAccount = () => {
           Tiene la sesion iniciada con {user.email}
         </h1>
         <div className="product-page-div">
-          <hr className="order-data-hr" />
           <h1 className="order-data-title">Pedidos realizados</h1>
-          <hr className="order-data-hr2" />
         </div>     
              {orders.length != 0 ? (
             <table className="order-table">
