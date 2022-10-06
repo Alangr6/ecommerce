@@ -24,14 +24,14 @@ export default function CheckoutCard({ item }) {
     <>
       <tbody>
         <tr>
-          <td align="center">
+          <td className="checkout-card-td" align="center">
             <img className="checkout-image" alt={`${item.product}foto`} src={item.image} />{" "}
           </td>
 
-          <td align="left">{item.count === 0 ? null : item.count}</td>
-          <td align="left">{item.product}</td>
-          <td align="left">{item.price * item.count}$</td>
-          <td align="left">
+          <td className="checkout-card-td" align="left">{item.count === 0 ? null : item.count}</td>
+          <td className="checkout-card-td" align="left">{item.product}</td>
+          <td className="checkout-card-td" align="left">{item.price * item.count}$</td>
+          <td className="checkout-card-td" align="left">
             <i onClick={removeItem} className="fa-solid fa-trash"></i>
           </td>
         </tr>

@@ -52,11 +52,11 @@ export const CheckoutPage = () => {
               <table className='checkout-table' aria-label="customized table">
                 <thead>
                   <tr>
-                    <th></th>
-                    <th>Cantidad</th>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th></th>
+                    <th className="checkout-card-th"></th>
+                    <th className="checkout-card-th">Cantidad</th>
+                    <th className="checkout-card-th">Producto</th>
+                    <th className="checkout-card-th">Precio</th>
+                    <th className="checkout-card-th"></th>
                   </tr>
                 </thead>
 

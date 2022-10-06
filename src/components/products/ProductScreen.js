@@ -162,7 +162,9 @@ export const ProductScreen = () => {
                       Anadir al carrito
                     </button>
                   </td>
-                    
+                  <td className="order-table-screen-button">
+              
+                  </td>
                 
                 </tr>
               </tbody>

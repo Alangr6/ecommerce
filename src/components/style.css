@@ -340,7 +340,7 @@ a{
 .product-screen-div{
     
     padding-top: 3rem;
-
+    
 }
 .add-cart-button{
     margin-left: 40%;
@@ -382,12 +382,12 @@ a{
     padding-bottom: 1%;
 }
 .product-table-screen{
-padding: 3rem;
+padding: 3rem 2rem 2rem 3rem;
 }
 .products-screen-start{
-    padding: 3rem;
-    max-width: 400px;
-
+    padding-top: 3rem;
+    padding-left: 1rem;
+    
     
 }
 .all-products-screen{
@@ -398,6 +398,7 @@ padding: 3rem;
 .products-screen-div2{
     display: flex;
     width: 50%;
+    padding-right: 2rem;
 }
 
 .product-screen-stars{
@@ -422,7 +423,7 @@ padding: 3rem;
 .products-review{
     display: flex;
     flex-direction: column;
-    padding-left: 13%;
+    padding-left: 10%;
     width: 20%;
 }
 .shopping-cart{
@@ -819,7 +820,7 @@ padding: 3rem;
     border-collapse: collapse;
     margin-bottom: 25px;
     font-size: 0.9em;
-    min-width: 400px;
+    
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .order-table thead tr {
@@ -827,7 +828,8 @@ padding: 3rem;
     color: #ffffff;
     text-align: left;
 }
-th,td {
+.checkout-card-th,.checkout-card-td,.order-table-title,.order-table-data,.order-table-screen-right,
+.order-table-screen-button {
     padding: 12px 15px;
 }
 .order-table tbody tr {
@@ -962,6 +964,7 @@ th,td {
     }
     .product-screen-title{
         font-size: 140%;
+        background: none;
     }
     .go-back-button{
         margin-top: 15%;
@@ -978,6 +981,7 @@ th,td {
     .products-screen-div2{
         width: 100%;
         padding-top: 0;
+        padding-right: 0;
     }
  
   .add-cart-button{
@@ -1151,18 +1155,16 @@ padding-left: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
     
 }
-.order-table-div{
-    
-}
+
 .order-table{
     font-size: 0.75em;
-    width: 10px;
 }
 .order-table-title,.order-table-data{
-    padding: 12px 0px;
-
+    padding: 12px 7px;
+    text-align: center;
 }
-th,td {
+
+.checkout-card-th,.checkout-card-td {
     padding: 12px 3px;
 }
 .order-table-screen{
