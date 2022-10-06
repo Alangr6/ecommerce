@@ -152,3 +152,65 @@ case "ADD_TO_BASKET":{
       <p>&#11088;</p>
     ))}
 </div>
+/////////////////////////////////////////////////
+<TableContainer component={Paper}>
+  <Table className="product-screen-table" aria-label="simple table">
+    <TableBody>
+      <TableRow key={product.id}>
+        <TableCell
+          className={classes.padding}
+          component="th"
+          scope="row"
+        >
+          Precio:
+        </TableCell>
+        <TableCell className={classes.padding} align="right">
+          {prices.map((price) => {
+            return accounting.formatMoney(
+              price.unit_amount / 100,
+              "€"
+            );
+          })}
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell
+          className={classes.padding}
+          component="th"
+          scope="row"
+        >
+          Estado:
+        </TableCell>
+        <TableCell className={classes.padding} align="right">
+          en Stock
+        </TableCell>
+      </TableRow>
+      <TableRow>
+       {/*  <TableCell component="th" scope="row">
+          <select
+            className="add-cart-select"
+            name=""
+            id=""
+            onChange={(e) => setQuantity(e.target.value)}
+            value={quantity}
+          >
+            {[...Array(product.stock).keys()].map((x) => {
+              return (
+                <option key={x + 1} value={x + 1}>
+                  {x + 1}
+                </option>
+              );
+            })}
+          </select>{" "}
+        </TableCell> */}
+      </TableRow>
+      <TableRow>
+        <TableCell className={classes.padding}>
+          <button onClick={addToBasket} className="add-cart-button">
+            Anadir al carrito
+          </button>
+        </TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+</TableContainer>

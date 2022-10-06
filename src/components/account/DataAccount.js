@@ -39,26 +39,25 @@ export const DataAccount = () => {
   };
 
   useEffect(() => {
-    let cancel = false
+    let cancel = false;
     async function getPayments() {
       if (user) {
-        if(!cancel){
-        const payments = await getOrders(user.uid);
-        setOrders(payments);
-      }
+        if (!cancel) {
+          const payments = await getOrders(user.uid);
+          setOrders(payments);
+        }
       }
     }
     getPayments();
 
     return () => {
-      cancel = true
-    }
-
+      cancel = true;
+    };
   }, [user]);
   //console.log(orders);// bucle infinito
   //console.log(userData);
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     setAlan(() => {
       orders.map((order) => {
         order.items.map((item) => {
@@ -71,48 +70,51 @@ export const DataAccount = () => {
   if (user) {
     return (
       <>
-       
         <div className="center">
-        <h1 className="user-title">
-          Tiene la sesion iniciada con {user.email}
-        </h1>
-        <div className="product-page-div">
-          <h1 className="order-data-title">Pedidos realizados</h1>
-        </div>     
-             {orders.length != 0 ? (
-            <table className="order-table">
-              <thead>
-                <tr>
-                  <th className="order-table-title">N Pedido</th>
-                  <th className="order-table-title">productos</th>
-                  <th className="order-table-title">Precio total</th>
-                  <th className="order-table-title">Pago</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map((order, index) => {
-                  return (
-                    <tr key={index}>
-                      <td className="order-table-data"></td>
-                      <td className="order-table-data">
-                        {order.items
-                          ? order.items.map((item, index) => {
-                              return <p key={index}>{item.description}</p>;
-                            })
-                          : ""}
-                      </td>
-                      <td className="order-table-data">{order.amount / 100}</td>
-                      <td className="order-table-data">Completado</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          ) : (
-            <h4>No se registra ningun pedido realizado</h4>
-          )}
-                  <Logout />
+          <h1 className="user-title">
+            Tiene la sesion iniciada con {user.email}
+          </h1>
+          <div className="product-page-div">
+            <h1 className="order-data-title">Pedidos realizados</h1>
+          </div>
+          <div className="order-table-div">
+            {orders.length != 0 ? (
+              <table className="order-table">
+                <thead>
+                  <tr>
+                    <th className="order-table-title">N Pedido</th>
+                    <th className="order-table-title">Pedidos</th>
+                    <th className="order-table-title">Precio total</th>
+                    <th className="order-table-title">Pago</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map((order, index) => {
+                    return (
+                      <tr key={index}>
+                        <td className="order-table-data"></td>
+                        <td className="order-table-data">
+                          {order.items
+                            ? order.items.map((item, index) => {
+                                return <p key={index}>{item.description}</p>;
+                              })
+                            : ""}
+                        </td>
+                        <td className="order-table-data">
+                          {order.amount / 100}
+                        </td>
+                        <td className="order-table-data">Completado</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            ) : (
+              <h4>No se registra ningun pedido realizado</h4>
+            )}
+          </div>
 
+          <Logout />
         </div>
       </>
     );

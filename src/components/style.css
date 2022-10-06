@@ -338,11 +338,13 @@ a{
 }
 
 .product-screen-div{
-    width: 20%;
+    
+    padding-top: 3rem;
+
 }
 .add-cart-button{
-    margin-left: 20%;
-    width: 150%;
+    margin-left: 40%;
+    width: 100%;
     height: 3rem;
     background-color: black;
     color: aliceblue;
@@ -380,28 +382,49 @@ a{
     padding-bottom: 1%;
 }
 .product-table-screen{
-padding : 3rem;
+padding: 3rem;
 }
-.product-screen-div{
-    padding-top: 3rem;
+.products-screen-start{
+    padding: 3rem;
+    max-width: 400px;
+
+    
 }
+.all-products-screen{
+    display: flex;
+    justify-content: center;
+    max-width: 1294px;
+}
+.products-screen-div2{
+    display: flex;
+    width: 50%;
+}
+
 .product-screen-stars{
     padding: 10px 0px;
     display: flex;
     font-size: medium;
 }
-.product-screen-price, .product-screen-description{
-    padding: 15px 0px;
+.product-screen-description{
+    margin: 15px 0px;
     font-size: 1.5rem;
+
 }
 .product-screen-title{
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+
 }
 .product-screen-hr{
     color: rgb(161, 161, 161);
     border-top: 0;
 }
-
+.products-review{
+    display: flex;
+    flex-direction: column;
+    padding-left: 13%;
+    width: 20%;
+}
 .shopping-cart{
     display: flex;
     align-items: center;
@@ -420,11 +443,7 @@ padding : 3rem;
     max-width: 1294px;
     align-content: stretch;
 }
-.all-products-screen{
-    display: flex;
-    justify-content: center;
-    max-width: 1294px;
-}
+
 
 .form-user{
     display: flex;
@@ -816,7 +835,25 @@ th,td {
     background-color: #f3f3f3;
 
 }
+.order-table-screen{
+    padding: 12px 15px;
+    border-bottom: 1px solid gray;
 
+}
+.order-table-screen-right{
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid gray;
+}
+.screen-table{
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+    min-width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid #dddddd;
+    background-color: #f3f3f3;
+}
 .order-data-title{
     background-color: #fff;
     border: 2px solid black;
@@ -839,7 +876,9 @@ th,td {
 
 
 }
-
+.strong-description{
+    background-color: #f3f3f3;
+}
 @media only screen and (max-width:800px) {
     .navbar{
         display: flex;
@@ -912,16 +951,61 @@ th,td {
     }
    
     .all-products-screen{
+        
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
-    .product-screen-div{
+    .product-screen-image{
+        height: 100%;
+        width: 100%;
+        min-height: 200px;
+    }
+    .product-screen-title{
+        font-size: 140%;
+    }
+    .go-back-button{
+        margin-top: 15%;
+    }
+    .product-screen-table{
+        width: 20px;
+        
+    }
+   .product-screen-div{
         width: 80%;
+        padding-right: 10px;
+        padding-left: 5%;
+   }
+    .products-screen-div2{
+        width: 100%;
         padding-top: 0;
     }
-  
+ 
+  .add-cart-button{
+    
+    max-height: 2rem;
+    margin-left: 35%;
+   
+}
+
+.products-review{
+    
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    width: 80%;
+}
+  .product-screen-description{
+    font-size: 100%;
+  }
+  .products-screen-start{
+    padding: 0;
+   padding-top: 3rem;
+   padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
     .input-user{
         width: 50%;
     }
@@ -1054,6 +1138,46 @@ padding-left: 10px;
     font-size: 140%;
     
 }
+.user-title{
+    font-size: 100%;
+}
+.order-data-title{
+    font-size: 150%;
+}
+.checkout-table{
+    border-collapse: collapse;
+    font-size: 0.75em;
+    max-width: 60px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+    
+}
+.order-table-div{
+    
+}
+.order-table{
+    font-size: 0.75em;
+    width: 10px;
+}
+.order-table-title,.order-table-data{
+    padding: 12px 0px;
+
+}
+th,td {
+    padding: 12px 3px;
+}
+.order-table-screen{
+    padding: 5px 7px;
+
+}
+.order-table-screen-right{
+    padding: 5px 7px;
+
+}
+.product-table-screen{
+    
+    display: flex;
+    justify-content: center;
+}
     .footer-distributed .footer-left, .footer-distributed .footer-right {
         text-align: center;
       }
@@ -1064,4 +1188,5 @@ padding-left: 10px;
       .footer-distributed .footer-left p.footer-links {
         line-height: 1.8;
       }
-}
+
+    }

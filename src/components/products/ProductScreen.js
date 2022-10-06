@@ -21,19 +21,20 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+
   action: {
     padding: 16,
   },
   card: {
     position: "relative",
-    width: "300px",
+    width: "80%",
+    minWidth: "140px",
+    maxWidth: "300px",
     border: "hidden",
     borderRadius: "10px",
-    maxHeight: "600px",
   },
-
-  start: {
-    padding: "3rem",
+  padding: {
+    padding: "4px",
   },
 }));
 
@@ -55,9 +56,8 @@ export const ProductScreen = () => {
   let currentDate =
     date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
 
-    let basketItemsArray = JSON.stringify(basket);
-    localStorage.setItem("basketItems", basketItemsArray);
-
+  let basketItemsArray = JSON.stringify(basket);
+  localStorage.setItem("basketItems", basketItemsArray);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -71,7 +71,6 @@ export const ProductScreen = () => {
     };
     getProducts();
   }, []);
-
 
   const addToBasket = () => {
     dispatch({
@@ -87,8 +86,6 @@ export const ProductScreen = () => {
     });
   };
 
- 
-  
   async function addReview() {
     if (inputReview.value.trim().length === 0) {
       return null;
@@ -104,7 +101,6 @@ export const ProductScreen = () => {
     }
   }
 
-
   //console.log(basket);//12veces
 
   if (!product) {
@@ -113,115 +109,99 @@ export const ProductScreen = () => {
     return (
       <>
         <div className="all-products-screen">
-          <div className={classes.start}>
-            <Card className={classes.card}>
-              <CardMedia className={classes.media} title="bombona Fastgas">
-                <img
-                  className="product-screen-image"
-                  src={product.images[0]}
-                  alt=""
-                />
-              </CardMedia>
-            </Card>{" "}
-            <NavLink to="/products">
-              <button className="go-back-button">Volver</button>
-            </NavLink>
-            <Grid className={classes.checkout} container spacing={3}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  id="input-review"
-                  name="input-review"
-                  label="Anade un comentario"
-                  fullWidth
-                  onChange={(e) => setReview(e.target.value)}
-                  value={review}
-                />
-              </Grid>
-            </Grid>
-            <button
-              id="btn-submit"
-              onClick={addReview}
-              type="submit"
-              className="review-button"
-            >
-              Publicar
-            </button>
-            <h3 className="reviews-title">Comentarios:</h3>
-            {reviews.map((review) => {
-              return (
-                <div className="reviews-div" key={review.review}>
-                  <p>
-                    <strong>{review.userEmail}</strong> : {review.review}
-                  </p>
-                  <p>{review.date}</p>
-                </div>
-              );
-            })}
-          </div>
-          <div className="product-screen-div">
-            <h1 className="product-screen-title">{product.name}</h1>
+          <div className="products-screen-div2">
+            <div className="products-screen-start">
+              <Card className={classes.card}>
+                <CardMedia className={classes.media} title="bombona Fastgas">
+                  <img
+                    className="product-screen-image"
+                    src={product.images[0]}
+                    alt=""
+                  />
+                </CardMedia>
+              </Card>{" "}
+              <NavLink to="/products">
+                <button className="go-back-button">Volver</button>
+              </NavLink>
+            </div>
+            <div className="product-screen-div">
+              <h1 className="product-screen-title">{product.name}</h1>
 
-            <hr className="product-screen-hr" />
+              <hr className="product-screen-hr" />
 
-            <p className="product-screen-description">
-              {" "}
-              <strong>Descripcion: {product.description}</strong> {}
-            </p>
+              <p className="product-screen-description">
+                {" "}
+                <strong className="strong-description">Descripcion: {product.description}</strong> {}
+              </p>
+            </div>
           </div>
+
           <div className="product-table-screen">
-            <TableContainer className={classes.table} component={Paper}>
-              <Table aria-label="simple table">
-                <TableBody>
-                  <TableRow key={product.id}>
-                    <TableCell component="th" scope="row">
-                      Precio:
-                    </TableCell>
-                    <TableCell align="right">
-                      {prices.map((price) => {
-                        return accounting.formatMoney(
-                          price.unit_amount / 100,
-                          "€"
-                        );
-                      })}
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      Estado:
-                    </TableCell>
-                    <TableCell align="right">en Stock</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell component="th" scope="row">
-                      <select
-                        className="add-cart-select"
-                        name=""
-                        id=""
-                        onChange={(e) => setQuantity(e.target.value)}
-                        value={quantity}
-                      >
-                        {[...Array(product.stock).keys()].map((x) => {
-                          return (
-                            <option key={x + 1} value={x + 1}>
-                              {x + 1}
-                            </option>
-                          );
-                        })}
-                      </select>{" "}
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <button onClick={addToBasket} className="add-cart-button">
-                        Anadir al carrito
-                      </button>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </TableContainer>
+            <table className="screen-table">
+              <tbody>
+                <tr>
+                  <td className="order-table-screen">Precio:</td>
+
+                  <td className="order-table-screen-right">
+                    {prices.map((price) => {
+                      return accounting.formatMoney(
+                        price.unit_amount / 100,
+                        "€"
+                      );
+                    })}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="order-table-screen">Estado:</td>
+
+                  <td className="order-table-screen-right">En stock</td>
+                </tr>
+                <tr>
+                  <td className="order-table-screen-button">
+                  <button onClick={addToBasket} className="add-cart-button ">
+                      Anadir al carrito
+                    </button>
+                  </td>
+                    
+                
+                </tr>
+              </tbody>
+            </table>
           </div>
+        </div>
+        <div className="products-review">
+          <Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                id="input-review"
+                name="input-review"
+                label="Anade un comentario"
+                fullWidth
+                onChange={(e) => setReview(e.target.value)}
+                value={review}
+              />
+            </Grid>
+          </Grid>
+          <button
+            id="btn-submit"
+            onClick={addReview}
+            type="submit"
+            className="review-button"
+          >
+            Publicar
+          </button>
+          <h3 className="reviews-title">Comentarios:</h3>
+          {reviews.map((review) => {
+            return (
+              <div className="reviews-div" key={review.review}>
+                <p>
+                  <strong>{review.userEmail}</strong> : {review.review}
+                </p>
+                <p>{review.date}</p>
+              </div>
+            );
+          })}
         </div>
       </>
     );
