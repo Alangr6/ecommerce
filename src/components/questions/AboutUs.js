@@ -57,7 +57,7 @@ export default function AboutUs({question}) {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>
-             {question.parragraph}
+             {question.paragraph}
             </Typography>
         
           

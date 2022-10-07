@@ -82,7 +82,7 @@ export const DataAccount = () => {
               <table className="order-table">
                 <thead>
                   <tr className="order-table-tr">
-                    <th className="order-table-title">N Pedido</th>
+                    <th className="order-table-title">ID Pedido</th>
                     <th className="order-table-title">Pedidos</th>
                     <th className="order-table-title">Precio total</th>
                     <th className="order-table-title">Pago</th>
@@ -92,7 +92,7 @@ export const DataAccount = () => {
                   {orders.map((order, index) => {
                     return (
                       <tr className="order-table-tr" key={index}>
-                        <td className="order-table-data"></td>
+                        <td className="order-table-data-id">{order.id}</td>
                         <td className="order-table-data">
                           {order.items
                             ? order.items.map((item, index) => {

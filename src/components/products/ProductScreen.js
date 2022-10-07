@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     position: "relative",
-    width: "80%",
+    width: "100%",
     minWidth: "140px",
-    maxWidth: "300px",
+    maxWidth: "280px",
     border: "hidden",
     borderRadius: "10px",
   },

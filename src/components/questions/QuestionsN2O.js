@@ -63,7 +63,7 @@ export default function QuestionN2O({question}) {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography >
-             {question.parragraph}
+             {question.paragraph}
             </Typography>
         
           
