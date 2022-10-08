@@ -21,9 +21,9 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Creamer Inc
       </Link>{" "}
-      {new Date().getFullYear()}
+      2022
       {"."}
     </Typography>
   );
@@ -47,21 +47,23 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  input: {
+    backgroundColor: "white",
+  },
 }));
 
 export default function SignIn() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-    .then((auth) => navigate('/'))
-    .catch(error => alert(error.message));
-  }
- 
+      .then((auth) => navigate("/"))
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -75,6 +77,7 @@ export default function SignIn() {
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
+            className={classes.input}
             variant="outlined"
             margin="normal"
             required
@@ -85,9 +88,10 @@ export default function SignIn() {
             autoComplete="email"
             autoFocus
             onChange={(e) => setEmail(e.target.value)}
-                value={email}
+            value={email}
           />
           <TextField
+            className={classes.input}
             variant="outlined"
             margin="normal"
             required
@@ -116,13 +120,13 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-            <NavLink to="/forgot-password" variant="body2">
-                Ha olvidado su contrasena?
+              <NavLink to="/forgot-password" variant="body2">
+                Ha olvidado su contraseña?
               </NavLink>
             </Grid>
             <Grid item>
               <NavLink to="/create-user" variant="body2">
-                {"Don't have an account? Sign Up"}
+                 Crear cuenta
               </NavLink>
             </Grid>
           </Grid>

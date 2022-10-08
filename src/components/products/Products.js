@@ -3,11 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Product from "./Product";
 import { collection, getDocs } from "firebase/firestore";
-import { colRefProducts, db } from "../firebase/Firebase";
+import { colRefProducts } from "../firebase/Firebase";
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
+
   card: {
     width: "100%",
   },
@@ -36,45 +34,41 @@ export default function Products() {
   };
 
   useEffect(() => {
-    let cancel = false
     async function getProducts2() {
-      if(!cancel){
-      const products2 = await getProducts();
-      setProducts(products2);
-    }
+        const products2 = await getProducts();
+        setProducts(products2);
+      
     }
     getProducts2();
 
-    return () => {
-      cancel=true
-    }
 
   }, []);
-  console.log(products);//2veces
+  console.log(products); //2veces
 
-  return (
-    <div className="products-background">
-      <div className={classes.main}>
-        <div className="product-page-div">
-          <h1 className="product-page-title">Tienda</h1>
+    return (
+      <>
+        <div className={classes.main}>
+          <div className="products-page-div">
+            <h1 className="products-page-title">Tienda</h1>
+          </div>
+
+          <Grid container spacing={0}>
+            {products.map((product) => {
+              return (
+                <Grid
+                  key={product.id}
+                  item
+                  sm={6}
+                  md={4}
+                  className={classes.card}
+                >
+                  <Product product={product} />
+                </Grid>
+              );
+            })}
+          </Grid>
         </div>
-
-        <Grid container spacing={0}>
-          {products.map((product) => {
-            return (
-              <Grid
-                key={product.id}
-                item
-                sm={6}
-                md={4}
-                className={classes.card}
-              >
-                <Product product={product} />
-              </Grid>
-            );
-          })}
-        </Grid>
-      </div>
-    </div>
-  );
+      </>
+    );
+  
 }

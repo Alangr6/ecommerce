@@ -10,15 +10,9 @@ import { ShoppingCart } from "@material-ui/icons";
 const useStyles = makeStyles((theme) => ({
   cart: {
     color: "whitesmoke",
+  },
 
-  },
-  badge: {
-    color: "red",
-    backgroundColor: "black",
-  },
-  size:{
-    height:'200px'
-  }
+
 }));
 
 export const Logo = () => {
@@ -36,7 +30,6 @@ export const Logo = () => {
     });
   }, [user]);
 
-  
   return (
     <div className="logo-div2">
       <div className="logo-div">
@@ -45,26 +38,29 @@ export const Logo = () => {
         </NavLink>
       </div>
       <div className="navbar-buttons">
-        <NavLink  to="/">
-          <button className="product-button">Home</button>
+        <NavLink to="/">
+          <button className="navbar-button">Home</button>
         </NavLink>
-        <NavLink  to="/products">
-          <button className="product-button">Productos</button>
+        <NavLink to="/products">
+          <button className="navbar-button">Productos</button>
         </NavLink>
-        <NavLink  to="/questions">
-          <button className="product-button2">Preguntas</button>
+        <NavLink to="/questions">
+          <button className="navbar-button2">Preguntas</button>
         </NavLink>
-        <NavLink
-          
-          to={!user ? "login" : `/account/${user.uid}/data-account`}
-        >
-          <button className="product-button3"><i className="fa-solid fa-circle-user fa-1x"></i></button>
+        <NavLink to={!user ? "login" : `/account/${user.uid}/data-account`}>
+          <button className="navbar-button3">
+           {!user ? 'Iniciar sesion' :  <i className="fa-solid fa-circle-user fa-1x"></i>}
+          </button>
         </NavLink>
         <div className="hello-user-div">
-          <NavLink  to="/checkout-page">
+          <NavLink to="/checkout-page">
             <IconButton aria-label="show cart items" className={classes.cart}>
-              <Badge overlap="rectangular" badgeContent={basket?.length}  color="secondary">
-                <ShoppingCart fontSize="large"/>
+              <Badge
+                overlap="rectangular"
+                badgeContent={basket?.length}
+                color="secondary"
+              >
+                <ShoppingCart fontSize="medium" />
               </Badge>
             </IconButton>
           </NavLink>

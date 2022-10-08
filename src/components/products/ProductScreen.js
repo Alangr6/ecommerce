@@ -6,12 +6,7 @@ import accounting from "accounting";
 import { useStateValue } from "../reducer/StateProvider";
 import { actionTypes } from "../reducer/Reducer";
 import React, { useEffect, useState } from "react";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { colRefProducts, db } from "../firebase/Firebase";
 import { Grid, TextField } from "@material-ui/core";
@@ -22,9 +17,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 
-  action: {
-    padding: 16,
-  },
   card: {
     position: "relative",
     width: "100%",
@@ -33,9 +25,7 @@ const useStyles = makeStyles((theme) => ({
     border: "hidden",
     borderRadius: "10px",
   },
-  padding: {
-    padding: "4px",
-  },
+ 
 }));
 
 export const ProductScreen = () => {
@@ -47,7 +37,7 @@ export const ProductScreen = () => {
   const classes = useStyles();
   const [{ basket, user }, dispatch] = useStateValue();
   const params = useParams();
-  const product = products.find((p) => p.id == params.id);
+  const product = products.find((p) => p.id === params.id);
   const colRefReviews = collection(db, `products2/${params.id}/review`);
   const colRefPrices = collection(db, `products2/${params.id}/prices`);
 
@@ -104,13 +94,17 @@ export const ProductScreen = () => {
   //console.log(basket);//12veces
 
   if (!product) {
-    return <h1>Cargando...</h1>;
+    return (
+      <div>
+        <h1>Cargando...</h1>
+      </div>
+    );
   } else {
     return (
       <>
-        <div className="all-products-screen">
-          <div className="products-screen-div2">
-            <div className="products-screen-start">
+        <div className="all-products-screen-div">
+          <div className="product-screen-div">
+            <div className="product-screen-card-div">
               <Card className={classes.card}>
                 <CardMedia className={classes.media} title="bombona Fastgas">
                   <img
@@ -124,20 +118,23 @@ export const ProductScreen = () => {
                 <button className="go-back-button">Volver</button>
               </NavLink>
             </div>
-            <div className="product-screen-div">
+            <div className="product-screen-div2">
               <h1 className="product-screen-title">{product.name}</h1>
 
               <hr className="product-screen-hr" />
 
               <p className="product-screen-description">
                 {" "}
-                <strong className="strong-description">Descripcion: {product.description}</strong> {}
+                <strong className="product-screen-strong-description">
+                  Descripcion: {product.description}
+                </strong>{" "}
+                {}
               </p>
             </div>
           </div>
 
-          <div className="product-table-screen">
-            <table className="screen-table">
+          <div className="product-table-screen-div">
+            <table className="product-screen-table">
               <tbody>
                 <tr>
                   <td className="order-table-screen">Precio:</td>
@@ -158,20 +155,17 @@ export const ProductScreen = () => {
                 </tr>
                 <tr>
                   <td className="order-table-screen-button">
-                  <button onClick={addToBasket} className="add-cart-button ">
+                    <button onClick={addToBasket} className="add-cart-button ">
                       Anadir al carrito
                     </button>
                   </td>
-                  <td className="order-table-screen-button">
-              
-                  </td>
-                
+                  <td className="order-table-screen-button"></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div className="products-review">
+        <div className="product-review-div">
           <Grid>
             <Grid item xs={12}>
               <TextField
@@ -193,17 +187,19 @@ export const ProductScreen = () => {
           >
             Publicar
           </button>
-          <h3 className="reviews-title">Comentarios:</h3>
-          {reviews.map((review) => {
-            return (
-              <div className="reviews-div" key={review.review}>
-                <p>
-                  <strong>{review.userEmail}</strong> : {review.review}
-                </p>
-                <p>{review.date}</p>
-              </div>
-            );
-          })}
+          <div className="all-reviews-div">
+            <h3 className="reviews-title">Comentarios:</h3>
+            {reviews.map((review) => {
+              return (
+                <div key={review.review}>
+                  <p>
+                    <strong>{review.userEmail}</strong> : {review.review}
+                  </p>
+                  <p>{review.date}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </>
     );

@@ -16,91 +16,85 @@ import { basketItems } from "../functions/FecthData";
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop:'50px'
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "50px",
   },
   action: {
     padding: 16,
   },
   card: {
-    position: 'relative',
-    width: '100%',
-    margin: '3rem',
-    border: 'hidden',
-    borderRadius: '10px',
-    maxHeight:'600px',
-    maxWidth:'400px',
-    minWidth:'260px',
-    alignContent:'space-between'
-    
+    position: "relative",
+    width: "100%",
+    margin: "3rem",
+    border: "hidden",
+    borderRadius: "10px",
+    maxHeight: "600px",
+    maxWidth: "400px",
+    minWidth: "260px",
+    alignContent: "space-between",
   },
-  icons:{
-    display: 'flex',
-    alignItems:'flex-end'
+  icons: {
+    display: "flex",
+    alignItems: "flex-end",
   },
-  title:{
-    color:'black',
-    maxHeight:'58px',
-    display:'flex',
-    alignItems:'start',
-  }
+  title: {
+    color: "black",
+    maxHeight: "58px",
+    display: "flex",
+    alignItems: "start",
+  },
 }));
 
-export default function Product({ product  }) {
+export default function Product({ product }) {
   const classes = useStyles();
   const [{ basket }, dispatch] = useStateValue();
-  const price = product.price.unit_amount/100
+  const price = product.price.unit_amount / 100;
 
   const addToBasket = () => {
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
-        product:product.name,
-        price:price,
-        id:product.id,
-        image:product.images[0],
-        priceId:product.priceId,
-        count:1
+        product: product.name,
+        price: price,
+        id: product.id,
+        image: product.images[0],
+        priceId: product.priceId,
+        count: 1,
       },
     });
- 
-    
   };
-   // console.log(product);//6veces
+  // console.log(product);//6veces
 
-  let basketItemsArray = JSON.stringify(basket) 
-  localStorage.setItem('basketItems',basketItemsArray)
+  let basketItemsArray = JSON.stringify(basket);
+  localStorage.setItem("basketItems", basketItemsArray);
   //console.log(basketItems);//6veces
   return (
     <>
-      <div className="all-products2">
-        
+      <div className="product-div">
         <Card className={classes.card}>
-        <div>
-        <NavLink className="products-outlined" to={`/product/${product.id}`}>
-            <CardHeader className={classes.title}
-              action={
-                <Typography
-                  className={classes.action}
-                  variant="h5"
-                  color="textSecondary"
-                >
-                   {accounting.formatMoney(price, "€")} 
-                </Typography>
-              }
-              title={product.name}
-              subheader="en Stock"
-            />
-            <CardMedia
-              className={classes.media}
-              
-              title="bombona Fastgas"
-            ><img className="product-image" src={product.images[0]} alt="" /></CardMedia>
-          </NavLink>
+          <div>
+            <NavLink className="product-outlined" to={`/product/${product.id}`}>
+              <CardHeader
+                className={classes.title}
+                action={
+                  <Typography
+                    className={classes.action}
+                    variant="h5"
+                    color="textSecondary"
+                  >
+                    {accounting.formatMoney(price, "€")}
+                  </Typography>
+                }
+                title={product.name}
+                subheader="en Stock"
+              />
+              <CardMedia className={classes.media} title="bombona Fastgas">
+                <img className="product-image" src={product.images[0]} alt="" />
+              </CardMedia>
+            </NavLink>
+          </div>
 
-        </div>
-         
           <div className={classes.icons}>
             <CardActions disableSpacing>
               <div>
@@ -111,8 +105,6 @@ export default function Product({ product  }) {
                   <ShareIcon />
                 </IconButton>
               </div>
-
-            
             </CardActions>
           </div>
         </Card>{" "}

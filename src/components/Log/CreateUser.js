@@ -18,8 +18,6 @@ import { auth, db } from "../firebase/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
-
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -38,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  input: {
+    backgroundColor: "white",
+  },
 }));
 
 function Copyright() {
@@ -47,12 +48,11 @@ function Copyright() {
       <Link color="inherit" href="https://mui.com/">
         Creamer Inc
       </Link>{" "}
-      {new Date().getFullYear()}
+      2022
       {"."}
     </Typography>
   );
 }
-
 
 export default function SignUp() {
   const classes = useStyles();
@@ -89,6 +89,7 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                className={classes.input}
                 autoComplete="fname"
                 name="name"
                 variant="outlined"
@@ -103,6 +104,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -116,6 +118,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -129,6 +132,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -161,7 +165,7 @@ export default function SignUp() {
           <Grid container justifyContent="flex-end">
             <Grid item>
               <NavLink to="/login" variant="body2">
-                Already have an account? Sign in
+                Iniciar sesion
               </NavLink>
             </Grid>
           </Grid>

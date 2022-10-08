@@ -11,13 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { NavLink, useNavigate } from "react-router-dom";
-import {
-  sendPasswordResetEmail,
-  
-} from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/Firebase";
-
-
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -37,29 +32,28 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  input: {
+    backgroundColor: "white",
+  },
 }));
-
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Creamer Inc
       </Link>{" "}
-      {new Date().getFullYear()}
+      2022
       {"."}
     </Typography>
   );
 }
 
-
 export default function ForgotPassword() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
-
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -86,6 +80,7 @@ export default function ForgotPassword() {
 
         <form className={classes.form} noValidate>
           <TextField
+            className={classes.input}
             variant="outlined"
             margin="normal"
             required

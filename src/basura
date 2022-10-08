@@ -20,7 +20,7 @@ export const CreateUser = () => {
           <input type="password" className="input-user" />
         </div>
         <div className="form-user">
-          <button type="submit" className="form-button">
+          <button type="submit" className="checkout-button">
             Crear Usuario
           </button>
         </div>
@@ -48,7 +48,7 @@ export const Login = () => {
           <input type="password" className="input-user" />
         </div>
         <div className="form-user">
-          <button type="submit" className="form-button">
+          <button type="submit" className="checkout-button">
             Iniciar sesion
           </button>
         </div>
@@ -154,7 +154,7 @@ case "ADD_TO_BASKET":{
 </div>
 /////////////////////////////////////////////////
 <TableContainer component={Paper}>
-  <Table className="product-screen-table" aria-label="simple table">
+  <Table className="product-product-screen-table" aria-label="simple table">
     <TableBody>
       <TableRow key={product.id}>
         <TableCell

@@ -39,20 +39,16 @@ export const DataAccount = () => {
   };
 
   useEffect(() => {
-    let cancel = false;
     async function getPayments() {
       if (user) {
-        if (!cancel) {
           const payments = await getOrders(user.uid);
           setOrders(payments);
-        }
+        
       }
     }
     getPayments();
 
-    return () => {
-      cancel = true;
-    };
+   
   }, [user]);
   //console.log(orders);// bucle infinito
   //console.log(userData);
@@ -74,24 +70,24 @@ export const DataAccount = () => {
           <h1 className="user-title">
             Tiene la sesion iniciada con {user.email}
           </h1>
-          <div className="product-page-div">
+          <div>
             <h1 className="order-data-title">Pedidos realizados</h1>
           </div>
-          <div className="order-table-div">
-            {orders.length != 0 ? (
+          <div >
+            {orders.length !== 0 ? (
               <table className="order-table">
-                <thead>
-                  <tr className="order-table-tr">
+                <thead className="order-table-thead">
+                  <tr>
                     <th className="order-table-title">ID Pedido</th>
                     <th className="order-table-title">Pedidos</th>
                     <th className="order-table-title">Precio total</th>
                     <th className="order-table-title">Pago</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="order-table-tbody">
                   {orders.map((order, index) => {
                     return (
-                      <tr className="order-table-tr" key={index}>
+                      <tr key={index}>
                         <td className="order-table-data-id">{order.id}</td>
                         <td className="order-table-data">
                           {order.items
