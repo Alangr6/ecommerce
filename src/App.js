@@ -6,9 +6,6 @@ import './components/css/home.css'
 import './components/css/account-basket.css'
 
 
-
-
-
 function App() {
   return (
     <>

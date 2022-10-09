@@ -16,7 +16,7 @@ export const DataAccount = () => {
   const [userData, setUserData] = useState("");
   const [orders, setOrders] = useState([]);
   const [numberItems, setNumberItems] = useState([]);
-  const [alan, setAlan] = useState([]);
+  const [numberItems2, setNumberItems2] = useState([]);
 
   if (user) {
     const docRef = doc(db, `customers/${user.uid}`);
@@ -41,28 +41,47 @@ export const DataAccount = () => {
   useEffect(() => {
     async function getPayments() {
       if (user) {
-          const payments = await getOrders(user.uid);
-          setOrders(payments);
-        
+        const payments = await getOrders(user.uid);
+        setOrders(payments);
+
+        setNumberItems2(() => {
+          const newBasket = [];
+          payments.forEach((order) => {
+            const basket = [];
+            order.items.forEach((b) => {
+              const item = basket.find(
+                (bi) => bi.description === b.description
+              );
+              if (item) {
+                item.count += 1;
+              } else {
+                basket.push({
+                  ...b,
+                  count: 1,
+                });
+              }
+            });
+            newBasket.push({
+              ...basket,
+            });
+          });
+
+          return newBasket;
+        });
       }
     }
     getPayments();
-
-   
   }, [user]);
   //console.log(orders);// bucle infinito
   //console.log(userData);
-
-  /*  useEffect(() => {
-    setAlan(() => {
-      orders.map((order) => {
-        order.items.map((item) => {
-          setNumberItems(item.description);
-        });
-      });
-    });
-  }, []); */
   //console.log(numberItems);
+  //console.log(numberItems2[0]);
+  numberItems2.map((item,index) => {
+    numberItems2.find((item) => numberItems2.index == item.index)
+  })
+  //console.log(numberItems2);
+ 
+  
   if (user) {
     return (
       <>
@@ -73,7 +92,7 @@ export const DataAccount = () => {
           <div>
             <h1 className="order-data-title">Pedidos realizados</h1>
           </div>
-          <div >
+          <div>
             {orders.length !== 0 ? (
               <table className="order-table">
                 <thead className="order-table-thead">
@@ -87,12 +106,16 @@ export const DataAccount = () => {
                 <tbody className="order-table-tbody">
                   {orders.map((order, index) => {
                     return (
-                      <tr key={index}>
+                      <tr className="order-table-tr" key={index}>
                         <td className="order-table-data-id">{order.id}</td>
                         <td className="order-table-data">
                           {order.items
-                            ? order.items.map((item, index) => {
-                                return <p key={index}>{item.description}</p>;
+                            ? numberItems2.map((item, index) => {
+                                return (
+                                  <p key={index}>
+                                    x{item[0].count} {item[0].description}
+                                  </p>
+                                );
                               })
                             : ""}
                         </td>

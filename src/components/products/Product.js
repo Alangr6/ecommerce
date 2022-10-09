@@ -12,7 +12,6 @@ import accounting from "accounting";
 import { actionTypes } from "../reducer/Reducer";
 import { useStateValue } from "../reducer/StateProvider";
 import { NavLink } from "react-router-dom";
-import { basketItems } from "../functions/FecthData";
 
 const useStyles = makeStyles((theme) => ({
   media: {

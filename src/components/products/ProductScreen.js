@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     border: "hidden",
     borderRadius: "10px",
   },
- 
 }));
 
 export const ProductScreen = () => {
@@ -86,7 +85,7 @@ export const ProductScreen = () => {
         userEmail: user.email,
         date: currentDate,
       });
-      inputReview.value = "";
+      
       window.location.reload();
     }
   }

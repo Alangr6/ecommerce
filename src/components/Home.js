@@ -18,6 +18,7 @@ export const Home = () => {
       <section className="home-section2">
         <img
           className="home-section2-img"
+          alt="section2"
           src="https://images.pexels.com/photos/8477780/pexels-photo-8477780.jpeg?auto=compress&cs=tinysrgb&w=1000"
         />
         <div className="home-section2-div">

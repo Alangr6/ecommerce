@@ -17,7 +17,7 @@ export const AllQuestions = () => {
         return <QuestionN2O key={question.title} question={question} />;
       })}
 
-      <h2 className="question-title">ENVIOS, METODOS DE PAGO Y REEMBOLSO</h2>
+      <h2 id="questions" className="question-title">ENVIOS, METODOS DE PAGO Y REEMBOLSO</h2>
       {questionsShipping.map((question) => {
         return <QuestionsShipping key={question.title} question={question} />;
       })}
