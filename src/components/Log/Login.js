@@ -62,6 +62,7 @@ export default function SignIn() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((auth) => navigate("/"))
+      .then(() => window.location.reload())
       .catch((error) => alert(error.message));
   };
 

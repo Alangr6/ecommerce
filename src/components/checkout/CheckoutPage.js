@@ -3,8 +3,6 @@ import CheckoutCard from "./CheckoutCard";
 import { Total } from "./Total";
 import { useStateValue } from "../reducer/StateProvider";
 
-
-
 export const CheckoutPage = () => {
   const [{ basket, user }] = useStateValue();
   const [basketCart, setBasketCart] = useState([]);
@@ -27,16 +25,15 @@ export const CheckoutPage = () => {
       return newBasket;
     });
   }, [basket]);
-  //console.log(basketCart);//6 veces
+  console.log(basketCart);//6 veces
   function CheckoutBasketData() {
     if (basket.length === 0) {
       return (
         <div className="blank-div">
           <h1 className="empty-cart">
-          Su carrito se encuentra actualmente vacio
-        </h1>
+            Su carrito se encuentra actualmente vacio
+          </h1>
         </div>
-        
       );
     } else {
       return (
@@ -48,22 +45,21 @@ export const CheckoutPage = () => {
           </h1>
 
           <div className="table-container">
-       
-              <table className='checkout-table' aria-label="customized table">
-                <thead>
-                  <tr>
-                    <th className="checkout-card-th"></th>
-                    <th className="checkout-card-th">Cantidad</th>
-                    <th className="checkout-card-th">Producto</th>
-                    <th className="checkout-card-th">Precio</th>
-                    <th className="checkout-card-th"></th>
-                  </tr>
-                </thead>
+            <table className="checkout-table" aria-label="customized table">
+              <thead>
+                <tr>
+                  <th className="checkout-card-th"></th>
+                  <th className="checkout-card-th">Cantidad</th>
+                  <th className="checkout-card-th">Producto</th>
+                  <th className="checkout-card-th">Precio</th>
+                  <th className="checkout-card-th"></th>
+                </tr>
+              </thead>
 
-                {basketCart?.map((item, index) => (
-                  <CheckoutCard  key={index} item={item} />
-                ))}
-              </table>
+              {basketCart?.map((item, index) => (
+                <CheckoutCard key={index} item={item} />
+              ))}
+            </table>
           </div>
         </>
       );

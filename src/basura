@@ -214,3 +214,43 @@ case "ADD_TO_BASKET":{
     </TableBody>
   </Table>
 </TableContainer>
+////////////////////////////////
+<tbody className="order-table-tbody">
+  {orders.map((order, index) => {
+    return (
+      <tr className="order-table-tr" key={index}>
+        <td className="order-table-data-id">{order.id}</td>
+        <td className="order-table-data">
+          {order.items
+            ? numberItems2.map((item, index) => {
+                return (
+                  <p key={index}>
+                    x{item[0].count} {item[0].description}
+                  </p>
+                );
+              })
+            : ""}
+        </td>
+        <td className="order-table-data">
+          {order.amount / 100}
+        </td>
+        <td className="order-table-data">Completado</td>
+      </tr>
+    );
+  })}
+</tbody>
+///////////////////////////
+{order.items
+  ? numberItems2.map((item, index) => {
+      let myData = Object.keys(item).map((key) => {
+        return item[key];
+      });
+      return myData.map((a) => {
+        return (
+          <p>
+            {a.count} {a.description}
+          </p>
+        );
+      });
+    })
+  : "ha"}

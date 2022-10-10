@@ -84,7 +84,7 @@ export const Total = () => {
       }
     } catch (error) {
       alert(
-        "Se ha producido un error al procesar su compra, pruebe a vaciar el carrito o compruebe si tiene la sesion de usuario iniciada"
+        "Se ha producido un error al procesar su compra. Pruebe a vaciar el carrito, o compruebe si tiene la sesion de usuario iniciada"
       );
     }
     localStorage.removeItem("basketItems");
@@ -96,21 +96,25 @@ export const Total = () => {
       <div className="checkout-div">
         <div className="total-div">
           <h3>Numero de productos: {basket?.length}</h3>
-          <h3>
-            Total:{" "}
-            {totalAmount < 70
-              ? accounting.formatMoney(totalAmount + 7, "$")
-              : accounting.formatMoney(totalAmount, "$")}
-          </h3>
-          <h6>
-            {totalAmount < 70
-              ? `Coste de envio  ${accounting.formatMoney(7, "$")}`
-              : null}{" "}
-          </h6>
+          {basket?.length === 0 ? null : (
+            <div>
+              <h3>
+                Total:{" "}
+                {totalAmount < 70
+                  ? accounting.formatMoney(totalAmount + 7, "$")
+                  : accounting.formatMoney(totalAmount, "$")}
+              </h3>
+              <h6>
+                {totalAmount < 70
+                  ? `Coste de envio  ${accounting.formatMoney(7, "$")}`
+                  : null}{" "}
+              </h6>
+            </div>
+          )}
         </div>
         <div className="checkout-button-div">
           <button
-            disabled={loading}
+            disabled={loading || basket?.length === 0}
             onClick={createCheckoutSession}
             className="checkout-button"
           >

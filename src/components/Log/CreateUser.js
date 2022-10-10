@@ -71,7 +71,8 @@ export default function SignUp() {
         console.log(auth.user.uid);
         const docRef = await setDoc(dbRef, data);
         navigate("/");
-      })
+        
+      }).then(() => window.location.reload())
       .catch((err) => alert(err.message));
   };
 

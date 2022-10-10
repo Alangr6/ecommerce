@@ -61,11 +61,11 @@ export const DataAccount = () => {
                 });
               }
             });
-            newBasket.push({
+            newBasket.push([
               ...basket,
-            });
+            ]);
           });
-
+          console.log(newBasket);
           return newBasket;
         });
       }
@@ -74,14 +74,11 @@ export const DataAccount = () => {
   }, [user]);
   //console.log(orders);// bucle infinito
   //console.log(userData);
-  //console.log(numberItems);
-  //console.log(numberItems2[0]);
-  numberItems2.map((item,index) => {
-    numberItems2.find((item) => numberItems2.index == item.index)
-  })
-  //console.log(numberItems2);
- 
-  
+  numberItems2.map((item) => {
+   //console.log(item);
+  });
+
+
   if (user) {
     return (
       <>
@@ -111,14 +108,13 @@ export const DataAccount = () => {
                         <td className="order-table-data">
                           {order.items
                             ? numberItems2.map((item, index) => {
-                                return (
-                                  <p key={index}>
-                                    x{item[0].count} {item[0].description}
-                                  </p>
-                                );
+                               return item.map((i) => {
+                                  return <p>{i.count}{i.description}</p>
+                                })
                               })
-                            : ""}
+                            : "ha"}
                         </td>
+
                         <td className="order-table-data">
                           {order.amount / 100}
                         </td>

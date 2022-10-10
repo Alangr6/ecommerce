@@ -109,9 +109,12 @@ a {
 }
 
 .empty-cart {
-  padding-top: 2rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
+  background: linear-gradient(to right, #f9f9f9, white, #f1f1f1);
+  border-radius: 1rem;
+  
 }
 
 .cookies-img {
@@ -265,6 +268,8 @@ p.footer-links a {
 
 .blank-div {
   height: 40vh;
+  display: flex;
+  align-items: center;
 }
 
 @media only screen and (max-width: 800px) {
@@ -306,8 +311,14 @@ p.footer-links a {
   }
 
   .empty-cart {
-    padding-top: 2rem;
-    font-size: 100%;
+    font-size: 150%;
+    text-align: center;
+   /*  margin-left: 1rem;
+    margin-right: 1rem;
+    background: linear-gradient(to right, #f9f9f9, #f4f4f4, #f1f1f1);
+    ; */
+    background: none;
+
   }
 
   .question-title {
