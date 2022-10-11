@@ -215,42 +215,92 @@ case "ADD_TO_BASKET":{
   </Table>
 </TableContainer>
 ////////////////////////////////
-<tbody className="order-table-tbody">
-  {orders.map((order, index) => {
-    return (
-      <tr className="order-table-tr" key={index}>
-        <td className="order-table-data-id">{order.id}</td>
-        <td className="order-table-data">
-          {order.items
-            ? numberItems2.map((item, index) => {
+{orders.map((order, index) => {
+  return (
+    <tr className="order-table-tr" key={index}>
+      <td className="order-table-data-id">{order.id}</td>
+      <td className="order-table-data">
+        {order.items
+          ? numberItems2.map((item, index) => {
+              item.map((i) => {
                 return (
-                  <p key={index}>
-                    x{item[0].count} {item[0].description}
+                  <p>
+                    {i.count}
+                    {i.description}
                   </p>
                 );
-              })
-            : ""}
-        </td>
+              });
+            })
+          : "ha"}
+      </td>
+
+      <td className="order-table-data">
+        {order.amount / 100}
+      </td>
+      <td className="order-table-data">Completado</td>
+    </tr>
+  );
+})}
+///////////////////////////
+{orders.map((order, index) => {
+  {
+    return order.items ? (
+      <tr className="order-table-tr" key={index}>
+        <td className="order-table-data-id">{order.id}</td>
+        {numberItems2.map((item, index) => {
+          return item.map((i) => {
+            return (
+              <p>
+                {i.count}
+                {i.description}
+              </p>
+            );
+          });
+        })}
         <td className="order-table-data">
           {order.amount / 100}
         </td>
+
         <td className="order-table-data">Completado</td>
       </tr>
+    ) : (
+      "ha"
     );
+  }
+})}
+  ////////////////////////////
+  <tbody className="order-table-tbody">
+  {orders.map((order, index) => {
+    
+        {return order.items
+          
+          ? numberItems2.map((item, index) => {
+              return (
+                <tr className="order-table-tr" key={index}>
+
+                  <td className="order-table-data-id">
+                    {order.id}
+                  </td>
+                {item.map((i) => {
+                  return (
+                      <p>
+                        {i.count}
+                        {i.description}
+                      </p>
+                  );
+                })}
+                  <td className="order-table-data">
+                    {order.amount / 100}
+                  </td>
+               
+                  <td className="order-table-data">
+                    Completado
+                  </td>
+                
+                </tr>
+                );
+            })
+          : "ha"}
+    
   })}
 </tbody>
-///////////////////////////
-{order.items
-  ? numberItems2.map((item, index) => {
-      let myData = Object.keys(item).map((key) => {
-        return item[key];
-      });
-      return myData.map((a) => {
-        return (
-          <p>
-            {a.count} {a.description}
-          </p>
-        );
-      });
-    })
-  : "ha"}

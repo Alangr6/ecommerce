@@ -61,9 +61,7 @@ export const DataAccount = () => {
                 });
               }
             });
-            newBasket.push([
-              ...basket,
-            ]);
+            newBasket.push([...basket]);
           });
           console.log(newBasket);
           return newBasket;
@@ -74,10 +72,9 @@ export const DataAccount = () => {
   }, [user]);
   //console.log(orders);// bucle infinito
   //console.log(userData);
-  numberItems2.map((item) => {
-   //console.log(item);
+  numberItems2.forEach((item) => {
+    //console.log(item);
   });
-
 
   if (user) {
     return (
@@ -102,25 +99,35 @@ export const DataAccount = () => {
                 </thead>
                 <tbody className="order-table-tbody">
                   {orders.map((order, index) => {
-                    return (
-                      <tr className="order-table-tr" key={index}>
-                        <td className="order-table-data-id">{order.id}</td>
-                        <td className="order-table-data">
-                          {order.items
-                            ? numberItems2.map((item, index) => {
-                               return item.map((i) => {
-                                  return <p>{i.count}{i.description}</p>
-                                })
-                              })
-                            : "ha"}
-                        </td>
+                    {
+                      return order.items
+                        ? numberItems2.map((item, index) => {
+                            return (
+                              <tr className="order-table-tr" key={index}>
+                                <td className="order-table-data-id">
+                                  {order.id}
+                                </td>
+                                <td className="order-table-data-">
+                                {item.map((i) => {
+                                  return (
+                                    <p>
+                                      {i.count}
+                                      {i.description}
+                                    </p>
+                                  );
+                                })}
+                                </td>
+                             
+                                <td className="order-table-data">
+                                  {order.amount / 100}
+                                </td>
 
-                        <td className="order-table-data">
-                          {order.amount / 100}
-                        </td>
-                        <td className="order-table-data">Completado</td>
-                      </tr>
-                    );
+                                <td className="order-table-data">Completado</td>
+                              </tr>
+                            );
+                          })
+                        : "ha";
+                    }
                   })}
                 </tbody>
               </table>
