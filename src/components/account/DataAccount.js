@@ -16,7 +16,6 @@ export const DataAccount = () => {
   const [userData, setUserData] = useState("");
   const [orders, setOrders] = useState([]);
   const [numberItems, setNumberItems] = useState([]);
-  const [numberItems2, setNumberItems2] = useState([]);
 
   if (user) {
     const docRef = doc(db, `customers/${user.uid}`);
@@ -44,7 +43,7 @@ export const DataAccount = () => {
         const payments = await getOrders(user.uid);
         setOrders(payments);
 
-        setNumberItems2(() => {
+        setNumberItems(() => {
           const newBasket = [];
           payments.forEach((order) => {
             const basket = [];
@@ -70,11 +69,7 @@ export const DataAccount = () => {
     }
     getPayments();
   }, [user]);
-  //console.log(orders);// bucle infinito
-  //console.log(userData);
-  numberItems2.forEach((item) => {
-    //console.log(item);
-  });
+  //console.log(numberItems2); // bucle infinito
 
   if (user) {
     return (
@@ -100,33 +95,32 @@ export const DataAccount = () => {
                 <tbody className="order-table-tbody">
                   {orders.map((order, index) => {
                     {
-                      return order.items
-                        ? numberItems2.map((item, index) => {
-                            return (
-                              <tr className="order-table-tr" key={index}>
-                                <td className="order-table-data-id">
-                                  {order.id}
-                                </td>
-                                <td className="order-table-data-">
-                                {item.map((i) => {
-                                  return (
-                                    <p>
-                                      {i.count}
-                                      {i.description}
-                                    </p>
-                                  );
-                                })}
-                                </td>
-                             
-                                <td className="order-table-data">
-                                  {order.amount / 100}
-                                </td>
+                      return (
+                        <tr className="order-table-tr" key={index}>
+                          <td className="order-table-data-id">{order.id}</td>
+                          <td className="order-table-data-orders">
+                              {numberItems.length === 0
+                                ? "cargando"
+                                : numberItems[index].map((i) => {
+                                    return (
+                                      <p>
+                                        {" "}
+                                        {i.count} {i.description}
+                                      </p>
+                                    );
+                                  })}
+                              &nbsp;
+                          </td>
 
-                                <td className="order-table-data">Completado</td>
-                              </tr>
-                            );
-                          })
-                        : "ha";
+                          <td className="order-table-data">
+                            {order.amount < 7000
+                              ? (order.amount + 700) / 100
+                              : order.amount / 100}
+                          </td>
+
+                          <td className="order-table-data">Completado</td>
+                        </tr>
+                      );
                     }
                   })}
                 </tbody>
