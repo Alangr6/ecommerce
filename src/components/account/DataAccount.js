@@ -94,7 +94,7 @@ export const DataAccount = () => {
                 </thead>
                 <tbody className="order-table-tbody">
                   {orders.map((order, index) => {
-                    {
+                    
                       return (
                         <tr className="order-table-tr" key={index}>
                           <td className="order-table-data-id">{order.id}</td>
@@ -121,7 +121,7 @@ export const DataAccount = () => {
                           <td className="order-table-data">Completado</td>
                         </tr>
                       );
-                    }
+                    
                   })}
                 </tbody>
               </table>
