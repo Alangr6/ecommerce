@@ -3,26 +3,26 @@
 
 export const questionsAboutUs = [
   {
-    title: "¿Quienes Somos?",
+    title: "¿Quiénes Somos?",
     paragraph: `Somos una pequeña empresa española creada en 2022 que intenta ofrecer los mejores servicios a la hora de adquirir bombonas de N2O.
-    Con nosotros no volvera a tener problemas por esos largos tiempos de espera a la hora de pedir bombonas.`,
+    Con nosotros no volverá a tener problemas por esos largos tiempos de espera a la hora de pedir bombonas.`,
   },
   {
-    title: "¿Como contactar con nosotros?",
+    title: "¿Cómo contactar con nosotros?",
     paragraph: `Para sus consultas puede contactar con nosotros via email creamercompanyservice@gmail.com, o bien via instagram @creamer_oficial` ,
   },
 ];
 export const questionsShipping = [
   {
-    title: "¿Cuales son los metodos de pago disponibles?",
-    paragraph: "Actualmente Creamer solo acepta pagos con tarjeta de credito.",
+    title: "¿Cuáles son los métodos de pago disponibles?",
+    paragraph: "Actualmente Creamer solo acepta pagos con tarjeta de crédito.",
   },
   {
-    title: "¿Cual es el tiempo de entrega?",
-    paragraph: "En Creamer ofrecemos unos tiempos de entrega excelentes, con unos envios de entre 24 y 48 horas(dias laborales).",
+    title: "¿Cuál es el tiempo de entrega?",
+    paragraph: "En Creamer ofrecemos unos tiempos de entrega excelentes, con unos envíos de entre 24 y 48 horas(dias laborales).",
   },
   {
-    title: "¿Que sucede en caso de retraso?",
+    title: "¿Qué sucede en caso de retraso?",
     paragraph: `Si el retraso supera los 4 dias laborales, no dude en ponerse en contacto con nosotros.
     `,
   },
@@ -33,20 +33,20 @@ export const questionsShipping = [
     `,
   },
   {
-    title: "¿Hace Creamer envios fuera de España?",
-    paragraph: `Creamer realiza envios solamente dentro de la peninsula Iberica, actualmente no hacemos envios fuera del pais
+    title: "¿Hace Creamer envíos fuera de España?",
+    paragraph: `Creamer realiza envíos solamente dentro de la península Ibérica, actualmente no hacemos envíos fuera del pais
     `,
   },
 ];
 export const questionsN2O = [
   {
-    title: "¿Que es el N2O?",
+    title: "¿Qué es el N2O?",
     paragraph: `Un compuesto de nitrógeno y oxígeno usado en los restaurantes o coctelería como propelente para la crema batida y chantilly.
         El N2O u óxido nitroso es usado en la industria alimentaria como propelente de aerosoles. El uso más popular es para la preparación de nata montada, donde se usan los cartuchos llenos de óxido nitroso para convertir la crema en espuma.
         El óxido nitroso es reconocido y autorizado como aditivo alimentario por la Unión Europea bajo el código E942. `,
   },
   {
-    title: "¿Se puede utilizar el N2O para odontologia?",
+    title: "¿Se puede utilizar el N2O para odontología?",
     paragraph: `Sí. El óxido nitroso, además de su uso en la industria alimentaria, es usado por dentistas como un agente sedante eficaz que combinado con el oxígeno logra disminuir la ansiedad en los pacientes. Debido a que se tolera bien, es considerado un sedante seguro en odontología y en la medicina en general. El paciente por su parte todavía tiene la capacidad de responder a preguntas o peticiones. `,
   },
   {

@@ -1,14 +1,14 @@
 .account-main-div {
   min-height: 80vh;
-  background: linear-gradient(90deg, white , #f3f3f3,#f7f7f7);
+  background: linear-gradient(90deg, white, #f3f3f3, #f7f7f7);
   margin: 4vh 20vw;
   border-radius: 1rem;
   box-shadow: 10px 10px 10px 10px #c0c0c0;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  justify-content: space-around;
 }
 .user-title {
   margin: 2.5rem 0;
@@ -19,34 +19,76 @@
 .order-data-title {
   margin-bottom: 3rem;
   color: #9c9494;
+  text-align: center;
 }
-.order-table {
-  border-collapse: collapse;
+
+.responsive-table li {
+  border-radius: 3px;
+  padding: 20px ;
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 25px;
-  font-size: 0.9em;
+  text-align: center;
+}
+.table-header {
+  background-color: #9c9494;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  box-shadow: 2px 2px 9px 2px #c0c0c0;
+  color: white;
+  font-weight: 900;
+  font-size: 110%;
 
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.order-table-thead {
-  background-color: #201c1d;
-  color: #ffffff;
-  text-align: left;
+.table-row {
+  background-color: #ffffff;
+  box-shadow: 2px 2px 9px 2px #c0c0c0;
+  display: flex;
+  align-items: center;
 }
-
-.order-table-tbody {
-  border-bottom: 1px solid #dddddd;
-  background-color: #f3f3f3;
+.col {
+  width: 25%;
+  padding: 0px 1rem;
 }
-.order-table-tr {
-  border-bottom: 1px solid #dadada;
-}
-.order-table-title,
-.order-table-data,
-.order-table-data-id,
-.order-table-data-orders {
-  padding: 12px 15px;
+.col-1 {
+  word-break: break-all;
 }
 
+.col-3 {
+  width: 15%;
+}
+.col-4 {
+  width: 15%;
+}
+/*  @media all and (max-width: 767px) {
+    .table-header {
+      display: none;
+    }
+    .table-row{
+      
+    }
+    li {
+      display: block;
+    }
+    .col {
+      
+      flex-basis: 100%;
+      
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+  } */
 
 .logout-button {
   width: 7rem;
@@ -57,16 +99,13 @@
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 .table-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  
-
 }
 
 .checkout-table {
@@ -75,7 +114,6 @@
   font-size: 0.9em;
   min-width: 150%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  
 }
 .checkout-table thead tr {
   background-color: #201c1d;
@@ -98,7 +136,7 @@
 .checkoutpage {
   padding-top: 1rem;
   min-height: 80vh;
-  background: linear-gradient(180deg, #f3f3f3 , #f3f3f3,#9c9494 140%);
+  background: linear-gradient(180deg, #f3f3f3, #f3f3f3, #9c9494 140%);
   margin: 4vh 20vw;
   border-radius: 1rem;
   box-shadow: 10px 10px 10px 10px #c0c0c0;
@@ -114,7 +152,6 @@
 }
 .empty-cart {
   margin-top: 2rem;
-
 }
 .checkout-div {
   padding-top: 3rem;
@@ -122,13 +159,16 @@
   flex-direction: column;
   justify-content: center;
 }
+.checkout-login-disclaimer{
+  text-align: center;
+  color:#9c9494 ;
+}
 .total-div {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-bottom: 2rem;
   padding: 0 10px;
- 
 }
 .checkout-button-div {
   display: flex;
@@ -144,15 +184,20 @@
   color: white;
   cursor: pointer;
 }
+.login-div{
+  background-color: rgba(255, 255, 255, 0.934);
+  margin: 4vh 30vw;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 10px 10px #c0c0c0;
+}
 @media only screen and (max-width: 800px) {
-  .account-main-div{
+  .account-main-div {
     margin: 4vh 4vw;
-    
+
     height: fit-content;
   }
-  .checkoutpage{
+  .checkoutpage {
     margin: 4vh 2vw;
-
   }
   .user-title {
     font-size: 100%;

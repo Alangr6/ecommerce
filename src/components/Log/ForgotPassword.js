@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    minHeight:"60vh"
+
   },
   avatar: {
     margin: theme.spacing(1),
@@ -68,6 +70,7 @@ export default function ForgotPassword() {
   };
 
   return (
+    <div className="login-div">
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -86,7 +89,7 @@ export default function ForgotPassword() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Email"
             name="email"
             autoComplete="email"
             type="email"
@@ -107,8 +110,8 @@ export default function ForgotPassword() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <NavLink to="/create-user" variant="body2">
-                Iniciar sesion
+              <NavLink to="/login" variant="body2">
+                Iniciar sesión
               </NavLink>
             </Grid>
           </Grid>
@@ -118,5 +121,6 @@ export default function ForgotPassword() {
         <Copyright />
       </Box>
     </Container>
+    </div>
   );
 }

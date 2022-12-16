@@ -18,7 +18,7 @@ import { auth } from "../firebase/Firebase";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2"  color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Creamer Inc
@@ -35,10 +35,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    minHeight: "60vh",
+
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: "black",
+    marginTop:"2rem"
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -67,6 +70,7 @@ export default function SignIn() {
   };
 
   return (
+    <div className="login-div">
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -74,7 +78,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Iniciar sesión
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -84,7 +88,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Email"
             name="email"
             autoComplete="email"
             autoFocus
@@ -98,7 +102,7 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Contraseña"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -107,7 +111,7 @@ export default function SignIn() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="Recordar usuario"
           />
           <Button
             type="submit"
@@ -117,7 +121,7 @@ export default function SignIn() {
             className={classes.submit}
             onClick={handleSubmit}
           >
-            Sign In
+          Iniciar sesión
           </Button>
           <Grid container>
             <Grid item xs>
@@ -127,15 +131,16 @@ export default function SignIn() {
             </Grid>
             <Grid item>
               <NavLink to="/create-user" variant="body2">
-                 Crear cuenta
+                Crear cuenta
               </NavLink>
             </Grid>
           </Grid>
         </form>
       </div>
-      <Box mt={8}>
-        <Copyright />
+      <Box mt={8} >
+        <Copyright  />
       </Box>
     </Container>
+    </div>
   );
 }

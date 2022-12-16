@@ -62,3 +62,51 @@
   </Table>
 </TableContainer>
 ////////////////////////////////
+<div>
+            {orders.length !== 0 ? (
+              <table className="order-table">
+                <thead className="order-table-thead">
+                  <tr>
+                    <th className="order-table-title">ID Pedido</th>
+                    <th className="order-table-title">Pedidos</th>
+                    <th className="order-table-title">Precio total</th>
+                    <th className="order-table-title">Pago</th>
+                  </tr>
+                </thead>
+                <tbody className="order-table-tbody">
+                  {orders.map((order, index) => {
+                    
+                      return (
+                        <tr className="order-table-tr" key={index}>
+                          <td className="order-table-data-id">{order.id}</td>
+                          <td className="order-table-data-orders">
+                              {numberItems.length === 0
+                                ? "cargando"
+                                : numberItems[index].map((i) => {
+                                    return (
+                                      <p>
+                                        {" "}
+                                        {i.count} {i.description}
+                                      </p>
+                                    );
+                                  })}
+                              &nbsp;
+                          </td>
+
+                          <td className="order-table-data">
+                            {order.amount < 7000
+                              ? (order.amount + 700) / 100
+                              : order.amount / 100}
+                          </td>
+
+                          <td className="order-table-data">Completado</td>
+                        </tr>
+                      );
+                    
+                  })}
+                </tbody>
+              </table>
+            ) : (
+              <h4>No se registra ningun pedido realizado</h4>
+            )}
+          </div>

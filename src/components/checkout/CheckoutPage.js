@@ -25,7 +25,7 @@ export const CheckoutPage = () => {
       return newBasket;
     });
   }, [basket]);
-  console.log(basketCart);//6 veces
+  console.log(basketCart); //6 veces
   function CheckoutBasketData() {
     if (basket.length === 0) {
       return (
@@ -38,9 +38,9 @@ export const CheckoutPage = () => {
     } else {
       return (
         <>
-          <h1 className="center">
+          <h1 className="checkout-login-disclaimer">
             {!user
-              ? "Necesita iniciar sesion para proceder al metodo de pago"
+              ? "Necesita iniciar sesión para proceder al método de pago"
               : ""}
           </h1>
 
@@ -69,8 +69,7 @@ export const CheckoutPage = () => {
   return (
     <div className="checkoutpage center">
       <div>
-
-      <h1 className="checkout-title">Carrito de compra</h1>
+        <h1 className="checkout-title">Carrito de compra</h1>
       </div>
       <CheckoutBasketData />
       <Total />

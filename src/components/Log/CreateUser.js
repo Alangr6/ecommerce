@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    minHeight: "60vh",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -71,110 +72,114 @@ export default function SignUp() {
         console.log(auth.user.uid);
         const docRef = await setDoc(dbRef, data);
         navigate("/");
-        
-      }).then(() => window.location.reload())
+      })
+      .then(() => window.location.reload())
       .catch((err) => alert(err.message));
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                className={classes.input}
-                autoComplete="fname"
-                name="name"
-                variant="outlined"
-                required
-                fullWidth
-                id="name"
-                label="First Name"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                autoFocus
-              />
+    <div className="login-div">
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Crear cuenta
+          </Typography>
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  className={classes.input}
+                  autoComplete="fname"
+                  name="name"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="name"
+                  label="Nombre "
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  className={classes.input}
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="lastname"
+                  label="Apellidos"
+                  name="lastname"
+                  autoComplete="lname"
+                  onChange={(e) => setLastname(e.target.value)}
+                  value={lastname}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  className={classes.input}
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  name="email"
+                  autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  className={classes.input}
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Contraseña"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={
+                    <Checkbox value="allowExtraEmails" color="primary" />
+                  }
+                  label="Quiero recibir notificaciones de promociones, ofertas al email."
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                className={classes.input}
-                variant="outlined"
-                required
-                fullWidth
-                id="lastname"
-                label="Last Name"
-                name="lastname"
-                autoComplete="lname"
-                onChange={(e) => setLastname(e.target.value)}
-                value={lastname}
-              />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={handleSubmit}
+            >
+              Crear cuenta{" "}
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <NavLink to="/login" variant="body2">
+                  Iniciar sesión
+                </NavLink>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                className={classes.input}
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                className={classes.input}
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={handleSubmit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justifyContent="flex-end">
-            <Grid item>
-              <NavLink to="/login" variant="body2">
-                Iniciar sesion
-              </NavLink>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
+          </form>
+        </div>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
+    </div>
   );
 }

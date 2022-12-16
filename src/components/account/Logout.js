@@ -8,7 +8,7 @@ export const Logout = () => {
   const [{ user }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
-  const handleAuth = () => {
+  const handleAuth = async () => {
     if (user) {
       auth.signOut();
 
@@ -16,12 +16,13 @@ export const Logout = () => {
         type: actionTypes.SET_USER,
         user: null,
       });
-
       navigate("/login");
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1);
     }
   };
-
+  //console.log(user);
   return (
     <>
       <button className="logout-button" onClick={handleAuth}>

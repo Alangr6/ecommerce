@@ -75,61 +75,55 @@ export const DataAccount = () => {
     return (
       <>
         <div className="account-main-div ">
-          <h1 className="user-title">
-            Tiene la sesion iniciada con {user.email}
-          </h1>
           <div>
+            <h1 className="user-title">
+              Tiene la sesion iniciada con {user.email}
+            </h1>
             <h1 className="order-data-title">Pedidos realizados</h1>
           </div>
           <div>
             {orders.length !== 0 ? (
-              <table className="order-table">
-                <thead className="order-table-thead">
-                  <tr>
-                    <th className="order-table-title">ID Pedido</th>
-                    <th className="order-table-title">Pedidos</th>
-                    <th className="order-table-title">Precio total</th>
-                    <th className="order-table-title">Pago</th>
-                  </tr>
-                </thead>
-                <tbody className="order-table-tbody">
-                  {orders.map((order, index) => {
-                    
-                      return (
-                        <tr className="order-table-tr" key={index}>
-                          <td className="order-table-data-id">{order.id}</td>
-                          <td className="order-table-data-orders">
-                              {numberItems.length === 0
-                                ? "cargando"
-                                : numberItems[index].map((i) => {
-                                    return (
-                                      <p>
-                                        {" "}
-                                        {i.count} {i.description}
-                                      </p>
-                                    );
-                                  })}
-                              &nbsp;
-                          </td>
-
-                          <td className="order-table-data">
-                            {order.amount < 7000
-                              ? (order.amount + 700) / 100
-                              : order.amount / 100}
-                          </td>
-
-                          <td className="order-table-data">Completado</td>
-                        </tr>
-                      );
-                    
-                  })}
-                </tbody>
-              </table>
+              <ul class="responsive-table">
+                <li class="table-header">
+                  <div class="col col-1">ID Pedido</div>
+                  <div class="col col-2">Pedidos</div>
+                  <div class="col col-3">Precio total</div>
+                  <div class="col col-4">Pago</div>
+                </li>
+                {orders.map((order, index) => {
+                  return (
+                    <li class="table-row">
+                      <div class="col col-1" data-label="Job Id">
+                        {order.id}
+                      </div>
+                      <div class="col col-2" data-label="Customer Name">
+                        {numberItems.length === 0
+                          ? "cargando"
+                          : numberItems[index].map((i) => {
+                              return (
+                                <p>
+                                  {" "}
+                                  {i.count} {i.description}
+                                </p>
+                              );
+                            })}
+                      </div>
+                      <div class="col col-3" data-label="Amount">
+                        {order.amount < 7000
+                          ? (order.amount + 700) / 100
+                          : order.amount / 100}{" "}
+                      </div>
+                      <div class="col col-4" data-label="Payment Status">
+                        Completado
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
             ) : (
               <h4>No se registra ningun pedido realizado</h4>
             )}
           </div>
-
           <Logout />
         </div>
       </>
