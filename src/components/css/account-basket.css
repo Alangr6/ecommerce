@@ -136,7 +136,7 @@
 .checkoutpage {
   padding-top: 1rem;
   min-height: 80vh;
-  background: linear-gradient(180deg, #f3f3f3, #f3f3f3, #9c9494 140%);
+  background: linear-gradient(175deg, #f3f3f3, #f3f3f3, #9c9494 150%);
   margin: 4vh 20vw;
   border-radius: 1rem;
   box-shadow: 10px 10px 10px 10px #c0c0c0;
@@ -192,7 +192,7 @@
 }
 @media only screen and (max-width: 800px) {
   .account-main-div {
-    margin: 4vh 4vw;
+    margin: 4vh 2vw;
 
     height: fit-content;
   }
@@ -202,24 +202,21 @@
   .user-title {
     font-size: 100%;
   }
-  .order-table {
-    font-size: 0.75em;
-    margin: 0 1rem;
+  .responsive-table li {
+    padding: 0px;
   }
-
-  .order-data-title {
-    font-size: 150%;
+  .table-header{
+    margin: 10px;
   }
-  .order-table-title,
-  .order-table-data {
-    padding: 12px 7px;
-    text-align: center;
+  .table-row{
+    margin: 10px;
   }
-  .order-table-data-id {
-    padding-left: 6px;
-    word-break: break-all;
-  }
-
+.col-4{
+  width: 30%;
+}
+.col{
+  padding: 0;
+}
   .checkout-table {
     border-collapse: collapse;
     font-size: 0.75em;

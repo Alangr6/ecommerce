@@ -85,7 +85,7 @@ export const DataAccount = () => {
             {orders.length !== 0 ? (
               <ul class="responsive-table">
                 <li class="table-header">
-                  <div class="col col-1">ID Pedido</div>
+                  <div class="col col-1-header">ID Pedido</div>
                   <div class="col col-2">Pedidos</div>
                   <div class="col col-3">Precio total</div>
                   <div class="col col-4">Pago</div>
