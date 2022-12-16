@@ -146,7 +146,7 @@
 .checkout-title {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 2rem 0;
   color: #9c9494;
   font-size: 250%;
 }
@@ -200,7 +200,9 @@
     margin: 4vh 2vw;
   }
   .user-title {
-    font-size: 100%;
+    font-size: 110%;
+    padding: 1rem;
+    margin: 0;
   }
   .responsive-table li {
     padding: 0px;
@@ -226,5 +228,8 @@
   .checkout-card-th,
   .checkout-card-td {
     padding: 12px 3px;
+  }
+  .login-div{
+    margin: 4vh 7.5vw;
   }
 }

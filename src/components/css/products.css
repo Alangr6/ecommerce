@@ -13,10 +13,11 @@
   
   background-color: white;
   min-height: 50vh;
+  
   border: 1px solid #e6e6e6;
   justify-content: space-between;
   flex-direction: column;
-  padding: 2rem 0;
+  
   
 }
 .products-title-div{
@@ -30,8 +31,7 @@
   color: #7d7d7d;
 }
 .product-name-price-div{
-  padding-left: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0 2rem 2rem;
 }
 .product-title{
   font-size: 170%;
@@ -49,6 +49,9 @@
 .product-img-div{
   display: flex;
   justify-content: center;
+}
+.product-img{
+  max-height: 35vh;
 }
 .product-img:hover{
   transform: rotate(22deg);
