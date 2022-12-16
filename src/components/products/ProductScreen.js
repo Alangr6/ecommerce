@@ -31,7 +31,6 @@ export const ProductScreen = () => {
   const [products, setProducts] = useState([]);
   const [prices, setPrices] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [quantity, setQuantity] = useState(1);
   const [review, setReview] = useState("");
   const classes = useStyles();
   const [{ basket, user }, dispatch] = useStateValue();
@@ -70,7 +69,7 @@ export const ProductScreen = () => {
         id: product.id,
         image: product.images[0],
         priceId: product.priceId,
-        count: quantity,
+        count: 1,
       },
     });
   };
@@ -85,7 +84,7 @@ export const ProductScreen = () => {
         userEmail: user.email,
         date: currentDate,
       });
-      
+
       window.location.reload();
     }
   }
@@ -102,102 +101,104 @@ export const ProductScreen = () => {
     return (
       <>
         <div className="all-products-screen-div">
-          <div className="product-screen-div">
-            <div className="product-screen-card-div">
-              <Card className={classes.card}>
-                <CardMedia className={classes.media} title="bombona Fastgas">
-                  <img
-                    className="product-screen-image"
-                    src={product.images[0]}
-                    alt=""
-                  />
-                </CardMedia>
-              </Card>{" "}
-              <NavLink to="/products">
-                <button className="go-back-button">Volver</button>
-              </NavLink>
+          <div className="product-screen-div0">
+            <div className="product-screen-div">
+              <div className="product-screen-card-div">
+                <Card className={classes.card}>
+                  <CardMedia className={classes.media} title="bombona Fastgas">
+                    <img
+                      className="product-screen-image"
+                      src={product.images[0]}
+                      alt=""
+                    />
+                  </CardMedia>
+                </Card>{" "}
+                <NavLink to="/products">
+                  <button className="go-back-button">Volver</button>
+                </NavLink>
+              </div>
             </div>
+
             <div className="product-screen-div2">
               <h1 className="product-screen-title">{product.name}</h1>
 
-              <hr className="product-screen-hr" />
-
-              <p className="product-screen-description">
-                {" "}
+              <div className="product-screen-description">
                 <strong className="product-screen-strong-description">
-                  Descripcion: {product.description}
-                </strong>{" "}
-                {}
-              </p>
+                  Descripción
+                </strong>
+                :<p> {product.description}</p> {}
+              </div>
+            </div>
+            <div className="product-table-screen-div">
+              <table className="product-screen-table">
+                <tbody>
+                  <tr>
+                    <td className="order-table-screen">Precio:</td>
+
+                    <td className="order-table-screen-right">
+                      {prices.map((price) => {
+                        return accounting.formatMoney(
+                          price.unit_amount / 100,
+                          "€"
+                        );
+                      })}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="order-table-screen">Estado:</td>
+
+                    <td className="order-table-screen-right">En stock</td>
+                  </tr>
+                  <tr>
+                    <td className="order-table-screen-button">
+                      <button
+                        onClick={addToBasket}
+                        className="add-cart-button "
+                      >
+                        Anadir al carrito
+                      </button>
+                    </td>
+                    <td className="order-table-screen-button"></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-
-          <div className="product-table-screen-div">
-            <table className="product-screen-table">
-              <tbody>
-                <tr>
-                  <td className="order-table-screen">Precio:</td>
-
-                  <td className="order-table-screen-right">
-                    {prices.map((price) => {
-                      return accounting.formatMoney(
-                        price.unit_amount / 100,
-                        "€"
-                      );
-                    })}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="order-table-screen">Estado:</td>
-
-                  <td className="order-table-screen-right">En stock</td>
-                </tr>
-                <tr>
-                  <td className="order-table-screen-button">
-                    <button onClick={addToBasket} className="add-cart-button ">
-                      Anadir al carrito
-                    </button>
-                  </td>
-                  <td className="order-table-screen-button"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="product-review-div">
-          <Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                id="input-review"
-                name="input-review"
-                label="Anade un comentario"
-                fullWidth
-                onChange={(e) => setReview(e.target.value)}
-                value={review}
-              />
+          <div className="product-review-div">
+            <Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  id="input-review"
+                  name="input-review"
+                  label="Anade un comentario"
+                  fullWidth
+                  onChange={(e) => setReview(e.target.value)}
+                  value={review}
+                />
+              </Grid>
             </Grid>
-          </Grid>
-          <button
-            id="btn-submit"
-            onClick={addReview}
-            type="submit"
-            className="review-button"
-          >
-            Publicar
-          </button>
-          <div className="all-reviews-div">
-            <h3 className="reviews-title">Comentarios:</h3>
-            {reviews.map((review) => {
-              return (
-                <div key={review.review}>
-                  <p>
-                    <strong>{review.userEmail}</strong> : {review.review}
-                  </p>
-                  <p>{review.date}</p>
-                </div>
-              );
-            })}
+            <button
+              id="btn-submit"
+              onClick={addReview}
+              type="submit"
+              className="review-button"
+            >
+              Publicar
+            </button>
+            <div className="all-reviews-div">
+              <h3 className="reviews-title">Comentarios:</h3>
+              {reviews.map((review) => {
+                return (
+                  <div className="reviews-div" key={review.review}>
+                    <p className="reviews-paragraph">
+                      <strong>{review.userEmail}</strong> : {review.review}
+                    </p>
+                    <p>{review.date}</p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </>

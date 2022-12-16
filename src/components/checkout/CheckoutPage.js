@@ -68,7 +68,10 @@ export const CheckoutPage = () => {
 
   return (
     <div className="checkoutpage center">
+      <div>
+
       <h1 className="checkout-title">Carrito de compra</h1>
+      </div>
       <CheckoutBasketData />
       <Total />
     </div>

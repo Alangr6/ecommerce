@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Product from "./Product";
 import { collection, getDocs } from "firebase/firestore";
 import { colRefProducts } from "../firebase/Firebase";
-const useStyles = makeStyles((theme) => ({
-
-  card: {
-    width: "100%",
-  },
-  main: {
-    display: "grid",
-    placeItems: "center",
-  },
-}));
 
 export default function Products() {
-  const classes = useStyles();
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -35,40 +23,31 @@ export default function Products() {
 
   useEffect(() => {
     async function getProducts2() {
-        const products2 = await getProducts();
-        setProducts(products2);
-      
+      const products2 = await getProducts();
+      setProducts(products2);
     }
     getProducts2();
-
-
   }, []);
   console.log(products); //2veces
 
-    return (
-      <>
-        <div className={classes.main}>
-          <div className="products-page-div">
-            <h1 className="products-page-title">Tienda</h1>
-          </div>
-
+  return (
+    <>
+      <div className="products-page-div">
+        <div className="products-title-div">
+          <h1 className="products-title">Tienda</h1>
+        </div>
+        <div className="products-div">
           <Grid container spacing={0}>
             {products.map((product) => {
               return (
-                <Grid
-                  key={product.id}
-                  item
-                  sm={6}
-                  md={4}
-                  className={classes.card}
-                >
+                <Grid key={product.id} item sm={6} md={4}>
                   <Product product={product} />
                 </Grid>
               );
             })}
           </Grid>
         </div>
-      </>
-    );
-  
+      </div>
+    </>
+  );
 }

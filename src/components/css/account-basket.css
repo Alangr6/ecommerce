@@ -1,18 +1,24 @@
+.account-main-div {
+  min-height: 80vh;
+  background: linear-gradient(90deg, white , #f3f3f3,#f7f7f7);
+  margin: 4vh 20vw;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 10px 10px #c0c0c0;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 .user-title {
-  background-color: #fff;
-  margin: 1rem 0;
-  border: 2px solid black;
-  border-left: 0;
-  border-right: 0;
+  margin: 2.5rem 0;
+  color: #9c9494;
+  text-align: center;
 }
 
 .order-data-title {
-  background-color: #fff;
-  border: 2px solid black;
-  border-right: 0;
-  border-left: 0;
-  margin-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 3rem;
+  color: #9c9494;
 }
 .order-table {
   border-collapse: collapse;
@@ -31,7 +37,7 @@
   border-bottom: 1px solid #dddddd;
   background-color: #f3f3f3;
 }
-.order-table-tr{
+.order-table-tr {
   border-bottom: 1px solid #dadada;
 }
 .order-table-title,
@@ -40,10 +46,7 @@
 .order-table-data-orders {
   padding: 12px 15px;
 }
-.order-table-data-orders{
- 
-  
-}
+
 
 .logout-button {
   width: 7rem;
@@ -54,14 +57,16 @@
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  margin: 5% 0;
+  margin-top: 2rem;
 }
 
 .table-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 3rem;
+  
+  
+
 }
 
 .checkout-table {
@@ -70,6 +75,7 @@
   font-size: 0.9em;
   min-width: 150%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  
 }
 .checkout-table thead tr {
   background-color: #201c1d;
@@ -91,24 +97,24 @@
 }
 .checkoutpage {
   padding-top: 1rem;
+  min-height: 80vh;
+  background: linear-gradient(180deg, #f3f3f3 , #f3f3f3,#9c9494 140%);
+  margin: 4vh 20vw;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 10px 10px #c0c0c0;
+  justify-content: space-between;
 }
 
 .checkout-title {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  border: 2px solid black;
-  border-left: 0;
-  border-right: 0;
-  background-color: #fff;
+  color: #9c9494;
+  font-size: 250%;
 }
 .empty-cart {
   margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(to right, #f9f9f9, white, #f1f1f1);
-  border-radius: 1rem;
-  
+
 }
 .checkout-div {
   padding-top: 3rem;
@@ -121,11 +127,8 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 2rem;
-  background-color: #fff;
   padding: 0 10px;
-  border: 2px solid black;
-  border-left: 0;
-  border-right: 0;
+ 
 }
 .checkout-button-div {
   display: flex;
@@ -142,6 +145,15 @@
   cursor: pointer;
 }
 @media only screen and (max-width: 800px) {
+  .account-main-div{
+    margin: 4vh 4vw;
+    
+    height: fit-content;
+  }
+  .checkoutpage{
+    margin: 4vh 2vw;
+
+  }
   .user-title {
     font-size: 100%;
   }
