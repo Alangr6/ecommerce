@@ -14,7 +14,6 @@ export default function CheckoutCard({ item }) {
   }
   localStorage.setItem('basketItems', JSON.stringify(basket))
 
-  //console.log(item);//6veces
   return (
     <>
       <tbody>

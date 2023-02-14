@@ -9,6 +9,7 @@ import QuestionN2O from "./QuestionsN2O";
 import QuestionsShipping from "./QuestionsShipping";
 
 export const AllQuestions = () => {
+  
   return (
     <div className="questions-div">
       <div className="question-title-div">

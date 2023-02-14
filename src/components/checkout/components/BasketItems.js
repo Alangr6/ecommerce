@@ -20,11 +20,9 @@ export const BasketItems = () => {
           });
         }
       });
-      console.log(newBasket);
       return newBasket;
     });
   }, [basket]);
-  console.log(basketCart); //6 veces
 
   function CheckoutBasketData() {
     if (basket.length === 0) {

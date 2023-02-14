@@ -8,7 +8,6 @@ export const Logout = () => {
   const handleLogoutClick = () => {
     handleSignOut()
   }
-  console.log('user');
   return (
     <>
       <button className="logout-button" onClick={handleLogoutClick}>

@@ -24,7 +24,6 @@ export default function Products() {
     }
     getProducts()
   }, [])
-  console.log(products);
   if (products.length === 0) {
     return (
       <div className='loader-div'>

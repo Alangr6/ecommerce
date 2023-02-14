@@ -32,7 +32,6 @@ export const ProductScreen = () => {
     getProducts()
   }, [])
 
-  console.log(basket) //12veces
 
   if (!product) {
     return (

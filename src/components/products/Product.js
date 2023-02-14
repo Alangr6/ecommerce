@@ -24,7 +24,6 @@ export default function Product({ product }) {
       },
     })
   }
-  console.log(product);//6veces
 
   let basketItemsArray = JSON.stringify(basket)
   localStorage.setItem('basketItems', basketItemsArray)

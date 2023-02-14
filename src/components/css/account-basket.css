@@ -21,7 +21,9 @@
   color: #9c9494;
   text-align: center;
 }
-
+.responsive-table{
+  padding: 16px;
+}
 .responsive-table li {
   border-radius: 3px;
   padding: 20px ;

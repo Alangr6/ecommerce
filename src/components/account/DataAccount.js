@@ -48,7 +48,6 @@ export const DataAccount = () => {
     }
     getPayments()
   }, [user])
-  //console.log('hola'); //5veces
 
   if (user) {
     return (
