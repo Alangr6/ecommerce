@@ -1,8 +1,8 @@
 import accounting from "accounting";
 import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import React, { useState } from "react";
-import { db } from "../firebase/Firebase";
-import { useStateValue } from "../reducer/StateProvider";
+import { db } from "../../firebase/Firebase";
+import { useStateValue } from "../../reducer/StateProvider";
 
 export const Total = () => {
   const [{ basket, user }] = useStateValue();

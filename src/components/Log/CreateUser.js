@@ -5,7 +5,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -17,6 +16,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import { CopyrightComponent } from './CopyrightComponent'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -44,20 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Creamer Inc
-      </Link>{" "}
-      2022
-      {"."}
-    </Typography>
-  );
-}
-
-export default function SignUp() {
+export default function CreateUser() {
   const classes = useStyles();
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
@@ -71,8 +58,7 @@ export default function SignUp() {
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (auth) => {
         const dbRef = doc(db, "customers", auth.user.uid);
-        console.log(auth.user.uid);
-        const docRef = await setDoc(dbRef, data);
+         await setDoc(dbRef, data);
         navigate("/");
       })
       .then(() => window.location.reload())
@@ -179,7 +165,7 @@ export default function SignUp() {
           </form>
         </div>
         <Box mt={5}>
-          <Copyright />
+          <CopyrightComponent />
         </Box>
       </Container>
     </div>

@@ -3,12 +3,12 @@
   margin: 0;
 }
 body {
-  background-image: url("https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg?auto=compress&cs=tinysrgb&w=1000");
+  background-image: url('https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg?auto=compress&cs=tinysrgb&w=1000');
   background-position: center center;
   background-attachment: scroll;
   background-size: cover;
-  font-family: "Work Sans", sans-serif;
-  
+  font-family: 'Work Sans', sans-serif;
+
   /* background: linear-gradient(90deg, white,#c0c0c0 ,white); */
 }
 
@@ -76,22 +76,18 @@ body {
 a {
   text-decoration: none;
 }
-.question-title-div{
+.question-title-div {
   display: flex;
   justify-content: center;
-
 }
 .question-title {
   font-size: 200%;
-  
+
   padding: 3px 8px;
   border-radius: 8px;
   text-align: center;
   margin: 2rem 1rem 1rem 1rem;
-  
-} 
-
-
+}
 
 .all-questions {
   padding: 1rem 10%;
@@ -229,7 +225,7 @@ p.footer-links a {
 }
 
 .footer-links a:before {
-  content: " ·";
+  content: ' ·';
   font-size: 20px;
   left: 0;
   display: inline-block;
@@ -265,7 +261,36 @@ p.footer-links a {
   display: flex;
   align-items: center;
 }
+.loader-div {
+  height: 80vh;
 
+  background-color: #201c1d;
+}
+@keyframes loader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.loader::before,.loader::after {
+  animation: loader 2s linear infinite;
+  content: '';
+  border: 10px solid white;
+  width: 40vh;
+  height: 40vh;
+  position: absolute;
+  top: calc(50% - (20vh + 10px));
+  left: calc(50% - (20vh + 10px));
+  border-radius: 50%;
+}
+.loader::before {
+  animation-delay: 1s;
+  opacity: 0.1;
+}
 @media only screen and (max-width: 800px) {
   .logo {
     margin-left: 0;
@@ -307,12 +332,11 @@ p.footer-links a {
   .empty-cart {
     font-size: 150%;
     text-align: center;
-   /*  margin-left: 1rem;
+    /*  margin-left: 1rem;
     margin-right: 1rem;
     background: linear-gradient(to right, #f9f9f9, #f4f4f4, #f1f1f1);
     ; */
     background: none;
-
   }
 
   .question-title {
@@ -338,5 +362,12 @@ p.footer-links a {
   }
   .footer-links {
     width: 80%;
+  }
+  .loader::after,
+  .loader::before {
+    width: 25vh;
+    height: 25vh;
+    top: calc(50% - (12.5vh + 10px));
+    left: calc(50% - (12.5vh + 10px));
   }
 }
