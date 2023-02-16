@@ -1,16 +1,16 @@
 import React from 'react'
-import { HOME_COMPONENT_1 } from './HOME_COMPONENT_1'
-import { HOME_COMPONENT_2 } from './HOME_COMPONENT_2'
-import { HOME_COMPONENT_3 } from './HOME_COMPONENT_3'
-import { HOME_COMPONENT_4 } from './HOME_COMPONENT_4'
+import { HomeComponent1 } from './components/HomeComponent1'
+import { HomeComponent2 } from './components/HomeComponent2'
+import { HomeComponent3 } from './components/HomeComponent3'
+import { HomeComponent4 } from './components/HomeComponent4'
 
 export const Home = () => {
   return (
-    <div>
-      <HOME_COMPONENT_1 />
-      <HOME_COMPONENT_2 />
-      <HOME_COMPONENT_3 />
-      <HOME_COMPONENT_4 />
-    </div>
+    <section>
+      <HomeComponent1 />
+      <HomeComponent2 />
+      <HomeComponent3 />
+      <HomeComponent4 />
+    </section>
   )
 }

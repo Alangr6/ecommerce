@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HOME_COMPONENT_1 = () => {
+export const HomeComponent1 = () => {
   return (
     <section className="home-section">
     <div className="home-section-div">

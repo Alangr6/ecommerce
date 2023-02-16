@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export const HOME_COMPONENT_3 = () => {
+export const HomeComponent3 = () => {
   return (
     <section className="home-section3">
     <h1 className="home-section3-title">

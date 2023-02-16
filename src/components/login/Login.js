@@ -3,6 +3,8 @@ import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
@@ -10,9 +12,9 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { sendPasswordResetEmail } from 'firebase/auth'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase/Firebase'
-import {  CopyrightComponent } from './CopyrightComponent'
+import { CopyrightComponent } from './components/CopyrightComponent'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -39,21 +41,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function ForgotPassword() {
+export default function Login() {
   const classes = useStyles()
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        navigate('/login')
-      })
-      .catch(() => {
-        alert('el email no es valido')
-      })
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => navigate('/'))
+      .then(() => window.location.reload())
+      .catch((error) => alert(error.message))
   }
 
   return (
@@ -65,9 +64,8 @@ export default function ForgotPassword() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component='h1' variant='h5'>
-            Olvidar contrasena
+            Iniciar sesión
           </Typography>
-
           <form className={classes.form} noValidate>
             <TextField
               className={classes.input}
@@ -79,12 +77,28 @@ export default function ForgotPassword() {
               label='Email'
               name='email'
               autoComplete='email'
-              type='email'
               autoFocus
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-
+            <TextField
+              className={classes.input}
+              variant='outlined'
+              margin='normal'
+              required
+              fullWidth
+              name='password'
+              label='Contraseña'
+              type='password'
+              id='password'
+              autoComplete='current-password'
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            <FormControlLabel
+              control={<Checkbox value='remember' color='primary' />}
+              label='Recordar usuario'
+            />
             <Button
               type='submit'
               fullWidth
@@ -93,12 +107,17 @@ export default function ForgotPassword() {
               className={classes.submit}
               onClick={handleSubmit}
             >
-              Enviar
+              Iniciar sesión
             </Button>
             <Grid container>
               <Grid item xs>
-                <NavLink to='/login' variant='body2'>
-                  Iniciar sesión
+                <NavLink to='/forgot-password' variant='body2'>
+                  Ha olvidado su contraseña?
+                </NavLink>
+              </Grid>
+              <Grid item>
+                <NavLink to='/create-user' variant='body2'>
+                  Crear cuenta
                 </NavLink>
               </Grid>
             </Grid>

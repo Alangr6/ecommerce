@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HOME_COMPONENT_2 = () => {
+export const HomeComponent2 = () => {
   return (
     <section className="home-section2">
     <img

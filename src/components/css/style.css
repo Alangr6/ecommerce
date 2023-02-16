@@ -291,6 +291,7 @@ p.footer-links a {
   animation-delay: 1s;
   opacity: 0.1;
 }
+
 @media only screen and (max-width: 800px) {
   .logo {
     margin-left: 0;

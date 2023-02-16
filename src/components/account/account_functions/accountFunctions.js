@@ -4,18 +4,9 @@ import { auth, db } from '../../firebase/Firebase'
 import { actionTypes } from '../../reducer/Reducer'
 import { useStateValue } from '../../reducer/StateProvider'
 
-export const getOrders = async (uid) => {
-  const collectionRefOrders = collection(db, `customers/${uid}/payments`)
-  const paidOrders = query(
-    collectionRefOrders,
-    where('status', '==', 'succeeded')
-  )
-  const snaps = await getDocs(paidOrders)
-  const payments = snaps.docs.map((snap) => snap.data())
-  return payments
-}
 
-export const HandleSignOut = () => {
+
+export const useHandleSignOut = () => {
   const [{ user }, dispatch] = useStateValue()
   const navigate = useNavigate()
 
@@ -36,3 +27,4 @@ export const HandleSignOut = () => {
 
   return handleAuthSignOut
 }
+

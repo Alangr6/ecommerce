@@ -1,37 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React from 'react'
 import { useStateValue } from '../reducer/StateProvider'
-import { collection, getDocs } from 'firebase/firestore'
-import { colRefProducts, db } from '../firebase/Firebase'
-import { ReviewComponent } from './productScreenComponents/ReviewComponent'
-import { AddBasketTable } from './productScreenComponents/AddBasketTable'
+import { ReviewComponent } from './Components/ReviewComponent'
+import { AddToBasketTable } from './Components/AddToBasketTable'
+import { useProductsData, useReviewsData } from './functions/useData'
+import { useParams } from 'react-router-dom'
 
 export const ProductScreen = () => {
-  const [products, setProducts] = useState([])
-  const [prices, setPrices] = useState([])
-  const [reviews, setReviews] = useState([])
-  const [{ basket }] = useStateValue()
   const params = useParams()
+  const [{ basket }] = useStateValue()
+  const { reviews } = useReviewsData()
+  const products = useProductsData()
   const product = products.find((p) => p.id === params.id)
-  const colRefReviews = collection(db, `products2/${params.id}/review`)
-  const colRefPrices = collection(db, `products2/${params.id}/prices`)
 
   let basketItemsArray = JSON.stringify(basket)
   localStorage.setItem('basketItems', basketItemsArray)
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const data = await getDocs(colRefProducts)
-      const dataPrice = await getDocs(colRefPrices)
-      const dataReviews = await getDocs(colRefReviews)
-
-      setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      setPrices(dataPrice.docs.map((doc) => ({ ...doc.data() })))
-      setReviews(dataReviews.docs.map((doc) => ({ ...doc.data() })))
-    }
-    getProducts()
-  }, [])
-
 
   if (!product) {
     return (
@@ -64,7 +46,7 @@ export const ProductScreen = () => {
                 :<p> {product.description}</p> {}
               </div>
             </div>
-            <AddBasketTable product={product} prices={prices} />
+            <AddToBasketTable product={product} />
           </div>
           <ReviewComponent reviews={reviews} product={product} />
         </div>

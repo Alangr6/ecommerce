@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export const HOME_COMPONENT_4 = () => {
+export const HomeComponent4 = () => {
   return (
     <div className='home-section4-div'>
       <h1 className='home-section4-title-question'>Preguntas frecuentes</h1>

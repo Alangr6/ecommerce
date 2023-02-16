@@ -145,8 +145,8 @@
   background: none;
 }
 .box-product-button:hover {
-  background-color: whitesmoke;
-  color: #201c1d;
+  background-color: #201c1d;
+  color: whitesmoke;
   cursor: pointer;
 }
 .box-product2-img {

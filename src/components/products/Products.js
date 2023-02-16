@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Product from './Product'
-import { collection, getDocs } from 'firebase/firestore'
-import { colRefProducts } from '../firebase/Firebase'
+import { useProductsData } from './functions/useData'
 
 export default function Products() {
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const data = await getDocs(colRefProducts)
-      const products = []
-      for await (const snap of data.docs) {
-        const product = snap.data()
-        product.id = snap.id
-        const price = await getDocs(collection(snap.ref, 'prices'))
-        product.price = price.docs[0].data()
-        product.priceId = price.docs[0].id
-        products.push(product)
-      }
-      setProducts(products)
-      return products
-    }
-    getProducts()
-  }, [])
+  const products = useProductsData()
+  
   if (products.length === 0) {
     return (
       <div className='loader-div'>

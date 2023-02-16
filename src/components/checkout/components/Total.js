@@ -92,6 +92,7 @@ export const Total = () => {
   return (
     <>
       <div className='checkout-div'>
+        {loading && <span className='loader'></span>}
         <div className='total-div'>
           <h3>Numero de productos: {basket?.length}</h3>
           {basket?.length === 0 ? null : (
